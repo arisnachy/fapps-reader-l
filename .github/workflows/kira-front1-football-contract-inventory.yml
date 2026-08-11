@@ -1,5 +1,4 @@
 name: KIRA FRONT1 Football Contract Inventory
-# armed: 2026-08-11T22:42:00Z
 on:
   push:
     paths:
@@ -9,107 +8,22 @@ permissions:
 jobs:
   inventory:
     runs-on: ubuntu-24.04
-    timeout-minutes: 20
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Install browser runtime
+      - name: Install anonymous browser runtime
         run: |
-          python -m pip install --upgrade pip
           python -m pip install playwright
           python -m playwright install --with-deps chromium
-      - name: Clone frozen Gate0A source
-        run: |
-          git clone https://github.com/arisnachy/pelota.git source
-          cd source
-          git checkout 8a1f373dd5e42697290839e27b3e5a842ba6c0ed
-      - name: Run anonymous Football-capable public capture
-        run: |
-          cd source
-          rm -rf artifacts/juancito_deep_market_probe artifacts/juancito_public_market_normalized
-          mkdir -p artifacts/juancito_deep_market_probe artifacts/juancito_public_market_normalized
-          python tools/juancito_structured_market_probe.py > ../structured_probe_stdout.json
-          python tools/juancito_market_normalizer_strict.py --input-dir artifacts/juancito_deep_market_probe --output-dir artifacts/juancito_public_market_normalized
-          python tools/export_juancito_public_market_map_latest.py --normalized-dir artifacts/juancito_public_market_normalized --output-dir kira_survival/labs/market_real_v1/current
-          python tools/verify_juancito_artifact_safety.py artifacts/juancito_deep_market_probe
-          python tools/verify_juancito_artifact_safety.py artifacts/juancito_public_market_normalized
-          python tools/verify_juancito_artifact_safety.py kira_survival/labs/market_real_v1/current
-      - name: Extract Football inventory and explicit contract evidence
-        run: |
-          python - <<'PY'
-          import json, re
-          from pathlib import Path
-          from collections import Counter
-
-          src = Path('source')
-          current = src/'kira_survival/labs/market_real_v1/current'
-          map_path = current/'JUANCITO_PUBLIC_MARKET_MAP_LATEST.jsonl'
-          meta_path = current/'JUANCITO_PUBLIC_MARKET_MAP_LATEST.meta.json'
-          out = Path('front1_football_contract_inventory')
-          out.mkdir(exist_ok=True)
-
-          rows=[]
-          if map_path.exists():
-              for line in map_path.read_text(encoding='utf-8').splitlines():
-                  if line.strip():
-                      rows.append(json.loads(line))
-          football=[r for r in rows if str(r.get('sport') or '').casefold()=='football']
-          def text(r):
-              return ' '.join(str(r.get(k) or '') for k in ('market_family','source_market_label','selection','selection_entity','raw_context'))
-          dc=[r for r in football if str(r.get('market_family') or '').casefold()=='double_chance' or re.search(r'(?i)double\s+chance|doble\s+oportunidad', text(r))]
-
-          terms={
-              'double_chance': re.compile(r'(?i)double\s+chance|doble\s+oportunidad'),
-              'draw_no_bet': re.compile(r'(?i)draw\s+no\s+bet|empate\s+(?:no\s+)?apuesta|sin\s+empate'),
-              'team_total': re.compile(r'(?i)team\s+total|total\s+(?:del|por)\s+equipo'),
-              'winning_margin': re.compile(r'(?i)winning\s+margin|margen\s+de\s+victoria'),
-              'handicap': re.compile(r'(?i)handicap|hándicap'),
-          }
-          hits={k:[] for k in terms}
-          for p in sorted((src/'artifacts/juancito_deep_market_probe').glob('*.json')):
-              try:
-                  obj=json.loads(p.read_text(encoding='utf-8'))
-              except Exception:
-                  continue
-              corpus=json.dumps(obj, ensure_ascii=False)
-              for name,rx in terms.items():
-                  for m in list(rx.finditer(corpus))[:12]:
-                      lo=max(0,m.start()-180); hi=min(len(corpus),m.end()+260)
-                      snippet=re.sub(r'\\s+',' ',corpus[lo:hi])
-                      hits[name].append({'file':p.name,'snippet':snippet})
-                      if len(hits[name])>=30:
-                          break
-          family_counts=Counter(str(r.get('market_family') or 'unknown') for r in football)
-          actionable_counts=Counter(str(r.get('market_family') or 'unknown') for r in football if r.get('bet_actionable') is True)
-          event_ids=sorted({str(r.get('event_source_id') or '') for r in football if r.get('event_source_id')})
-          meta=json.loads(meta_path.read_text(encoding='utf-8')) if meta_path.exists() else {}
-          summary={
-              'source_repo':'arisnachy/pelota',
-              'source_head':'8a1f373dd5e42697290839e27b3e5a842ba6c0ed',
-              'execution':'anonymous_public_read_only',
-              'map_meta':meta,
-              'football_rows':len(football),
-              'football_event_ids':event_ids,
-              'market_family_counts':dict(sorted(family_counts.items())),
-              'actionable_family_counts':dict(sorted(actionable_counts.items())),
-              'double_chance_rows':len(dc),
-              'explicit_term_hit_counts':{k:len(v) for k,v in hits.items()},
-              'guard':'Presence is discovery/contract evidence only. It does not establish science, settlement equivalence, accumulator compatibility, or a live candidate.'
-          }
-          (out/'summary.json').write_text(json.dumps(summary,indent=2,ensure_ascii=False),encoding='utf-8')
-          (out/'term_hits.json').write_text(json.dumps(hits,indent=2,ensure_ascii=False),encoding='utf-8')
-          (out/'football_rows.jsonl').write_text('\n'.join(json.dumps(r,ensure_ascii=False) for r in football)+('\n' if football else ''),encoding='utf-8')
-          (out/'double_chance_rows.jsonl').write_text('\n'.join(json.dumps(r,ensure_ascii=False) for r in dc)+('\n' if dc else ''),encoding='utf-8')
-          if meta_path.exists():
-              (out/'public_map_meta.json').write_text(meta_path.read_text(encoding='utf-8'),encoding='utf-8')
-          print(json.dumps(summary,indent=2,ensure_ascii=False))
-          PY
-      - name: Persist sanitized evidence
+      - name: Run standalone anonymous Football contract probe
+        run: python kira_front1_football_public_probe.py | tee front1_football_probe_stdout.json
+      - name: Persist sanitized read-only evidence
         run: |
           git config user.name 'kira-coverage-bot'
           git config user.email '127772990+arisnachy@users.noreply.github.com'
-          git add front1_football_contract_inventory structured_probe_stdout.json
+          git add front1_football_contract_inventory front1_football_probe_stdout.json
           git commit -m "KIRA FRONT1: public Football contract inventory $GITHUB_RUN_ID"
           git push
