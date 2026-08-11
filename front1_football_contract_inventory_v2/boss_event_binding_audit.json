@@ -1,0 +1,737 @@
+{
+  "source_snapshot": "front1_football_contract_inventory_v2 / run 31543824613",
+  "binding_rule": "For BOSS market controls matching (SZ)?(ML|PS|TT)_<event_id>_<selection>, the embedded event_id is authoritative. Outer snapshot labels are capture-container metadata only.",
+  "raw_rows": 3508,
+  "parsed_market_rows": 2344,
+  "unique_market_signatures": 248,
+  "unique_boss_event_ids": 24,
+  "outer_event_id_mismatch_rows": 2008,
+  "outer_event_id_mismatch_rate": 0.856655290102389,
+  "unique_event_ids_by_family": {
+    "ML": [
+      1961119,
+      1961126,
+      1961135,
+      1961136,
+      1961152,
+      1961189,
+      1961386,
+      1961387,
+      1961388,
+      1961389,
+      1961390,
+      1961437,
+      1961438,
+      1961439,
+      1961440,
+      1961446,
+      1961447,
+      1961451,
+      1961463,
+      1961467,
+      1962462,
+      1962478,
+      1962479,
+      1962480
+    ],
+    "PS": [
+      1961119,
+      1961135,
+      1961136,
+      1961152,
+      1961386,
+      1961387,
+      1961388,
+      1961389,
+      1961390,
+      1961437,
+      1961438,
+      1961439,
+      1961440,
+      1961446,
+      1961447,
+      1961451,
+      1961463,
+      1961467,
+      1962462,
+      1962478,
+      1962479,
+      1962480
+    ],
+    "TT": [
+      1961119,
+      1961126,
+      1961135,
+      1961136,
+      1961152,
+      1961189,
+      1961386,
+      1961387,
+      1961388,
+      1961389,
+      1961390,
+      1961437,
+      1961438,
+      1961439,
+      1961440,
+      1961446,
+      1961447,
+      1961451,
+      1961463,
+      1961467,
+      1962462,
+      1962478,
+      1962479,
+      1962480
+    ]
+  },
+  "complete_full_game_ml_1_2_3_events": [
+    {
+      "boss_event_id": 1961119,
+      "home_like": {
+        "participant": "Charleston Battery",
+        "price_text": "+156",
+        "action_id": "ML_1961119_1"
+      },
+      "away_like": {
+        "participant": "Pittsburgh Riverhounds",
+        "price_text": "+149",
+        "action_id": "ML_1961119_2"
+      },
+      "draw": {
+        "participant": "Draw",
+        "price_text": "+225",
+        "action_id": "ML_1961119_3"
+      }
+    },
+    {
+      "boss_event_id": 1961135,
+      "home_like": {
+        "participant": "Loudoun United",
+        "price_text": "+428",
+        "action_id": "ML_1961135_1"
+      },
+      "away_like": {
+        "participant": "Detroit City",
+        "price_text": "-191",
+        "action_id": "ML_1961135_2"
+      },
+      "draw": {
+        "participant": "Draw",
+        "price_text": "+293",
+        "action_id": "ML_1961135_3"
+      }
+    },
+    {
+      "boss_event_id": 1961152,
+      "home_like": {
+        "participant": "El Paso Locomotive",
+        "price_text": "+189",
+        "action_id": "ML_1961152_1"
+      },
+      "away_like": {
+        "participant": "San Antonio FC",
+        "price_text": "+125",
+        "action_id": "ML_1961152_2"
+      },
+      "draw": {
+        "participant": "Draw",
+        "price_text": "+223",
+        "action_id": "ML_1961152_3"
+      }
+    },
+    {
+      "boss_event_id": 1961386,
+      "home_like": {
+        "participant": "Tulsa Roughnecks",
+        "price_text": "+200",
+        "action_id": "ML_1961386_1"
+      },
+      "away_like": {
+        "participant": "New Mexico United",
+        "price_text": "+113",
+        "action_id": "ML_1961386_2"
+      },
+      "draw": {
+        "participant": "Draw",
+        "price_text": "+236",
+        "action_id": "ML_1961386_3"
+      }
+    },
+    {
+      "boss_event_id": 1961387,
+      "home_like": {
+        "participant": "Birmingham Legion",
+        "price_text": "+417",
+        "action_id": "ML_1961387_1"
+      },
+      "away_like": {
+        "participant": "Colorado Springs",
+        "price_text": "-192",
+        "action_id": "ML_1961387_2"
+      },
+      "draw": {
+        "participant": "Draw",
+        "price_text": "+302",
+        "action_id": "ML_1961387_3"
+      }
+    },
+    {
+      "boss_event_id": 1961388,
+      "home_like": {
+        "participant": "Monterey Bay",
+        "price_text": "+234",
+        "action_id": "ML_1961388_1"
+      },
+      "away_like": {
+        "participant": "Oakland Roots",
+        "price_text": "-112",
+        "action_id": "ML_1961388_2"
+      },
+      "draw": {
+        "participant": "Draw",
+        "price_text": "+267",
+        "action_id": "ML_1961388_3"
+      }
+    },
+    {
+      "boss_event_id": 1961389,
+      "home_like": {
+        "participant": "Louisville City",
+        "price_text": "-129",
+        "action_id": "ML_1961389_1"
+      },
+      "away_like": {
+        "participant": "Orange Country SC",
+        "price_text": "+286",
+        "action_id": "ML_1961389_2"
+      },
+      "draw": {
+        "participant": "Draw",
+        "price_text": "+261",
+        "action_id": "ML_1961389_3"
+      }
+    },
+    {
+      "boss_event_id": 1961390,
+      "home_like": {
+        "participant": "Rhode Island",
+        "price_text": "+321",
+        "action_id": "ML_1961390_1"
+      },
+      "away_like": {
+        "participant": "Tampa Bay Rowdies",
+        "price_text": "-144",
+        "action_id": "ML_1961390_2"
+      },
+      "draw": {
+        "participant": "Draw",
+        "price_text": "+268",
+        "action_id": "ML_1961390_3"
+      }
+    },
+    {
+      "boss_event_id": 1961447,
+      "home_like": {
+        "participant": "Brooklyn FC",
+        "price_text": "+240",
+        "action_id": "ML_1961447_1"
+      },
+      "away_like": {
+        "participant": "Las Vegas Lights",
+        "price_text": "-112",
+        "action_id": "ML_1961447_2"
+      },
+      "draw": {
+        "participant": "Draw",
+        "price_text": "+260",
+        "action_id": "ML_1961447_3"
+      }
+    },
+    {
+      "boss_event_id": 1961463,
+      "home_like": {
+        "participant": "Lexington SC",
+        "price_text": "+227",
+        "action_id": "ML_1961463_1"
+      },
+      "away_like": {
+        "participant": "Sacramento Republic",
+        "price_text": "+106",
+        "action_id": "ML_1961463_2"
+      },
+      "draw": {
+        "participant": "Draw",
+        "price_text": "+225",
+        "action_id": "ML_1961463_3"
+      }
+    },
+    {
+      "boss_event_id": 1962462,
+      "home_like": {
+        "participant": "Indy Eleven",
+        "price_text": "-131",
+        "action_id": "ML_1962462_1"
+      },
+      "away_like": {
+        "participant": "Sporting Jax",
+        "price_text": "+275",
+        "action_id": "ML_1962462_2"
+      },
+      "draw": {
+        "participant": "Draw",
+        "price_text": "+275",
+        "action_id": "ML_1962462_3"
+      }
+    },
+    {
+      "boss_event_id": 1962479,
+      "home_like": {
+        "participant": "Miami FC",
+        "price_text": "+284",
+        "action_id": "ML_1962479_1"
+      },
+      "away_like": {
+        "participant": "Hartford Athletic",
+        "price_text": "-130",
+        "action_id": "ML_1962479_2"
+      },
+      "draw": {
+        "participant": "Draw",
+        "price_text": "+265",
+        "action_id": "ML_1962479_3"
+      }
+    }
+  ],
+  "complete_full_game_ml_event_count": 12,
+  "same_event_family_inventory": [
+    {
+      "boss_event_id": 1961119,
+      "families": [
+        "ML",
+        "PS",
+        "TT"
+      ],
+      "unique_actions_by_family": {
+        "ML": 6,
+        "PS": 4,
+        "TT": 4
+      }
+    },
+    {
+      "boss_event_id": 1961126,
+      "families": [
+        "ML",
+        "TT"
+      ],
+      "unique_actions_by_family": {
+        "ML": 3,
+        "TT": 2
+      }
+    },
+    {
+      "boss_event_id": 1961135,
+      "families": [
+        "ML",
+        "PS",
+        "TT"
+      ],
+      "unique_actions_by_family": {
+        "ML": 6,
+        "PS": 4,
+        "TT": 4
+      }
+    },
+    {
+      "boss_event_id": 1961136,
+      "families": [
+        "ML",
+        "PS",
+        "TT"
+      ],
+      "unique_actions_by_family": {
+        "ML": 3,
+        "PS": 2,
+        "TT": 2
+      }
+    },
+    {
+      "boss_event_id": 1961152,
+      "families": [
+        "ML",
+        "PS",
+        "TT"
+      ],
+      "unique_actions_by_family": {
+        "ML": 6,
+        "PS": 4,
+        "TT": 4
+      }
+    },
+    {
+      "boss_event_id": 1961189,
+      "families": [
+        "ML",
+        "TT"
+      ],
+      "unique_actions_by_family": {
+        "ML": 3,
+        "TT": 2
+      }
+    },
+    {
+      "boss_event_id": 1961386,
+      "families": [
+        "ML",
+        "PS",
+        "TT"
+      ],
+      "unique_actions_by_family": {
+        "ML": 6,
+        "PS": 4,
+        "TT": 4
+      }
+    },
+    {
+      "boss_event_id": 1961387,
+      "families": [
+        "ML",
+        "PS",
+        "TT"
+      ],
+      "unique_actions_by_family": {
+        "ML": 6,
+        "PS": 4,
+        "TT": 4
+      }
+    },
+    {
+      "boss_event_id": 1961388,
+      "families": [
+        "ML",
+        "PS",
+        "TT"
+      ],
+      "unique_actions_by_family": {
+        "ML": 6,
+        "PS": 4,
+        "TT": 4
+      }
+    },
+    {
+      "boss_event_id": 1961389,
+      "families": [
+        "ML",
+        "PS",
+        "TT"
+      ],
+      "unique_actions_by_family": {
+        "ML": 6,
+        "PS": 4,
+        "TT": 4
+      }
+    },
+    {
+      "boss_event_id": 1961390,
+      "families": [
+        "ML",
+        "PS",
+        "TT"
+      ],
+      "unique_actions_by_family": {
+        "ML": 6,
+        "PS": 4,
+        "TT": 4
+      }
+    },
+    {
+      "boss_event_id": 1961437,
+      "families": [
+        "ML",
+        "PS",
+        "TT"
+      ],
+      "unique_actions_by_family": {
+        "ML": 3,
+        "PS": 2,
+        "TT": 2
+      }
+    },
+    {
+      "boss_event_id": 1961438,
+      "families": [
+        "ML",
+        "PS",
+        "TT"
+      ],
+      "unique_actions_by_family": {
+        "ML": 3,
+        "PS": 2,
+        "TT": 2
+      }
+    },
+    {
+      "boss_event_id": 1961439,
+      "families": [
+        "ML",
+        "PS",
+        "TT"
+      ],
+      "unique_actions_by_family": {
+        "ML": 3,
+        "PS": 2,
+        "TT": 2
+      }
+    },
+    {
+      "boss_event_id": 1961440,
+      "families": [
+        "ML",
+        "PS",
+        "TT"
+      ],
+      "unique_actions_by_family": {
+        "ML": 3,
+        "PS": 2,
+        "TT": 2
+      }
+    },
+    {
+      "boss_event_id": 1961446,
+      "families": [
+        "ML",
+        "PS",
+        "TT"
+      ],
+      "unique_actions_by_family": {
+        "ML": 3,
+        "PS": 2,
+        "TT": 2
+      }
+    },
+    {
+      "boss_event_id": 1961447,
+      "families": [
+        "ML",
+        "PS",
+        "TT"
+      ],
+      "unique_actions_by_family": {
+        "ML": 6,
+        "PS": 4,
+        "TT": 4
+      }
+    },
+    {
+      "boss_event_id": 1961451,
+      "families": [
+        "ML",
+        "PS",
+        "TT"
+      ],
+      "unique_actions_by_family": {
+        "ML": 3,
+        "PS": 2,
+        "TT": 2
+      }
+    },
+    {
+      "boss_event_id": 1961463,
+      "families": [
+        "ML",
+        "PS",
+        "TT"
+      ],
+      "unique_actions_by_family": {
+        "ML": 6,
+        "PS": 4,
+        "TT": 4
+      }
+    },
+    {
+      "boss_event_id": 1961467,
+      "families": [
+        "ML",
+        "PS",
+        "TT"
+      ],
+      "unique_actions_by_family": {
+        "ML": 3,
+        "PS": 2,
+        "TT": 2
+      }
+    },
+    {
+      "boss_event_id": 1962462,
+      "families": [
+        "ML",
+        "PS",
+        "TT"
+      ],
+      "unique_actions_by_family": {
+        "ML": 6,
+        "PS": 4,
+        "TT": 4
+      }
+    },
+    {
+      "boss_event_id": 1962478,
+      "families": [
+        "ML",
+        "PS",
+        "TT"
+      ],
+      "unique_actions_by_family": {
+        "ML": 3,
+        "PS": 2,
+        "TT": 2
+      }
+    },
+    {
+      "boss_event_id": 1962479,
+      "families": [
+        "ML",
+        "PS",
+        "TT"
+      ],
+      "unique_actions_by_family": {
+        "ML": 6,
+        "PS": 4,
+        "TT": 4
+      }
+    },
+    {
+      "boss_event_id": 1962480,
+      "families": [
+        "ML",
+        "PS",
+        "TT"
+      ],
+      "unique_actions_by_family": {
+        "ML": 3,
+        "PS": 2,
+        "TT": 2
+      }
+    }
+  ],
+  "line_distribution": {
+    "ML|first_half": {
+      "-101.0": 1,
+      "101.0": 1,
+      "105.0": 1,
+      "106.0": 2,
+      "114.0": 1,
+      "120.0": 1,
+      "121.0": 1,
+      "122.0": 1,
+      "124.0": 1,
+      "126.0": 2,
+      "127.0": 2,
+      "130.0": 1,
+      "131.0": 1,
+      "132.0": 1,
+      "135.0": 1,
+      "137.0": 1,
+      "141.0": 1,
+      "166.0": 1,
+      "168.0": 1,
+      "185.0": 1,
+      "210.0": 1,
+      "221.0": 1,
+      "254.0": 1,
+      "257.0": 1,
+      "281.0": 1,
+      "288.0": 1,
+      "289.0": 1,
+      "306.0": 1,
+      "329.0": 1,
+      "332.0": 1,
+      "358.0": 1,
+      "423.0": 1,
+      "436.0": 1
+    },
+    "ML|full_game_or_unspecified": {
+      "-192.0": 2,
+      "-191.0": 2,
+      "-144.0": 2,
+      "-131.0": 2,
+      "-130.0": 2,
+      "-129.0": 2,
+      "-112.0": 4,
+      "106.0": 2,
+      "113.0": 2,
+      "125.0": 2,
+      "149.0": 2,
+      "156.0": 2,
+      "189.0": 2,
+      "200.0": 2,
+      "223.0": 2,
+      "225.0": 4,
+      "227.0": 2,
+      "234.0": 2,
+      "236.0": 2,
+      "240.0": 2,
+      "260.0": 2,
+      "261.0": 2,
+      "265.0": 2,
+      "267.0": 2,
+      "268.0": 2,
+      "275.0": 4,
+      "284.0": 2,
+      "286.0": 2,
+      "293.0": 2,
+      "302.0": 2,
+      "321.0": 2,
+      "417.0": 2,
+      "428.0": 2
+    },
+    "PS|first_half": {
+      "-230.0": 1,
+      "-228.0": 1,
+      "-207.0": 1,
+      "-199.0": 1,
+      "-178.0": 2,
+      "-170.0": 2,
+      "-141.0": 2,
+      "106.0": 2,
+      "127.0": 2,
+      "133.0": 2,
+      "147.0": 1,
+      "152.0": 1,
+      "167.0": 1,
+      "168.0": 1
+    },
+    "PS|full_game_or_unspecified": {
+      "-193.0": 2,
+      "-192.0": 2,
+      "-183.0": 2,
+      "-166.0": 2,
+      "-159.0": 2,
+      "-142.0": 4,
+      "-131.0": 2,
+      "-128.0": 2,
+      "-125.0": 2,
+      "-124.0": 2,
+      "-120.0": 2,
+      "-110.0": 2,
+      "-107.0": 2,
+      "-106.0": 2,
+      "-104.0": 2,
+      "-101.0": 2,
+      "107.0": 4,
+      "119.0": 2,
+      "124.0": 2,
+      "136.0": 2,
+      "142.0": 2,
+      "143.0": 2
+    },
+    "TT|first_half": {
+      "1.0": 24
+    },
+    "TT|full_game_or_unspecified": {
+      "2.5": 48
+    }
+  },
+  "more_control_raw_count": 288,
+  "guard": "This is an offline identity correction of an already-captured public snapshot. It does not refresh prices, establish current availability, infer Double Chance from +0.5, infer team totals from TT, or score any hypothesis."
+}
