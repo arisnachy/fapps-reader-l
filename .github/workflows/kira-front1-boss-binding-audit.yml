@@ -1,4 +1,5 @@
 name: KIRA FRONT1 BOSS Binding Audit
+# rerun after unicode PS/TT line-parser correction
 on:
   push:
     paths:
