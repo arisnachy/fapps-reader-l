@@ -1,0 +1,42 @@
+{
+  "hypothesis_id": "FOOTBALL_TOTAL_2_5_MARKET_DOMINANCE_V1",
+  "validation_block": "0405",
+  "leagues": [
+    "E0",
+    "SP1",
+    "D1",
+    "I1"
+  ],
+  "threshold": 0.75,
+  "selected": 0,
+  "settled": 0,
+  "survived": 0,
+  "failed": 0,
+  "rate": null,
+  "wilson95_lower": 0.0,
+  "wilson95_upper": 1.0,
+  "n_gate": {
+    "required": 35,
+    "observed": 0,
+    "pass": false
+  },
+  "lcb_gate": {
+    "required": 0.9,
+    "observed": 0.0,
+    "pass": false
+  },
+  "integrity": {
+    "source_identity_pass": true,
+    "duplicate_rows": 0,
+    "one_selection_per_date_pass": true,
+    "threshold_pass": true,
+    "settlement_complete_pass": true,
+    "settlement_rule_pass": true,
+    "result_leakage_firewall_pass": true,
+    "eligible_raw_events": 0,
+    "side_counts": {},
+    "league_counts": {}
+  },
+  "final_result": "NO_PASS",
+  "anti_retune_guard": "Terminal 0405 result; no rerun/threshold/source/league/line changes."
+}

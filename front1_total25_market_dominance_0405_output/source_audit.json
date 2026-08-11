@@ -1,0 +1,42 @@
+{
+  "E0": {
+    "url": "https://www.football-data.co.uk/mmz4281/0405/E0.csv",
+    "sha256": "85241d09c572dfdf0f03817ceebd9a07d113fd45b7dead1ab6e5a329fd920b2c",
+    "bytes": 85894,
+    "raw_rows": 380,
+    "valid_rows": 375,
+    "bad_rows": 5,
+    "date_min": "2004-08-14",
+    "date_max": "2005-05-15"
+  },
+  "SP1": {
+    "url": "https://www.football-data.co.uk/mmz4281/0405/SP1.csv",
+    "sha256": "517d2e41b374a4172e7215fe37ba6bf95226b88ee66e0b9b5c1f40880ae23ae9",
+    "bytes": 73451,
+    "raw_rows": 380,
+    "valid_rows": 368,
+    "bad_rows": 12,
+    "date_min": "2004-08-28",
+    "date_max": "2005-05-29"
+  },
+  "D1": {
+    "url": "https://www.football-data.co.uk/mmz4281/0405/D1.csv",
+    "sha256": "44b81302c2223ee81fc7b2d3d3a80eb0404fb5dd8645ffb79685b3c7420a6a7f",
+    "bytes": 67857,
+    "raw_rows": 306,
+    "valid_rows": 291,
+    "bad_rows": 15,
+    "date_min": "2004-08-06",
+    "date_max": "2005-05-14"
+  },
+  "I1": {
+    "url": "https://www.football-data.co.uk/mmz4281/0405/I1.csv",
+    "sha256": "6b0dacc8ad92703f73eafa37fb07c89b427acbef866c0044f02594cead3e191d",
+    "bytes": 69503,
+    "raw_rows": 380,
+    "valid_rows": 327,
+    "bad_rows": 53,
+    "date_min": "2004-09-11",
+    "date_max": "2005-05-08"
+  }
+}
