@@ -1,0 +1,42 @@
+name: KIRA JUANCITO ANON CONNECTIVITY TEMP
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/kira-juancito-anon-connectivity.yml'
+permissions:
+  contents: read
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: DNS and anonymous HTTPS only
+        shell: bash
+        run: |
+          set -u
+          python - <<'PY'
+          import json, socket, ssl, urllib.request, urllib.error
+          host='deportes.juancitosport.com.do'
+          out={'host':host}
+          try:
+              out['resolved_ips']=sorted(set(x[4][0] for x in socket.getaddrinfo(host,443,type=socket.SOCK_STREAM)))
+          except Exception as e:
+              out['dns_error']=f'{type(e).__name__}: {e}'
+          try:
+              req=urllib.request.Request('https://'+host+'/',headers={'User-Agent':'Mozilla/5.0 KIRA-READONLY-CONNECTIVITY/1.0'},method='GET')
+              with urllib.request.urlopen(req,timeout=20,context=ssl.create_default_context()) as r:
+                  out['https_status']=r.status
+                  out['final_url']=r.geturl()
+                  out['content_type']=r.headers.get('Content-Type','')
+                  out['sample_bytes']=len(r.read(256))
+          except urllib.error.HTTPError as e:
+              out['https_status']=e.code
+              out['final_url']=e.geturl()
+              out['http_error']=str(e.reason)
+          except Exception as e:
+              out['https_error']=f'{type(e).__name__}: {e}'
+          print(json.dumps(out,sort_keys=True))
+          if not out.get('resolved_ips') or not isinstance(out.get('https_status'),int):
+              raise SystemExit(2)
+          PY
