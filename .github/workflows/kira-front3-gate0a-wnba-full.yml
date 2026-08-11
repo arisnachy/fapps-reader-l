@@ -6,6 +6,7 @@ on:
     branches: [main]
     paths:
       - 'gate0a_wnba_full_probe.py'
+      - 'gate0a_wnba_surface_diag.py'
       - '.github/workflows/kira-front3-gate0a-wnba-full.yml'
 
 permissions:
@@ -25,6 +26,9 @@ jobs:
         run: |
           python -m pip install --disable-pip-version-check playwright==1.55.0
           python -m playwright install --with-deps chromium
+      - name: Capture full anonymous WNBA event surfaces
+        run: |
+          python gate0a_wnba_surface_diag.py
       - name: Capture complete anonymous WNBA Team Total ladder
         run: |
           python gate0a_wnba_full_probe.py
