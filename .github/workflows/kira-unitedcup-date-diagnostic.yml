@@ -1,0 +1,36 @@
+name: KIRA Tennis United Cup Date Diagnostic
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/kira-unitedcup-date-diagnostic.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  resolve_dates:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install --disable-pip-version-check requests beautifulsoup4
+      - name: Print Zverev United Cup 2025 calendar rows only
+        shell: python
+        run: |
+          import re, requests
+          from bs4 import BeautifulSoup
+          url='https://www.tennisexplorer.com/player/zverev-6f768/?annual=2025'
+          r=requests.get(url,headers={'User-Agent':'Mozilla/5.0 KIRA calendar read-only'},timeout=60)
+          r.raise_for_status(); soup=BeautifulSoup(r.text,'html.parser')
+          current=''
+          for tr in soup.find_all('tr'):
+              cells=[' '.join(td.stripped_strings) for td in tr.find_all(['th','td'],recursive=False)]
+              if not cells: continue
+              first=cells[0].strip(); low=' '.join(cells).casefold()
+              if not re.fullmatch(r'\d{1,2}\.\d{1,2}\.',first):
+                  if 'round' in low and first: current=first
+                  continue
+              match_cell=next((c for c in cells if ' - ' in c),'')
+              if 'zhang' in match_cell.casefold() or 'monteiro' in match_cell.casefold() or 'united cup' in current.casefold():
+                  print('CALENDAR_ROW',repr(current),repr(first),repr(match_cell),repr(cells))
