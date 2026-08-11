@@ -1,0 +1,1486 @@
+{
+  "source_snapshot": "front1_football_contract_inventory_v2 / run 31543824613",
+  "rows_total": 3508,
+  "actionable_rows": 2344,
+  "locked_rows": 0,
+  "event_count": 12,
+  "section_counts": [
+    [
+      "USA - USL Championship - Game lines",
+      3168
+    ],
+    [
+      "(blank)",
+      340
+    ]
+  ],
+  "actionable_section_counts": [
+    [
+      "USA - USL Championship - Game lines",
+      2016
+    ],
+    [
+      "(blank)",
+      328
+    ]
+  ],
+  "id_prefix_counts": [
+    [
+      "(blank)",
+      1152
+    ],
+    [
+      "ML",
+      864
+    ],
+    [
+      "PS",
+      576
+    ],
+    [
+      "TT",
+      576
+    ],
+    [
+      "SZML",
+      144
+    ],
+    [
+      "SZTT",
+      96
+    ],
+    [
+      "SZPS",
+      88
+    ],
+    [
+      "btnClose",
+      12
+    ]
+  ],
+  "actionable_id_prefix_counts": [
+    [
+      "ML",
+      864
+    ],
+    [
+      "PS",
+      576
+    ],
+    [
+      "TT",
+      576
+    ],
+    [
+      "SZML",
+      144
+    ],
+    [
+      "SZTT",
+      96
+    ],
+    [
+      "SZPS",
+      88
+    ]
+  ],
+  "prefix_to_sections": {
+    "(blank)": [
+      [
+        "USA - USL Championship - Game lines",
+        1152
+      ]
+    ],
+    "ML": [
+      [
+        "USA - USL Championship - Game lines",
+        864
+      ]
+    ],
+    "PS": [
+      [
+        "USA - USL Championship - Game lines",
+        576
+      ]
+    ],
+    "SZML": [
+      [
+        "(blank)",
+        144
+      ]
+    ],
+    "SZPS": [
+      [
+        "(blank)",
+        88
+      ]
+    ],
+    "SZTT": [
+      [
+        "(blank)",
+        96
+      ]
+    ],
+    "TT": [
+      [
+        "USA - USL Championship - Game lines",
+        576
+      ]
+    ],
+    "btnClose": [
+      [
+        "(blank)",
+        12
+      ]
+    ]
+  },
+  "top_action_texts": [
+    [
+      "Más",
+      288
+    ],
+    [
+      "Draw",
+      288
+    ],
+    [
+      "+225",
+      52
+    ],
+    [
+      "+275",
+      52
+    ],
+    [
+      "O 2½ -130",
+      52
+    ],
+    [
+      "U 2½ +102",
+      52
+    ],
+    [
+      "-112",
+      52
+    ],
+    [
+      "+106",
+      30
+    ],
+    [
+      "+156",
+      26
+    ],
+    [
+      "-½ +143",
+      26
+    ],
+    [
+      "O 2½ +103",
+      26
+    ],
+    [
+      "+149",
+      26
+    ],
+    [
+      "+½ -193",
+      26
+    ],
+    [
+      "U 2½ -131",
+      26
+    ],
+    [
+      "+428",
+      26
+    ],
+    [
+      "+½ +136",
+      26
+    ],
+    [
+      "O 2½ -144",
+      26
+    ],
+    [
+      "-191",
+      26
+    ],
+    [
+      "-½ -183",
+      26
+    ],
+    [
+      "U 2½ +112",
+      26
+    ],
+    [
+      "+293",
+      26
+    ],
+    [
+      "+284",
+      26
+    ],
+    [
+      "+½ -106",
+      26
+    ],
+    [
+      "O 2½ -133",
+      26
+    ],
+    [
+      "-130",
+      26
+    ],
+    [
+      "-½ -125",
+      26
+    ],
+    [
+      "U 2½ +104",
+      26
+    ],
+    [
+      "+265",
+      26
+    ],
+    [
+      "-131",
+      26
+    ],
+    [
+      "-½ -131",
+      26
+    ],
+    [
+      "O 2½ -168",
+      26
+    ],
+    [
+      "+½ -101",
+      26
+    ],
+    [
+      "U 2½ +131",
+      26
+    ],
+    [
+      "+321",
+      26
+    ],
+    [
+      "+½ +107",
+      26
+    ],
+    [
+      "-144",
+      26
+    ],
+    [
+      "-½ -142",
+      26
+    ],
+    [
+      "+268",
+      26
+    ],
+    [
+      "+189",
+      26
+    ],
+    [
+      "+½ -166",
+      26
+    ],
+    [
+      "O 2½ -107",
+      26
+    ],
+    [
+      "+125",
+      26
+    ],
+    [
+      "-½ +124",
+      26
+    ],
+    [
+      "U 2½ -118",
+      26
+    ],
+    [
+      "+223",
+      26
+    ],
+    [
+      "+417",
+      26
+    ],
+    [
+      "+½ +142",
+      26
+    ],
+    [
+      "O 2½ -152",
+      26
+    ],
+    [
+      "-192",
+      26
+    ],
+    [
+      "-½ -192",
+      26
+    ],
+    [
+      "U 2½ +119",
+      26
+    ],
+    [
+      "+302",
+      26
+    ],
+    [
+      "+200",
+      26
+    ],
+    [
+      "+½ -159",
+      26
+    ],
+    [
+      "O 2½ -120",
+      26
+    ],
+    [
+      "+113",
+      26
+    ],
+    [
+      "-½ +119",
+      26
+    ],
+    [
+      "U 2½ -106",
+      26
+    ],
+    [
+      "+236",
+      26
+    ],
+    [
+      "+234",
+      26
+    ],
+    [
+      "+½ -124",
+      26
+    ],
+    [
+      "-½ -107",
+      26
+    ],
+    [
+      "+267",
+      26
+    ],
+    [
+      "-129",
+      26
+    ],
+    [
+      "-½ -128",
+      26
+    ],
+    [
+      "O 2½ -137",
+      26
+    ],
+    [
+      "+286",
+      26
+    ],
+    [
+      "+½ -104",
+      26
+    ],
+    [
+      "U 2½ +107",
+      26
+    ],
+    [
+      "+261",
+      26
+    ],
+    [
+      "+240",
+      26
+    ],
+    [
+      "+½ -120",
+      26
+    ],
+    [
+      "O 2½ -146",
+      26
+    ],
+    [
+      "-½ -110",
+      26
+    ],
+    [
+      "U 2½ +114",
+      26
+    ],
+    [
+      "+260",
+      26
+    ],
+    [
+      "+227",
+      26
+    ],
+    [
+      "+½ -142",
+      26
+    ],
+    [
+      "O 2½ -101",
+      26
+    ],
+    [
+      "-½ +107",
+      26
+    ]
+  ],
+  "top_participants": [
+    [
+      "Draw",
+      600
+    ],
+    [
+      "(blank)",
+      300
+    ],
+    [
+      "Charleston Battery",
+      102
+    ],
+    [
+      "Pittsburgh Riverhounds",
+      102
+    ],
+    [
+      "Loudoun United",
+      102
+    ],
+    [
+      "Detroit City",
+      102
+    ],
+    [
+      "Miami FC",
+      102
+    ],
+    [
+      "Hartford Athletic",
+      102
+    ],
+    [
+      "Indy Eleven",
+      102
+    ],
+    [
+      "Sporting Jax",
+      102
+    ],
+    [
+      "Rhode Island",
+      102
+    ],
+    [
+      "Tampa Bay Rowdies",
+      102
+    ],
+    [
+      "El Paso Locomotive",
+      102
+    ],
+    [
+      "San Antonio FC",
+      102
+    ],
+    [
+      "Birmingham Legion",
+      102
+    ],
+    [
+      "Colorado Springs",
+      102
+    ],
+    [
+      "Tulsa Roughnecks",
+      102
+    ],
+    [
+      "New Mexico United",
+      102
+    ],
+    [
+      "Monterey Bay",
+      102
+    ],
+    [
+      "Oakland Roots",
+      102
+    ],
+    [
+      "Louisville City",
+      102
+    ],
+    [
+      "Orange Country SC",
+      102
+    ],
+    [
+      "Brooklyn FC",
+      102
+    ],
+    [
+      "Las Vegas Lights",
+      102
+    ],
+    [
+      "Lexington SC",
+      102
+    ],
+    [
+      "Sacramento Republic",
+      102
+    ],
+    [
+      "1H Draw",
+      24
+    ],
+    [
+      "1H Loudoun United",
+      6
+    ],
+    [
+      "1H Detroit City",
+      6
+    ],
+    [
+      "1H Miami FC",
+      6
+    ],
+    [
+      "1H Hartford Athletic",
+      6
+    ],
+    [
+      "1H Indy Eleven",
+      6
+    ],
+    [
+      "1H Sporting Jax",
+      6
+    ],
+    [
+      "1H Rhode Island",
+      6
+    ],
+    [
+      "1H Tampa Bay Rowdies",
+      6
+    ],
+    [
+      "1H Birmingham Legion",
+      6
+    ],
+    [
+      "1H Colorado Springs",
+      6
+    ],
+    [
+      "1H Tulsa Roughnecks",
+      6
+    ],
+    [
+      "1H New Mexico United",
+      6
+    ],
+    [
+      "1H Monterey Bay",
+      6
+    ],
+    [
+      "1H Oakland Roots",
+      6
+    ],
+    [
+      "1H Louisville City",
+      6
+    ],
+    [
+      "1H Orange Country SC",
+      6
+    ],
+    [
+      "1H Brooklyn FC",
+      6
+    ],
+    [
+      "1H Las Vegas Lights",
+      6
+    ],
+    [
+      "1H Lexington SC",
+      6
+    ],
+    [
+      "1H Sacramento Republic",
+      6
+    ],
+    [
+      "1H Charleston Battery",
+      4
+    ],
+    [
+      "1H Pittsburgh Riverhounds",
+      4
+    ],
+    [
+      "1H El Paso Locomotive",
+      4
+    ],
+    [
+      "1H San Antonio FC",
+      4
+    ]
+  ],
+  "rows_by_event": [
+    [
+      "1961135",
+      293
+    ],
+    [
+      "1962479",
+      293
+    ],
+    [
+      "1962462",
+      293
+    ],
+    [
+      "1961390",
+      293
+    ],
+    [
+      "1961387",
+      293
+    ],
+    [
+      "1961386",
+      293
+    ],
+    [
+      "1961388",
+      293
+    ],
+    [
+      "1961389",
+      293
+    ],
+    [
+      "1961447",
+      293
+    ],
+    [
+      "1961463",
+      293
+    ],
+    [
+      "1961119",
+      289
+    ],
+    [
+      "1961152",
+      289
+    ]
+  ],
+  "term_match_counts": {
+    "double_chance": 0,
+    "draw_no_bet": 0,
+    "team_total": 0,
+    "winning_margin": 0,
+    "handicap": 0,
+    "moneyline": 0,
+    "total": 0
+  },
+  "term_examples": {
+    "double_chance": [],
+    "draw_no_bet": [],
+    "team_total": [],
+    "winning_margin": [],
+    "handicap": [],
+    "moneyline": [],
+    "total": []
+  },
+  "examples_by_section": {
+    "(blank)": [
+      {
+        "event_id": 1961119,
+        "source_league": "USA",
+        "section_title": "",
+        "participant_name": "",
+        "action_text": "",
+        "action_id": "btnClose_-20",
+        "row_text": "GAME LINE",
+        "title": "",
+        "aria_label": "",
+        "actionable": false,
+        "locked": false
+      },
+      {
+        "event_id": 1961119,
+        "source_league": "USA",
+        "section_title": "",
+        "participant_name": "Charleston Battery",
+        "action_text": "+156",
+        "action_id": "SZML_1961119_1",
+        "row_text": "Charleston Battery +156 -½ +143 O 2½ +103",
+        "title": "",
+        "aria_label": "",
+        "actionable": true,
+        "locked": false
+      },
+      {
+        "event_id": 1961119,
+        "source_league": "USA",
+        "section_title": "",
+        "participant_name": "Charleston Battery",
+        "action_text": "-½ +143",
+        "action_id": "SZPS_1961119_1",
+        "row_text": "Charleston Battery +156 -½ +143 O 2½ +103",
+        "title": "",
+        "aria_label": "",
+        "actionable": true,
+        "locked": false
+      },
+      {
+        "event_id": 1961119,
+        "source_league": "USA",
+        "section_title": "",
+        "participant_name": "Charleston Battery",
+        "action_text": "O 2½ +103",
+        "action_id": "SZTT_1961119_1",
+        "row_text": "Charleston Battery +156 -½ +143 O 2½ +103",
+        "title": "",
+        "aria_label": "",
+        "actionable": true,
+        "locked": false
+      }
+    ],
+    "USA - USL Championship - Game lines": [
+      {
+        "event_id": 1961119,
+        "source_league": "USA",
+        "section_title": "USA - USL Championship - Game lines",
+        "participant_name": "",
+        "action_text": "Más",
+        "action_id": "",
+        "row_text": "Game LineAug 15 - 07:00 PMMás",
+        "title": "View Linked Events",
+        "aria_label": "",
+        "actionable": false,
+        "locked": false
+      },
+      {
+        "event_id": 1961119,
+        "source_league": "USA",
+        "section_title": "USA - USL Championship - Game lines",
+        "participant_name": "",
+        "action_text": "Más",
+        "action_id": "",
+        "row_text": "Game LineAug 15 - 07:00 PMMás",
+        "title": "View Linked Events",
+        "aria_label": "",
+        "actionable": false,
+        "locked": false
+      },
+      {
+        "event_id": 1961119,
+        "source_league": "USA",
+        "section_title": "USA - USL Championship - Game lines",
+        "participant_name": "Charleston Battery",
+        "action_text": "Charleston Battery",
+        "action_id": "",
+        "row_text": "Charleston Battery+156-½ +143O 2½ +103",
+        "title": "View Linked Events",
+        "aria_label": "",
+        "actionable": false,
+        "locked": false
+      },
+      {
+        "event_id": 1961119,
+        "source_league": "USA",
+        "section_title": "USA - USL Championship - Game lines",
+        "participant_name": "Charleston Battery",
+        "action_text": "+156",
+        "action_id": "ML_1961119_1",
+        "row_text": "Charleston Battery+156-½ +143O 2½ +103",
+        "title": "",
+        "aria_label": "",
+        "actionable": true,
+        "locked": false
+      }
+    ]
+  },
+  "examples_by_prefix": {
+    "btnClose": [
+      {
+        "event_id": 1961119,
+        "source_league": "USA",
+        "section_title": "",
+        "participant_name": "",
+        "action_text": "",
+        "action_id": "btnClose_-20",
+        "row_text": "GAME LINE",
+        "title": "",
+        "aria_label": "",
+        "actionable": false,
+        "locked": false
+      },
+      {
+        "event_id": 1961135,
+        "source_league": "USA",
+        "section_title": "",
+        "participant_name": "",
+        "action_text": "",
+        "action_id": "btnClose_-20",
+        "row_text": "GAME LINE",
+        "title": "",
+        "aria_label": "",
+        "actionable": false,
+        "locked": false
+      },
+      {
+        "event_id": 1962479,
+        "source_league": "USA",
+        "section_title": "",
+        "participant_name": "",
+        "action_text": "",
+        "action_id": "btnClose_-20",
+        "row_text": "GAME LINE",
+        "title": "",
+        "aria_label": "",
+        "actionable": false,
+        "locked": false
+      },
+      {
+        "event_id": 1962462,
+        "source_league": "USA",
+        "section_title": "",
+        "participant_name": "",
+        "action_text": "",
+        "action_id": "btnClose_-20",
+        "row_text": "GAME LINE",
+        "title": "",
+        "aria_label": "",
+        "actionable": false,
+        "locked": false
+      },
+      {
+        "event_id": 1961390,
+        "source_league": "USA",
+        "section_title": "",
+        "participant_name": "",
+        "action_text": "",
+        "action_id": "btnClose_-20",
+        "row_text": "GAME LINE",
+        "title": "",
+        "aria_label": "",
+        "actionable": false,
+        "locked": false
+      },
+      {
+        "event_id": 1961152,
+        "source_league": "USA",
+        "section_title": "",
+        "participant_name": "",
+        "action_text": "",
+        "action_id": "btnClose_-20",
+        "row_text": "GAME LINE",
+        "title": "",
+        "aria_label": "",
+        "actionable": false,
+        "locked": false
+      }
+    ],
+    "SZML": [
+      {
+        "event_id": 1961119,
+        "source_league": "USA",
+        "section_title": "",
+        "participant_name": "Charleston Battery",
+        "action_text": "+156",
+        "action_id": "SZML_1961119_1",
+        "row_text": "Charleston Battery +156 -½ +143 O 2½ +103",
+        "title": "",
+        "aria_label": "",
+        "actionable": true,
+        "locked": false
+      },
+      {
+        "event_id": 1961119,
+        "source_league": "USA",
+        "section_title": "",
+        "participant_name": "Charleston Battery",
+        "action_text": "+156",
+        "action_id": "SZML_1961119_1",
+        "row_text": "Charleston Battery +156 -½ +143 O 2½ +103",
+        "title": "",
+        "aria_label": "",
+        "actionable": true,
+        "locked": false
+      },
+      {
+        "event_id": 1961119,
+        "source_league": "USA",
+        "section_title": "",
+        "participant_name": "Pittsburgh Riverhounds",
+        "action_text": "+149",
+        "action_id": "SZML_1961119_2",
+        "row_text": "Pittsburgh Riverhounds +149 +½ -193 U 2½ -131",
+        "title": "",
+        "aria_label": "",
+        "actionable": true,
+        "locked": false
+      },
+      {
+        "event_id": 1961119,
+        "source_league": "USA",
+        "section_title": "",
+        "participant_name": "Pittsburgh Riverhounds",
+        "action_text": "+149",
+        "action_id": "SZML_1961119_2",
+        "row_text": "Pittsburgh Riverhounds +149 +½ -193 U 2½ -131",
+        "title": "",
+        "aria_label": "",
+        "actionable": true,
+        "locked": false
+      },
+      {
+        "event_id": 1961119,
+        "source_league": "USA",
+        "section_title": "",
+        "participant_name": "Draw",
+        "action_text": "+225",
+        "action_id": "SZML_1961119_3",
+        "row_text": "Draw +225",
+        "title": "",
+        "aria_label": "",
+        "actionable": true,
+        "locked": false
+      },
+      {
+        "event_id": 1961119,
+        "source_league": "USA",
+        "section_title": "",
+        "participant_name": "Draw",
+        "action_text": "+225",
+        "action_id": "SZML_1961119_3",
+        "row_text": "Draw +225",
+        "title": "",
+        "aria_label": "",
+        "actionable": true,
+        "locked": false
+      }
+    ],
+    "SZPS": [
+      {
+        "event_id": 1961119,
+        "source_league": "USA",
+        "section_title": "",
+        "participant_name": "Charleston Battery",
+        "action_text": "-½ +143",
+        "action_id": "SZPS_1961119_1",
+        "row_text": "Charleston Battery +156 -½ +143 O 2½ +103",
+        "title": "",
+        "aria_label": "",
+        "actionable": true,
+        "locked": false
+      },
+      {
+        "event_id": 1961119,
+        "source_league": "USA",
+        "section_title": "",
+        "participant_name": "Charleston Battery",
+        "action_text": "-½ +143",
+        "action_id": "SZPS_1961119_1",
+        "row_text": "Charleston Battery +156 -½ +143 O 2½ +103",
+        "title": "",
+        "aria_label": "",
+        "actionable": true,
+        "locked": false
+      },
+      {
+        "event_id": 1961119,
+        "source_league": "USA",
+        "section_title": "",
+        "participant_name": "Pittsburgh Riverhounds",
+        "action_text": "+½ -193",
+        "action_id": "SZPS_1961119_2",
+        "row_text": "Pittsburgh Riverhounds +149 +½ -193 U 2½ -131",
+        "title": "",
+        "aria_label": "",
+        "actionable": true,
+        "locked": false
+      },
+      {
+        "event_id": 1961119,
+        "source_league": "USA",
+        "section_title": "",
+        "participant_name": "Pittsburgh Riverhounds",
+        "action_text": "+½ -193",
+        "action_id": "SZPS_1961119_2",
+        "row_text": "Pittsburgh Riverhounds +149 +½ -193 U 2½ -131",
+        "title": "",
+        "aria_label": "",
+        "actionable": true,
+        "locked": false
+      },
+      {
+        "event_id": 1961135,
+        "source_league": "USA",
+        "section_title": "",
+        "participant_name": "Loudoun United",
+        "action_text": "+½ +136",
+        "action_id": "SZPS_1961135_1",
+        "row_text": "Loudoun United +428 +½ +136 O 2½ -144",
+        "title": "",
+        "aria_label": "",
+        "actionable": true,
+        "locked": false
+      },
+      {
+        "event_id": 1961135,
+        "source_league": "USA",
+        "section_title": "",
+        "participant_name": "Loudoun United",
+        "action_text": "+½ +136",
+        "action_id": "SZPS_1961135_1",
+        "row_text": "Loudoun United +428 +½ +136 O 2½ -144",
+        "title": "",
+        "aria_label": "",
+        "actionable": true,
+        "locked": false
+      }
+    ],
+    "SZTT": [
+      {
+        "event_id": 1961119,
+        "source_league": "USA",
+        "section_title": "",
+        "participant_name": "Charleston Battery",
+        "action_text": "O 2½ +103",
+        "action_id": "SZTT_1961119_1",
+        "row_text": "Charleston Battery +156 -½ +143 O 2½ +103",
+        "title": "",
+        "aria_label": "",
+        "actionable": true,
+        "locked": false
+      },
+      {
+        "event_id": 1961119,
+        "source_league": "USA",
+        "section_title": "",
+        "participant_name": "Charleston Battery",
+        "action_text": "O 2½ +103",
+        "action_id": "SZTT_1961119_1",
+        "row_text": "Charleston Battery +156 -½ +143 O 2½ +103",
+        "title": "",
+        "aria_label": "",
+        "actionable": true,
+        "locked": false
+      },
+      {
+        "event_id": 1961119,
+        "source_league": "USA",
+        "section_title": "",
+        "participant_name": "Pittsburgh Riverhounds",
+        "action_text": "U 2½ -131",
+        "action_id": "SZTT_1961119_2",
+        "row_text": "Pittsburgh Riverhounds +149 +½ -193 U 2½ -131",
+        "title": "",
+        "aria_label": "",
+        "actionable": true,
+        "locked": false
+      },
+      {
+        "event_id": 1961119,
+        "source_league": "USA",
+        "section_title": "",
+        "participant_name": "Pittsburgh Riverhounds",
+        "action_text": "U 2½ -131",
+        "action_id": "SZTT_1961119_2",
+        "row_text": "Pittsburgh Riverhounds +149 +½ -193 U 2½ -131",
+        "title": "",
+        "aria_label": "",
+        "actionable": true,
+        "locked": false
+      },
+      {
+        "event_id": 1961119,
+        "source_league": "USA",
+        "section_title": "",
+        "participant_name": "1H Charleston Battery",
+        "action_text": "O 1 -113",
+        "action_id": "SZTT_1961126_1",
+        "row_text": "1H Charleston Battery +221 O 1 -113",
+        "title": "",
+        "aria_label": "",
+        "actionable": true,
+        "locked": false
+      },
+      {
+        "event_id": 1961119,
+        "source_league": "USA",
+        "section_title": "",
+        "participant_name": "1H Charleston Battery",
+        "action_text": "O 1 -113",
+        "action_id": "SZTT_1961126_1",
+        "row_text": "1H Charleston Battery +221 O 1 -113",
+        "title": "",
+        "aria_label": "",
+        "actionable": true,
+        "locked": false
+      }
+    ],
+    "(blank)": [
+      {
+        "event_id": 1961119,
+        "source_league": "USA",
+        "section_title": "USA - USL Championship - Game lines",
+        "participant_name": "",
+        "action_text": "Más",
+        "action_id": "",
+        "row_text": "Game LineAug 15 - 07:00 PMMás",
+        "title": "View Linked Events",
+        "aria_label": "",
+        "actionable": false,
+        "locked": false
+      },
+      {
+        "event_id": 1961119,
+        "source_league": "USA",
+        "section_title": "USA - USL Championship - Game lines",
+        "participant_name": "",
+        "action_text": "Más",
+        "action_id": "",
+        "row_text": "Game LineAug 15 - 07:00 PMMás",
+        "title": "View Linked Events",
+        "aria_label": "",
+        "actionable": false,
+        "locked": false
+      },
+      {
+        "event_id": 1961119,
+        "source_league": "USA",
+        "section_title": "USA - USL Championship - Game lines",
+        "participant_name": "Charleston Battery",
+        "action_text": "Charleston Battery",
+        "action_id": "",
+        "row_text": "Charleston Battery+156-½ +143O 2½ +103",
+        "title": "View Linked Events",
+        "aria_label": "",
+        "actionable": false,
+        "locked": false
+      },
+      {
+        "event_id": 1961119,
+        "source_league": "USA",
+        "section_title": "USA - USL Championship - Game lines",
+        "participant_name": "Charleston Battery",
+        "action_text": "Charleston Battery",
+        "action_id": "",
+        "row_text": "Charleston Battery+156-½ +143O 2½ +103",
+        "title": "View Linked Events",
+        "aria_label": "",
+        "actionable": false,
+        "locked": false
+      },
+      {
+        "event_id": 1961119,
+        "source_league": "USA",
+        "section_title": "USA - USL Championship - Game lines",
+        "participant_name": "Pittsburgh Riverhounds",
+        "action_text": "Pittsburgh Riverhounds",
+        "action_id": "",
+        "row_text": "Pittsburgh Riverhounds+149+½ -193U 2½ -131",
+        "title": "View Linked Events",
+        "aria_label": "",
+        "actionable": false,
+        "locked": false
+      },
+      {
+        "event_id": 1961119,
+        "source_league": "USA",
+        "section_title": "USA - USL Championship - Game lines",
+        "participant_name": "Pittsburgh Riverhounds",
+        "action_text": "Pittsburgh Riverhounds",
+        "action_id": "",
+        "row_text": "Pittsburgh Riverhounds+149+½ -193U 2½ -131",
+        "title": "View Linked Events",
+        "aria_label": "",
+        "actionable": false,
+        "locked": false
+      }
+    ],
+    "ML": [
+      {
+        "event_id": 1961119,
+        "source_league": "USA",
+        "section_title": "USA - USL Championship - Game lines",
+        "participant_name": "Charleston Battery",
+        "action_text": "+156",
+        "action_id": "ML_1961119_1",
+        "row_text": "Charleston Battery+156-½ +143O 2½ +103",
+        "title": "",
+        "aria_label": "",
+        "actionable": true,
+        "locked": false
+      },
+      {
+        "event_id": 1961119,
+        "source_league": "USA",
+        "section_title": "USA - USL Championship - Game lines",
+        "participant_name": "Charleston Battery",
+        "action_text": "+156",
+        "action_id": "ML_1961119_1",
+        "row_text": "Charleston Battery+156-½ +143O 2½ +103",
+        "title": "",
+        "aria_label": "",
+        "actionable": true,
+        "locked": false
+      },
+      {
+        "event_id": 1961119,
+        "source_league": "USA",
+        "section_title": "USA - USL Championship - Game lines",
+        "participant_name": "Pittsburgh Riverhounds",
+        "action_text": "+149",
+        "action_id": "ML_1961119_2",
+        "row_text": "Pittsburgh Riverhounds+149+½ -193U 2½ -131",
+        "title": "",
+        "aria_label": "",
+        "actionable": true,
+        "locked": false
+      },
+      {
+        "event_id": 1961119,
+        "source_league": "USA",
+        "section_title": "USA - USL Championship - Game lines",
+        "participant_name": "Pittsburgh Riverhounds",
+        "action_text": "+149",
+        "action_id": "ML_1961119_2",
+        "row_text": "Pittsburgh Riverhounds+149+½ -193U 2½ -131",
+        "title": "",
+        "aria_label": "",
+        "actionable": true,
+        "locked": false
+      },
+      {
+        "event_id": 1961119,
+        "source_league": "USA",
+        "section_title": "USA - USL Championship - Game lines",
+        "participant_name": "Draw",
+        "action_text": "+225",
+        "action_id": "ML_1961119_3",
+        "row_text": "Draw+225",
+        "title": "",
+        "aria_label": "",
+        "actionable": true,
+        "locked": false
+      },
+      {
+        "event_id": 1961119,
+        "source_league": "USA",
+        "section_title": "USA - USL Championship - Game lines",
+        "participant_name": "Draw",
+        "action_text": "+225",
+        "action_id": "ML_1961119_3",
+        "row_text": "Draw+225",
+        "title": "",
+        "aria_label": "",
+        "actionable": true,
+        "locked": false
+      }
+    ],
+    "PS": [
+      {
+        "event_id": 1961119,
+        "source_league": "USA",
+        "section_title": "USA - USL Championship - Game lines",
+        "participant_name": "Charleston Battery",
+        "action_text": "-½ +143",
+        "action_id": "PS_1961119_1",
+        "row_text": "Charleston Battery+156-½ +143O 2½ +103",
+        "title": "",
+        "aria_label": "",
+        "actionable": true,
+        "locked": false
+      },
+      {
+        "event_id": 1961119,
+        "source_league": "USA",
+        "section_title": "USA - USL Championship - Game lines",
+        "participant_name": "Charleston Battery",
+        "action_text": "-½ +143",
+        "action_id": "PS_1961119_1",
+        "row_text": "Charleston Battery+156-½ +143O 2½ +103",
+        "title": "",
+        "aria_label": "",
+        "actionable": true,
+        "locked": false
+      },
+      {
+        "event_id": 1961119,
+        "source_league": "USA",
+        "section_title": "USA - USL Championship - Game lines",
+        "participant_name": "Pittsburgh Riverhounds",
+        "action_text": "+½ -193",
+        "action_id": "PS_1961119_2",
+        "row_text": "Pittsburgh Riverhounds+149+½ -193U 2½ -131",
+        "title": "",
+        "aria_label": "",
+        "actionable": true,
+        "locked": false
+      },
+      {
+        "event_id": 1961119,
+        "source_league": "USA",
+        "section_title": "USA - USL Championship - Game lines",
+        "participant_name": "Pittsburgh Riverhounds",
+        "action_text": "+½ -193",
+        "action_id": "PS_1961119_2",
+        "row_text": "Pittsburgh Riverhounds+149+½ -193U 2½ -131",
+        "title": "",
+        "aria_label": "",
+        "actionable": true,
+        "locked": false
+      },
+      {
+        "event_id": 1961119,
+        "source_league": "USA",
+        "section_title": "USA - USL Championship - Game lines",
+        "participant_name": "Loudoun United",
+        "action_text": "+½ +136",
+        "action_id": "PS_1961135_1",
+        "row_text": "Loudoun United+428+½ +136O 2½ -144",
+        "title": "",
+        "aria_label": "",
+        "actionable": true,
+        "locked": false
+      },
+      {
+        "event_id": 1961119,
+        "source_league": "USA",
+        "section_title": "USA - USL Championship - Game lines",
+        "participant_name": "Loudoun United",
+        "action_text": "+½ +136",
+        "action_id": "PS_1961135_1",
+        "row_text": "Loudoun United+428+½ +136O 2½ -144",
+        "title": "",
+        "aria_label": "",
+        "actionable": true,
+        "locked": false
+      }
+    ],
+    "TT": [
+      {
+        "event_id": 1961119,
+        "source_league": "USA",
+        "section_title": "USA - USL Championship - Game lines",
+        "participant_name": "Charleston Battery",
+        "action_text": "O 2½ +103",
+        "action_id": "TT_1961119_1",
+        "row_text": "Charleston Battery+156-½ +143O 2½ +103",
+        "title": "",
+        "aria_label": "",
+        "actionable": true,
+        "locked": false
+      },
+      {
+        "event_id": 1961119,
+        "source_league": "USA",
+        "section_title": "USA - USL Championship - Game lines",
+        "participant_name": "Charleston Battery",
+        "action_text": "O 2½ +103",
+        "action_id": "TT_1961119_1",
+        "row_text": "Charleston Battery+156-½ +143O 2½ +103",
+        "title": "",
+        "aria_label": "",
+        "actionable": true,
+        "locked": false
+      },
+      {
+        "event_id": 1961119,
+        "source_league": "USA",
+        "section_title": "USA - USL Championship - Game lines",
+        "participant_name": "Pittsburgh Riverhounds",
+        "action_text": "U 2½ -131",
+        "action_id": "TT_1961119_2",
+        "row_text": "Pittsburgh Riverhounds+149+½ -193U 2½ -131",
+        "title": "",
+        "aria_label": "",
+        "actionable": true,
+        "locked": false
+      },
+      {
+        "event_id": 1961119,
+        "source_league": "USA",
+        "section_title": "USA - USL Championship - Game lines",
+        "participant_name": "Pittsburgh Riverhounds",
+        "action_text": "U 2½ -131",
+        "action_id": "TT_1961119_2",
+        "row_text": "Pittsburgh Riverhounds+149+½ -193U 2½ -131",
+        "title": "",
+        "aria_label": "",
+        "actionable": true,
+        "locked": false
+      },
+      {
+        "event_id": 1961119,
+        "source_league": "USA",
+        "section_title": "USA - USL Championship - Game lines",
+        "participant_name": "Loudoun United",
+        "action_text": "O 2½ -144",
+        "action_id": "TT_1961135_1",
+        "row_text": "Loudoun United+428+½ +136O 2½ -144",
+        "title": "",
+        "aria_label": "",
+        "actionable": true,
+        "locked": false
+      },
+      {
+        "event_id": 1961119,
+        "source_league": "USA",
+        "section_title": "USA - USL Championship - Game lines",
+        "participant_name": "Loudoun United",
+        "action_text": "O 2½ -144",
+        "action_id": "TT_1961135_1",
+        "row_text": "Loudoun United+428+½ +136O 2½ -144",
+        "title": "",
+        "aria_label": "",
+        "actionable": true,
+        "locked": false
+      }
+    ]
+  },
+  "guard": "Offline summary of already-persisted public snapshot only. No new market capture, no science scoring, no settlement inference, and missing families remain non-negative evidence because original capture coverage_complete=false."
+}

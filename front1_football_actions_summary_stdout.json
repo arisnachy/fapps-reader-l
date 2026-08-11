@@ -1,0 +1,59 @@
+{
+  "rows_total": 3508,
+  "actionable_rows": 2344,
+  "locked_rows": 0,
+  "event_count": 12,
+  "section_counts": [
+    [
+      "USA - USL Championship - Game lines",
+      3168
+    ],
+    [
+      "(blank)",
+      340
+    ]
+  ],
+  "id_prefix_counts": [
+    [
+      "(blank)",
+      1152
+    ],
+    [
+      "ML",
+      864
+    ],
+    [
+      "PS",
+      576
+    ],
+    [
+      "TT",
+      576
+    ],
+    [
+      "SZML",
+      144
+    ],
+    [
+      "SZTT",
+      96
+    ],
+    [
+      "SZPS",
+      88
+    ],
+    [
+      "btnClose",
+      12
+    ]
+  ],
+  "term_match_counts": {
+    "double_chance": 0,
+    "draw_no_bet": 0,
+    "team_total": 0,
+    "winning_margin": 0,
+    "handicap": 0,
+    "moneyline": 0,
+    "total": 0
+  }
+}
