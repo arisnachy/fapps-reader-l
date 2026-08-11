@@ -1,0 +1,26 @@
+{
+  "block": "0506",
+  "comparison_is_outcome_blind": true,
+  "active_dates": 197,
+  "active_date_categories": {
+    "NEITHER": 70,
+    "PLUS0_5_ONLY": 63,
+    "BOTH": 64
+  },
+  "home_candidate_dates": 64,
+  "plus0_5_candidate_dates": 127,
+  "incremental_plus0_5_fill_dates": 63,
+  "union_candidate_dates": 127,
+  "union_active_date_coverage_rate": 0.6446700507614214,
+  "active_dates_no_bet": 70,
+  "active_date_no_bet_rate": 0.3553299492385787,
+  "median_days_between_union_candidate_dates": 1,
+  "max_days_between_union_candidate_dates": 13,
+  "longest_consecutive_calendar_days_without_candidate": 12,
+  "calendar_span": {
+    "start": "2005-07-29",
+    "end": "2006-05-20",
+    "days": 296
+  },
+  "guard": "Prematch H/D/A and dates only; no outcomes used for eligibility/coverage categories."
+}

@@ -1,0 +1,100 @@
+{
+  "hypothesis_id": "FOOTBALL_PLUS0_5_MARKET_FAVORITE_V1",
+  "validation_block": "0506",
+  "execution_mode": "SINGLE_USE_FROZEN_OOS",
+  "threshold": 0.6,
+  "selected": 127,
+  "settled": 127,
+  "survived": 122,
+  "failed": 5,
+  "rate": 0.9606299212598425,
+  "wilson_z": 1.959963984540054,
+  "wilson95_lower": 0.9111437777951378,
+  "wilson95_upper": 0.9830682025247811,
+  "n_gate": {
+    "required": 35,
+    "observed": 127,
+    "pass": true
+  },
+  "lcb_gate": {
+    "required": 0.9,
+    "observed": 0.9111437777951378,
+    "pass": true
+  },
+  "integrity": {
+    "source_identity_pass": true,
+    "cross_source_duplicate_event_rows": 0,
+    "one_selection_per_date_pass": true,
+    "threshold_pass": true,
+    "selected_event_uniqueness_pass": true,
+    "settlement_completeness_pass": true,
+    "settlement_rule_pass": true,
+    "result_leakage_firewall_pass": true,
+    "eligible_raw_events": 540,
+    "selected_dates": 127,
+    "side_counts": {
+      "AWAY": 13,
+      "HOME": 114
+    },
+    "team_counts": {
+      "Celtic": 14,
+      "Rangers": 6,
+      "Bayern Munich": 6,
+      "Lyon": 3,
+      "AZ Alkmaar": 3,
+      "Chelsea": 10,
+      "Sp Lisbon": 5,
+      "Club Brugge": 3,
+      "Porto": 2,
+      "Inter": 4,
+      "Standard": 3,
+      "Juventus": 9,
+      "Arsenal": 3,
+      "Anderlecht": 7,
+      "Real Madrid": 3,
+      "Milan": 7,
+      "Benfica": 1,
+      "Sp Braga": 1,
+      "Ajax": 4,
+      "Barcelona": 5,
+      "Liverpool": 3,
+      "Man United": 5,
+      "Boavista": 1,
+      "Tottenham": 2,
+      "PSV Eindhoven": 7,
+      "Monaco": 1,
+      "Blackburn": 1,
+      "Feyenoord": 2,
+      "Hearts": 1,
+      "Fiorentina": 1,
+      "Lazio": 1,
+      "Werder Bremen": 1,
+      "Roma": 1,
+      "Espanol": 1
+    },
+    "league_counts": {
+      "SC0": 21,
+      "D1": 7,
+      "F1": 4,
+      "N1": 16,
+      "E0": 24,
+      "P1": 10,
+      "B1": 13,
+      "I1": 23,
+      "SP1": 9
+    },
+    "max_team": {
+      "team": "Celtic",
+      "count": 14,
+      "share": 0.11023622047244094
+    },
+    "max_league": {
+      "league": "E0",
+      "count": 24,
+      "share": 0.1889763779527559
+    }
+  },
+  "final_result": "PASS",
+  "classification_if_pass": "CORRELATED_FOOTBALL_AVAILABILITY_REDUNDANCY_NOT_INDEPENDENT_CORE",
+  "anti_retune_guard": "Terminal result for frozen 0506 block. No rerun, threshold change, line change or universe widening is permitted."
+}

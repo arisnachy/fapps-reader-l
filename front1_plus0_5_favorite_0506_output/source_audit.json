@@ -1,0 +1,101 @@
+{
+  "E0": {
+    "url": "https://www.football-data.co.uk/mmz4281/0506/E0.csv",
+    "bytes": 102129,
+    "sha256": "b497db70d969f2370f1b09d354ca23880e62f0e9b9a641b02591c40b22ab7971",
+    "raw_rows": 380,
+    "valid_rows": 380,
+    "bad_rows": 0,
+    "required_columns_present": true,
+    "date_min": "2005-08-13",
+    "date_max": "2006-05-07"
+  },
+  "SP1": {
+    "url": "https://www.football-data.co.uk/mmz4281/0506/SP1.csv",
+    "bytes": 98942,
+    "sha256": "97efa44580837ee9b50c3a89e667d36908a8f9b1b1ff5b6ee698c3984a9fbe79",
+    "raw_rows": 380,
+    "valid_rows": 380,
+    "bad_rows": 0,
+    "required_columns_present": true,
+    "date_min": "2005-08-27",
+    "date_max": "2006-05-20"
+  },
+  "D1": {
+    "url": "https://www.football-data.co.uk/mmz4281/0506/D1.csv",
+    "bytes": 79148,
+    "sha256": "d8e5d7967c8151b2bb88df85aa12f95e77f232205197ed8f73779a35ab8c2d81",
+    "raw_rows": 306,
+    "valid_rows": 306,
+    "bad_rows": 0,
+    "required_columns_present": true,
+    "date_min": "2005-08-05",
+    "date_max": "2006-05-13"
+  },
+  "I1": {
+    "url": "https://www.football-data.co.uk/mmz4281/0506/I1.csv",
+    "bytes": 99857,
+    "sha256": "80458af45e2b0320e7e946b32f3c6861b3e04409fe4aa7f55e5f4e0f3ef73ed3",
+    "raw_rows": 380,
+    "valid_rows": 378,
+    "bad_rows": 2,
+    "required_columns_present": true,
+    "date_min": "2005-08-27",
+    "date_max": "2006-05-14"
+  },
+  "F1": {
+    "url": "https://www.football-data.co.uk/mmz4281/0506/F1.csv",
+    "bytes": 93075,
+    "sha256": "2803806bb3c4bf597b5aaa8f5144c3a78b63066186764dfe069080307d133359",
+    "raw_rows": 380,
+    "valid_rows": 380,
+    "bad_rows": 0,
+    "required_columns_present": true,
+    "date_min": "2005-07-29",
+    "date_max": "2006-05-13"
+  },
+  "N1": {
+    "url": "https://www.football-data.co.uk/mmz4281/0506/N1.csv",
+    "bytes": 70890,
+    "sha256": "d5bff2c125b2ab27f940da98ecb9f148b45b9a687356c7824e0f50c8a93903aa",
+    "raw_rows": 306,
+    "valid_rows": 306,
+    "bad_rows": 0,
+    "required_columns_present": true,
+    "date_min": "2005-08-12",
+    "date_max": "2006-04-16"
+  },
+  "P1": {
+    "url": "https://www.football-data.co.uk/mmz4281/0506/P1.csv",
+    "bytes": 71068,
+    "sha256": "a3c195441b48258bd57cd29fdd771b17d208df2087521330a0952c924b15de79",
+    "raw_rows": 306,
+    "valid_rows": 306,
+    "bad_rows": 0,
+    "required_columns_present": true,
+    "date_min": "2005-08-19",
+    "date_max": "2006-05-07"
+  },
+  "SC0": {
+    "url": "https://www.football-data.co.uk/mmz4281/0506/SC0.csv",
+    "bytes": 61746,
+    "sha256": "28dc2f91293734bb1dc12207f7489bce95804325314e1622b0984692dae53e89",
+    "raw_rows": 228,
+    "valid_rows": 228,
+    "bad_rows": 0,
+    "required_columns_present": true,
+    "date_min": "2005-07-30",
+    "date_max": "2006-05-07"
+  },
+  "B1": {
+    "url": "https://www.football-data.co.uk/mmz4281/0506/B1.csv",
+    "bytes": 70631,
+    "sha256": "d4edad917007d2afc5382c37cf5e8f68b40bfb99b602076249abdb5dc5544b92",
+    "raw_rows": 306,
+    "valid_rows": 302,
+    "bad_rows": 4,
+    "required_columns_present": true,
+    "date_min": "2005-08-05",
+    "date_max": "2006-05-05"
+  }
+}

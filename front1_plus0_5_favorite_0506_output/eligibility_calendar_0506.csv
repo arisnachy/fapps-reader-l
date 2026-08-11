@@ -1,0 +1,297 @@
+date,match_active,home_candidate,home_selected_event,plus0_5_candidate,plus0_5_selected_event,coverage_category,union_covered
+2005-07-29,True,False,,False,,NEITHER,False
+2005-07-30,True,False,,True,SC0|Motherwell|Celtic|AWAY,PLUS0_5_ONLY,True
+2005-07-31,True,True,SC0|Rangers|Livingston,True,SC0|Rangers|Livingston|HOME,BOTH,True
+2005-08-01,False,False,,False,,NEITHER,False
+2005-08-02,False,False,,False,,NEITHER,False
+2005-08-03,False,False,,False,,NEITHER,False
+2005-08-04,False,False,,False,,NEITHER,False
+2005-08-05,True,False,,True,D1|Bayern Munich|M'gladbach|HOME,PLUS0_5_ONLY,True
+2005-08-06,True,False,,True,SC0|Celtic|Dundee United|HOME,PLUS0_5_ONLY,True
+2005-08-07,True,False,,True,F1|Lyon|Strasbourg|HOME,PLUS0_5_ONLY,True
+2005-08-08,False,False,,False,,NEITHER,False
+2005-08-09,False,False,,False,,NEITHER,False
+2005-08-10,False,False,,False,,NEITHER,False
+2005-08-11,False,False,,False,,NEITHER,False
+2005-08-12,True,False,,True,N1|AZ Alkmaar|Sparta|HOME,PLUS0_5_ONLY,True
+2005-08-13,True,True,SC0|Celtic|Falkirk,True,SC0|Celtic|Falkirk|HOME,BOTH,True
+2005-08-14,True,False,,True,E0|Wigan|Chelsea|AWAY,PLUS0_5_ONLY,True
+2005-08-15,False,False,,False,,NEITHER,False
+2005-08-16,False,False,,False,,NEITHER,False
+2005-08-17,False,False,,False,,NEITHER,False
+2005-08-18,False,False,,False,,NEITHER,False
+2005-08-19,True,False,,True,P1|Sp Lisbon|Belenenses|HOME,PLUS0_5_ONLY,True
+2005-08-20,True,True,B1|Club Brugge|Roeselare,True,B1|Club Brugge|Roeselare|HOME,BOTH,True
+2005-08-21,True,True,P1|Porto|Est Amadora,True,P1|Porto|Est Amadora|HOME,BOTH,True
+2005-08-22,True,False,,False,,NEITHER,False
+2005-08-23,True,False,,False,,NEITHER,False
+2005-08-24,True,True,E0|Chelsea|West Brom,True,E0|Chelsea|West Brom|HOME,BOTH,True
+2005-08-25,False,False,,False,,NEITHER,False
+2005-08-26,True,False,,False,,NEITHER,False
+2005-08-27,True,True,SC0|Rangers|Hibernian,True,SC0|Rangers|Hibernian|HOME,BOTH,True
+2005-08-28,True,True,I1|Inter|Treviso,True,I1|Inter|Treviso|HOME,BOTH,True
+2005-08-29,True,False,,False,,NEITHER,False
+2005-08-30,False,False,,False,,NEITHER,False
+2005-08-31,False,False,,False,,NEITHER,False
+2005-09-01,False,False,,False,,NEITHER,False
+2005-09-02,False,False,,False,,NEITHER,False
+2005-09-03,False,False,,False,,NEITHER,False
+2005-09-04,False,False,,False,,NEITHER,False
+2005-09-05,False,False,,False,,NEITHER,False
+2005-09-06,False,False,,False,,NEITHER,False
+2005-09-07,False,False,,False,,NEITHER,False
+2005-09-08,False,False,,False,,NEITHER,False
+2005-09-09,True,False,,False,,NEITHER,False
+2005-09-10,True,True,E0|Chelsea|Sunderland,True,E0|Chelsea|Sunderland|HOME,BOTH,True
+2005-09-11,True,True,B1|Standard|Beveren,True,B1|Standard|Beveren|HOME,BOTH,True
+2005-09-12,True,False,,False,,NEITHER,False
+2005-09-13,False,False,,False,,NEITHER,False
+2005-09-14,False,False,,False,,NEITHER,False
+2005-09-15,False,False,,False,,NEITHER,False
+2005-09-16,True,False,,False,,NEITHER,False
+2005-09-17,True,True,I1|Inter|Lecce,True,I1|Inter|Lecce|HOME,BOTH,True
+2005-09-18,True,True,I1|Juventus|Ascoli,True,I1|Juventus|Ascoli|HOME,BOTH,True
+2005-09-19,True,False,,True,E0|Arsenal|Everton|HOME,PLUS0_5_ONLY,True
+2005-09-20,True,False,,True,D1|Ein Frankfurt|Bayern Munich|AWAY,PLUS0_5_ONLY,True
+2005-09-21,True,True,B1|Anderlecht|Roeselare,True,B1|Anderlecht|Roeselare|HOME,BOTH,True
+2005-09-22,True,False,,True,SP1|Real Madrid|Ath Bilbao|HOME,PLUS0_5_ONLY,True
+2005-09-23,True,False,,False,,NEITHER,False
+2005-09-24,True,True,SC0|Celtic|Inverness C,True,SC0|Celtic|Inverness C|HOME,BOTH,True
+2005-09-25,True,False,,True,P1|Sp Lisbon|Setubal|HOME,PLUS0_5_ONLY,True
+2005-09-26,True,False,,False,,NEITHER,False
+2005-09-27,False,False,,False,,NEITHER,False
+2005-09-28,False,False,,False,,NEITHER,False
+2005-09-29,False,False,,False,,NEITHER,False
+2005-09-30,True,False,,False,,NEITHER,False
+2005-10-01,True,True,SC0|Rangers|Dunfermline,True,SC0|Rangers|Dunfermline|HOME,BOTH,True
+2005-10-02,True,True,I1|Milan|Reggina,True,I1|Milan|Reggina|HOME,BOTH,True
+2005-10-03,True,False,,True,P1|Benfica|Guimaraes|HOME,PLUS0_5_ONLY,True
+2005-10-04,True,False,,True,P1|Sp Braga|Naval|HOME,PLUS0_5_ONLY,True
+2005-10-05,False,False,,False,,NEITHER,False
+2005-10-06,False,False,,False,,NEITHER,False
+2005-10-07,False,False,,False,,NEITHER,False
+2005-10-08,False,False,,False,,NEITHER,False
+2005-10-09,False,False,,False,,NEITHER,False
+2005-10-10,False,False,,False,,NEITHER,False
+2005-10-11,False,False,,False,,NEITHER,False
+2005-10-12,False,False,,False,,NEITHER,False
+2005-10-13,False,False,,False,,NEITHER,False
+2005-10-14,True,False,,False,,NEITHER,False
+2005-10-15,True,True,I1|Juventus|Messina,True,I1|Juventus|Messina|HOME,BOTH,True
+2005-10-16,True,False,,True,I1|Inter|Livorno|HOME,PLUS0_5_ONLY,True
+2005-10-17,True,False,,False,,NEITHER,False
+2005-10-18,False,False,,False,,NEITHER,False
+2005-10-19,False,False,,False,,NEITHER,False
+2005-10-20,False,False,,False,,NEITHER,False
+2005-10-21,True,False,,True,B1|Standard|Charleroi|HOME,PLUS0_5_ONLY,True
+2005-10-22,True,True,D1|Bayern Munich|Duisburg,True,D1|Bayern Munich|Duisburg|HOME,BOTH,True
+2005-10-23,True,False,,True,SC0|Kilmarnock|Celtic|AWAY,PLUS0_5_ONLY,True
+2005-10-24,False,False,,False,,NEITHER,False
+2005-10-25,True,False,,False,,NEITHER,False
+2005-10-26,True,False,,True,SC0|Celtic|Motherwell|HOME,PLUS0_5_ONLY,True
+2005-10-27,True,False,,False,,NEITHER,False
+2005-10-28,True,False,,True,N1|Ajax|Heerenveen|HOME,PLUS0_5_ONLY,True
+2005-10-29,True,True,E0|Chelsea|Blackburn,True,E0|Chelsea|Blackburn|HOME,BOTH,True
+2005-10-30,True,False,,True,SP1|Barcelona|Sociedad|HOME,PLUS0_5_ONLY,True
+2005-10-31,True,False,,False,,NEITHER,False
+2005-11-01,False,False,,False,,NEITHER,False
+2005-11-02,False,False,,False,,NEITHER,False
+2005-11-03,False,False,,False,,NEITHER,False
+2005-11-04,True,False,,True,P1|Sp Lisbon|Leiria|HOME,PLUS0_5_ONLY,True
+2005-11-05,True,True,E0|Arsenal|Sunderland,True,E0|Arsenal|Sunderland|HOME,BOTH,True
+2005-11-06,True,False,,True,SC0|Falkirk|Celtic|AWAY,PLUS0_5_ONLY,True
+2005-11-07,True,False,,False,,NEITHER,False
+2005-11-08,False,False,,False,,NEITHER,False
+2005-11-09,True,False,,False,,NEITHER,False
+2005-11-10,False,False,,False,,NEITHER,False
+2005-11-11,True,False,,False,,NEITHER,False
+2005-11-12,False,False,,False,,NEITHER,False
+2005-11-13,False,False,,False,,NEITHER,False
+2005-11-14,False,False,,False,,NEITHER,False
+2005-11-15,False,False,,False,,NEITHER,False
+2005-11-16,False,False,,False,,NEITHER,False
+2005-11-17,False,False,,False,,NEITHER,False
+2005-11-18,True,False,,False,,NEITHER,False
+2005-11-19,True,False,,True,B1|Club Brugge|Louvieroise|HOME,PLUS0_5_ONLY,True
+2005-11-20,True,False,,True,I1|Inter|Parma|HOME,PLUS0_5_ONLY,True
+2005-11-21,True,False,,False,,NEITHER,False
+2005-11-22,False,False,,False,,NEITHER,False
+2005-11-23,False,False,,False,,NEITHER,False
+2005-11-24,False,False,,False,,NEITHER,False
+2005-11-25,True,False,,False,,NEITHER,False
+2005-11-26,True,True,SC0|Celtic|Dunfermline,True,SC0|Celtic|Dunfermline|HOME,BOTH,True
+2005-11-27,True,True,I1|Juventus|Treviso,True,I1|Juventus|Treviso|HOME,BOTH,True
+2005-11-28,True,False,,False,,NEITHER,False
+2005-11-29,True,False,,False,,NEITHER,False
+2005-11-30,True,False,,True,E0|Sunderland|Liverpool|AWAY,PLUS0_5_ONLY,True
+2005-12-01,False,False,,False,,NEITHER,False
+2005-12-02,True,False,,True,B1|Anderlecht|Gent|HOME,PLUS0_5_ONLY,True
+2005-12-03,True,True,E0|Man United|Portsmouth,True,E0|Man United|Portsmouth|HOME,BOTH,True
+2005-12-04,True,False,,True,P1|Boavista|Penafiel|HOME,PLUS0_5_ONLY,True
+2005-12-05,True,False,,False,,NEITHER,False
+2005-12-06,True,False,,False,,NEITHER,False
+2005-12-07,False,False,,False,,NEITHER,False
+2005-12-08,False,False,,False,,NEITHER,False
+2005-12-09,True,False,,True,P1|Sp Lisbon|Est Amadora|HOME,PLUS0_5_ONLY,True
+2005-12-10,True,True,E0|Chelsea|Wigan,True,E0|Chelsea|Wigan|HOME,BOTH,True
+2005-12-11,True,True,D1|Bayern Munich|Kaiserslautern,True,D1|Bayern Munich|Kaiserslautern|HOME,BOTH,True
+2005-12-12,True,False,,True,E0|Tottenham|Portsmouth|HOME,PLUS0_5_ONLY,True
+2005-12-13,False,False,,False,,NEITHER,False
+2005-12-14,True,False,,True,E0|Man United|Wigan|HOME,PLUS0_5_ONLY,True
+2005-12-15,False,False,,False,,NEITHER,False
+2005-12-16,True,False,,True,F1|Lyon|Lille|HOME,PLUS0_5_ONLY,True
+2005-12-17,True,True,N1|PSV Eindhoven|Willem II,True,N1|PSV Eindhoven|Willem II|HOME,BOTH,True
+2005-12-18,True,True,I1|Milan|Messina,True,I1|Milan|Messina|HOME,BOTH,True
+2005-12-19,False,False,,False,,NEITHER,False
+2005-12-20,True,True,SP1|Barcelona|Celta,True,SP1|Barcelona|Celta|HOME,BOTH,True
+2005-12-21,True,True,I1|Juventus|Siena,True,I1|Juventus|Siena|HOME,BOTH,True
+2005-12-22,True,False,,False,,NEITHER,False
+2005-12-23,False,False,,False,,NEITHER,False
+2005-12-24,False,False,,False,,NEITHER,False
+2005-12-25,False,False,,False,,NEITHER,False
+2005-12-26,True,True,SC0|Celtic|Livingston,True,SC0|Celtic|Livingston|HOME,BOTH,True
+2005-12-27,True,False,,True,N1|Ajax|Groningen|HOME,PLUS0_5_ONLY,True
+2005-12-28,True,True,E0|Arsenal|Portsmouth,True,E0|Arsenal|Portsmouth|HOME,BOTH,True
+2005-12-29,True,True,N1|PSV Eindhoven|Twente,True,N1|PSV Eindhoven|Twente|HOME,BOTH,True
+2005-12-30,True,False,,False,,NEITHER,False
+2005-12-31,True,True,E0|Chelsea|Birmingham,True,E0|Chelsea|Birmingham|HOME,BOTH,True
+2006-01-01,True,False,,False,,NEITHER,False
+2006-01-02,True,False,,True,E0|West Ham|Chelsea|AWAY,PLUS0_5_ONLY,True
+2006-01-03,True,False,,False,,NEITHER,False
+2006-01-04,True,False,,False,,NEITHER,False
+2006-01-05,True,False,,False,,NEITHER,False
+2006-01-06,True,False,,False,,NEITHER,False
+2006-01-07,True,False,,True,SP1|Espanol|Barcelona|AWAY,PLUS0_5_ONLY,True
+2006-01-08,True,True,I1|Milan|Parma,True,I1|Milan|Parma|HOME,BOTH,True
+2006-01-09,True,False,,False,,NEITHER,False
+2006-01-10,False,False,,False,,NEITHER,False
+2006-01-11,True,False,,True,F1|Monaco|Strasbourg|HOME,PLUS0_5_ONLY,True
+2006-01-12,True,False,,False,,NEITHER,False
+2006-01-13,True,False,,False,,NEITHER,False
+2006-01-14,True,False,,True,SC0|Celtic|Kilmarnock|HOME,PLUS0_5_ONLY,True
+2006-01-15,True,True,I1|Juventus|Reggina,True,I1|Juventus|Reggina|HOME,BOTH,True
+2006-01-16,True,False,,False,,NEITHER,False
+2006-01-17,False,False,,False,,NEITHER,False
+2006-01-18,True,True,I1|Milan|Ascoli,True,I1|Milan|Ascoli|HOME,BOTH,True
+2006-01-19,True,False,,False,,NEITHER,False
+2006-01-20,True,True,N1|PSV Eindhoven|Waalwijk,True,N1|PSV Eindhoven|Waalwijk|HOME,BOTH,True
+2006-01-21,True,True,SC0|Rangers|Livingston,True,SC0|Rangers|Livingston|HOME,BOTH,True
+2006-01-22,True,True,I1|Juventus|Empoli,True,I1|Juventus|Empoli|HOME,BOTH,True
+2006-01-23,True,False,,False,,NEITHER,False
+2006-01-24,False,False,,False,,NEITHER,False
+2006-01-25,False,False,,False,,NEITHER,False
+2006-01-26,False,False,,False,,NEITHER,False
+2006-01-27,True,False,,False,,NEITHER,False
+2006-01-28,True,True,SC0|Celtic|Dundee United,True,SC0|Celtic|Dundee United|HOME,BOTH,True
+2006-01-29,True,False,,True,N1|Den Haag|PSV Eindhoven|AWAY,PLUS0_5_ONLY,True
+2006-01-30,True,False,,False,,NEITHER,False
+2006-01-31,True,False,,False,,NEITHER,False
+2006-02-01,True,False,,True,E0|Liverpool|Birmingham|HOME,PLUS0_5_ONLY,True
+2006-02-02,False,False,,False,,NEITHER,False
+2006-02-03,True,True,B1|Club Brugge|Lierse,True,B1|Club Brugge|Lierse|HOME,BOTH,True
+2006-02-04,True,False,,True,N1|PSV Eindhoven|Roda JC|HOME,PLUS0_5_ONLY,True
+2006-02-05,True,False,,True,I1|Juventus|Udinese|HOME,PLUS0_5_ONLY,True
+2006-02-06,True,False,,False,,NEITHER,False
+2006-02-07,True,False,,True,N1|Roosendaal|AZ Alkmaar|AWAY,PLUS0_5_ONLY,True
+2006-02-08,True,True,I1|Milan|Treviso,True,I1|Milan|Treviso|HOME,BOTH,True
+2006-02-09,False,False,,False,,NEITHER,False
+2006-02-10,True,False,,False,,NEITHER,False
+2006-02-11,True,True,N1|PSV Eindhoven|Heracles,True,N1|PSV Eindhoven|Heracles|HOME,BOTH,True
+2006-02-12,True,True,D1|Bayern Munich|Nurnberg,True,D1|Bayern Munich|Nurnberg|HOME,BOTH,True
+2006-02-13,True,False,,False,,NEITHER,False
+2006-02-14,True,False,,False,,NEITHER,False
+2006-02-15,True,False,,True,E0|Blackburn|Sunderland|HOME,PLUS0_5_ONLY,True
+2006-02-16,False,False,,False,,NEITHER,False
+2006-02-17,True,False,,True,B1|Anderlecht|FC Brussels|HOME,PLUS0_5_ONLY,True
+2006-02-18,True,True,I1|Milan|Cagliari,True,I1|Milan|Cagliari|HOME,BOTH,True
+2006-02-19,True,True,N1|Ajax|Roosendaal,True,N1|Ajax|Roosendaal|HOME,BOTH,True
+2006-02-20,True,False,,False,,NEITHER,False
+2006-02-21,True,False,,False,,NEITHER,False
+2006-02-22,True,False,,True,B1|Standard|Louvieroise|HOME,PLUS0_5_ONLY,True
+2006-02-23,False,False,,False,,NEITHER,False
+2006-02-24,True,False,,False,,NEITHER,False
+2006-02-25,True,True,E0|Chelsea|Portsmouth,True,E0|Chelsea|Portsmouth|HOME,BOTH,True
+2006-02-26,True,True,I1|Juventus|Lecce,True,I1|Juventus|Lecce|HOME,BOTH,True
+2006-02-27,True,False,,False,,NEITHER,False
+2006-02-28,False,False,,False,,NEITHER,False
+2006-03-01,False,False,,False,,NEITHER,False
+2006-03-02,False,False,,False,,NEITHER,False
+2006-03-03,True,False,,False,,NEITHER,False
+2006-03-04,True,True,I1|Milan|Empoli,True,I1|Milan|Empoli|HOME,BOTH,True
+2006-03-05,True,False,,True,B1|Anderlecht|Lierse|HOME,PLUS0_5_ONLY,True
+2006-03-06,True,False,,False,,NEITHER,False
+2006-03-07,True,False,,False,,NEITHER,False
+2006-03-08,False,False,,False,,NEITHER,False
+2006-03-09,False,False,,False,,NEITHER,False
+2006-03-10,True,False,,False,,NEITHER,False
+2006-03-11,True,False,,True,F1|Lyon|Metz|HOME,PLUS0_5_ONLY,True
+2006-03-12,True,False,,True,N1|Feyenoord|Waalwijk|HOME,PLUS0_5_ONLY,True
+2006-03-13,True,False,,False,,NEITHER,False
+2006-03-14,False,False,,False,,NEITHER,False
+2006-03-15,True,False,,True,E0|Liverpool|Fulham|HOME,PLUS0_5_ONLY,True
+2006-03-16,False,False,,False,,NEITHER,False
+2006-03-17,True,False,,False,,NEITHER,False
+2006-03-18,True,False,,True,B1|Anderlecht|Beveren|HOME,PLUS0_5_ONLY,True
+2006-03-19,True,False,,True,SP1|Real Madrid|Betis|HOME,PLUS0_5_ONLY,True
+2006-03-20,False,False,,False,,NEITHER,False
+2006-03-21,True,False,,True,SP1|Barcelona|Getafe|HOME,PLUS0_5_ONLY,True
+2006-03-22,True,True,SC0|Celtic|Inverness C,True,SC0|Celtic|Inverness C|HOME,BOTH,True
+2006-03-23,True,False,,False,,NEITHER,False
+2006-03-24,True,False,,False,,NEITHER,False
+2006-03-25,True,True,SC0|Rangers|Dunfermline,True,SC0|Rangers|Dunfermline|HOME,BOTH,True
+2006-03-26,True,True,P1|Sp Lisbon|Penafiel,True,P1|Sp Lisbon|Penafiel|HOME,BOTH,True
+2006-03-27,True,False,,True,E0|Tottenham|West Brom|HOME,PLUS0_5_ONLY,True
+2006-03-28,False,False,,False,,NEITHER,False
+2006-03-29,True,False,,True,E0|Man United|West Ham|HOME,PLUS0_5_ONLY,True
+2006-03-30,False,False,,False,,NEITHER,False
+2006-03-31,True,False,,True,B1|Anderlecht|Lokeren|HOME,PLUS0_5_ONLY,True
+2006-04-01,True,True,D1|Bayern Munich|FC Koln,True,N1|Roosendaal|PSV Eindhoven|AWAY,BOTH,True
+2006-04-02,True,True,P1|Porto|Gil Vicente,True,P1|Porto|Gil Vicente|HOME,BOTH,True
+2006-04-03,True,False,,False,,NEITHER,False
+2006-04-04,True,False,,True,N1|AZ Alkmaar|NAC Breda|HOME,PLUS0_5_ONLY,True
+2006-04-05,True,False,,True,SC0|Celtic|Hearts|HOME,PLUS0_5_ONLY,True
+2006-04-06,False,False,,False,,NEITHER,False
+2006-04-07,True,False,,False,,NEITHER,False
+2006-04-08,True,False,,True,SC0|Hearts|Dunfermline|HOME,PLUS0_5_ONLY,True
+2006-04-09,True,True,E0|Chelsea|West Ham,True,E0|Chelsea|West Ham|HOME,BOTH,True
+2006-04-10,True,False,,False,,NEITHER,False
+2006-04-11,False,False,,False,,NEITHER,False
+2006-04-12,True,False,,True,N1|Ajax|Vitesse|HOME,PLUS0_5_ONLY,True
+2006-04-13,False,False,,False,,NEITHER,False
+2006-04-14,True,True,E0|Man United|Sunderland,True,E0|Man United|Sunderland|HOME,BOTH,True
+2006-04-15,True,True,D1|Bayern Munich|Bielefeld,True,D1|Bayern Munich|Bielefeld|HOME,BOTH,True
+2006-04-16,True,True,N1|Feyenoord|Roosendaal,True,N1|Feyenoord|Roosendaal|HOME,BOTH,True
+2006-04-17,True,True,E0|Chelsea|Everton,True,E0|Chelsea|Everton|HOME,BOTH,True
+2006-04-18,True,False,,False,,NEITHER,False
+2006-04-19,True,False,,False,,NEITHER,False
+2006-04-20,False,False,,False,,NEITHER,False
+2006-04-21,True,False,,False,,NEITHER,False
+2006-04-22,True,False,,True,I1|Fiorentina|Empoli|HOME,PLUS0_5_ONLY,True
+2006-04-23,True,True,SP1|Real Madrid|Malaga,True,SP1|Real Madrid|Malaga|HOME,BOTH,True
+2006-04-24,True,False,,False,,NEITHER,False
+2006-04-25,True,False,,False,,NEITHER,False
+2006-04-26,True,False,,False,,NEITHER,False
+2006-04-27,False,False,,False,,NEITHER,False
+2006-04-28,False,False,,False,,NEITHER,False
+2006-04-29,True,True,SP1|Barcelona|Cadiz,True,SP1|Barcelona|Cadiz|HOME,BOTH,True
+2006-04-30,True,True,I1|Lazio|Lecce,True,I1|Lazio|Lecce|HOME,BOTH,True
+2006-05-01,True,False,,True,E0|Man United|Middlesbrough|HOME,PLUS0_5_ONLY,True
+2006-05-02,True,False,,True,SC0|Hibernian|Rangers|AWAY,PLUS0_5_ONLY,True
+2006-05-03,True,False,,True,SC0|Celtic|Kilmarnock|HOME,PLUS0_5_ONLY,True
+2006-05-04,True,False,,False,,NEITHER,False
+2006-05-05,True,True,B1|Anderlecht|Waregem,True,B1|Anderlecht|Waregem|HOME,BOTH,True
+2006-05-06,True,True,D1|Werder Bremen|FC Koln,True,D1|Werder Bremen|FC Koln|HOME,BOTH,True
+2006-05-07,True,True,I1|Roma|Treviso,True,I1|Roma|Treviso|HOME,BOTH,True
+2006-05-08,False,False,,False,,NEITHER,False
+2006-05-09,False,False,,False,,NEITHER,False
+2006-05-10,False,False,,False,,NEITHER,False
+2006-05-11,False,False,,False,,NEITHER,False
+2006-05-12,False,False,,False,,NEITHER,False
+2006-05-13,True,False,,True,SP1|Espanol|Sociedad|HOME,PLUS0_5_ONLY,True
+2006-05-14,True,False,,True,I1|Reggina|Juventus|AWAY,PLUS0_5_ONLY,True
+2006-05-15,False,False,,False,,NEITHER,False
+2006-05-16,True,False,,False,,NEITHER,False
+2006-05-17,False,False,,False,,NEITHER,False
+2006-05-18,False,False,,False,,NEITHER,False
+2006-05-19,False,False,,False,,NEITHER,False
+2006-05-20,True,False,,False,,NEITHER,False
