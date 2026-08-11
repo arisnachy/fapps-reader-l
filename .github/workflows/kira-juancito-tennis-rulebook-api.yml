@@ -1,0 +1,150 @@
+name: KIRA Juancito Tennis RuleBook API Audit
+
+on:
+  push:
+    paths:
+      - '.github/workflows/kira-juancito-tennis-rulebook-api.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  read_public_tennis_rulebook:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install dependency
+        run: python -m pip install --disable-pip-version-check requests beautifulsoup4
+      - name: Query Juancito RuleBook endpoints anonymously
+        shell: python
+        run: |
+          import hashlib, json, re, requests
+          from pathlib import Path
+          from bs4 import BeautifulSoup
+
+          ORIGIN='https://livev2.juancitosport.com.do'
+          SPORT='L-Tennis'
+          FALLBACK_CATEGORIES=['general','Main','Spredpros','Scoring Props','Money Lines','Totals','Additional Prop']
+          OUT=Path('artifacts/juancito_tennis_rulebook_api'); OUT.mkdir(parents=True,exist_ok=True)
+          S=requests.Session(); S.headers.update({
+              'User-Agent':'Mozilla/5.0 KIRA-Juancito-Tennis-RuleBook/1.0 read-only',
+              'Accept':'application/json,text/plain,*/*',
+              'Referer':ORIGIN+'/',
+              'Origin':ORIGIN,
+          })
+
+          def sha(b): return hashlib.sha256(b).hexdigest()
+          def clean_html(v):
+              if v is None: return None
+              return ' '.join(BeautifulSoup(str(v),'html.parser').stripped_strings)
+          def request_post(path,data):
+              r=S.post(ORIGIN+path,data=data,timeout=45,allow_redirects=True)
+              return {
+                  'request_path':path,'request_data':data,'http':r.status_code,
+                  'final_url':r.url,'content_type':r.headers.get('content-type',''),
+                  'bytes':len(r.content),'sha256':sha(r.content),'text':r.text
+              }
+
+          report={'origin':ORIGIN,'sport':SPORT,'read_only':True,'account_data_used':False}
+
+          cat=request_post('/Live/getCategoriesBySportLive',{'sportType':SPORT})
+          report['categories_response']={k:v for k,v in cat.items() if k!='text'}
+          report['categories_raw']=cat['text']
+          categories=[]
+          try:
+              obj=json.loads(cat['text'])
+              for block in obj if isinstance(obj,list) else [obj]:
+                  if isinstance(block,dict):
+                      for item in block.values():
+                          if isinstance(item,dict) and item.get('category'):
+                              categories.append(str(item['category']))
+              categories=list(dict.fromkeys(categories))
+          except Exception as exc:
+              report['categories_parse_error']=f'{type(exc).__name__}: {exc}'
+          if not categories:
+              categories=FALLBACK_CATEGORIES
+              report['categories_source']='fallback_from_current_ruleBook_js'
+          else:
+              report['categories_source']='live_endpoint'
+          report['categories']=categories
+
+          all_rules=[]
+          attempts=[]
+          # Anonymous only. Never send a real/private CustomerID.
+          customer_variants=[('empty',''),('zero','0')]
+          for cat_name in categories:
+              best=None
+              for variant,cust in customer_variants:
+                  rr=request_post('/Live/proprulesAction',{'idSport':SPORT,'idCategory':cat_name,'CustomerID':cust})
+                  rec={k:v for k,v in rr.items() if k!='text'}
+                  rec.update({'category':cat_name,'customer_variant':variant,'body_prefix':rr['text'][:400]})
+                  attempts.append(rec)
+                  parsed=None
+                  try:
+                      parsed=json.loads(rr['text'])
+                  except Exception:
+                      pass
+                  if isinstance(parsed,list):
+                      best=(rr,parsed,variant)
+                      if parsed: break
+              if best is None:
+                  continue
+              rr,parsed,variant=best
+              for item in parsed:
+                  if not isinstance(item,dict): continue
+                  rule={
+                      'category':cat_name,
+                      'customer_variant':variant,
+                      'RuleID':item.get('RuleID'),
+                      'PropDescription':item.get('PropDescription'),
+                      'E_Description':clean_html(item.get('E_Description')),
+                      'S_Description':clean_html(item.get('S_Description')),
+                      'raw_keys':sorted(item.keys()),
+                  }
+                  all_rules.append(rule)
+          report['attempts']=attempts
+          report['rules']=all_rules
+          report['rule_count']=len(all_rules)
+
+          # Read-only description endpoint cross-check for every unique public RuleID.
+          detail=[]
+          for rule_id in list(dict.fromkeys(str(r['RuleID']) for r in all_rules if r.get('RuleID') not in (None,''))):
+              rr=request_post('/sportbook/live/descriptionrule',{'txtIdRule':rule_id})
+              detail.append({
+                  'RuleID':rule_id,'http':rr['http'],'content_type':rr['content_type'],
+                  'bytes':rr['bytes'],'sha256':rr['sha256'],
+                  'description_text':clean_html(rr['text']),
+              })
+          report['rule_details']=detail
+
+          keywords=['tennis','tie-break','tiebreak','walkover','retire','retirement','void','cancel','spread','handicap','game','games','total','set','match','postpon','disqual','push']
+          joined='\n'.join(' '.join(str(x.get(k) or '') for k in ('PropDescription','E_Description','S_Description')) for x in all_rules).casefold()
+          report['keyword_counts']={k:joined.count(k.casefold()) for k in keywords if joined.count(k.casefold())}
+
+          (OUT/'tennis_rulebook_report.json').write_text(json.dumps(report,indent=2,ensure_ascii=False)+'\n',encoding='utf-8')
+          (OUT/'tennis_rules_compact.json').write_text(json.dumps(all_rules,indent=2,ensure_ascii=False)+'\n',encoding='utf-8')
+          print('KIRA_TENNIS_RULEBOOK_SUMMARY',json.dumps({
+              'categories':categories,'rule_count':len(all_rules),
+              'keyword_counts':report['keyword_counts'],
+              'categories_http':cat['http'],'categories_sha256':cat['sha256']
+          },ensure_ascii=False,sort_keys=True))
+          for r in all_rules:
+              print('RULE',json.dumps(r,ensure_ascii=False,sort_keys=True))
+
+          # Fail closed only if endpoint itself is unreachable or no rule records can be obtained anonymously.
+          if cat['http'] >= 500:
+              raise SystemExit('RULEBOOK_CATEGORIES_SERVER_ERROR')
+          if not all_rules:
+              raise SystemExit('NO_ANONYMOUS_TENNIS_RULES_RETURNED')
+      - name: Upload Tennis RuleBook evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: kira-juancito-tennis-rulebook-api
+          path: artifacts/juancito_tennis_rulebook_api
+          if-no-files-found: warn
+          retention-days: 30
