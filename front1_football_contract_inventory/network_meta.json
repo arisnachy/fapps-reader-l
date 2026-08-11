@@ -1,0 +1,128 @@
+[
+  {
+    "url": "https://deportes.juancitosport.com.do/BOSSWagering/Sportsbook/InternetBetTaker2024-10/ajax/InternetBetTaker.Sportsbook,InternetBetTaker.ashx?_method=RefreshHeaders&_session=REDACTED",
+    "status": 200,
+    "method": "POST",
+    "captured_at_utc": "2026-08-11T22:44:20.884125+00:00"
+  },
+  {
+    "url": "https://deportes.juancitosport.com.do/BOSSWagering/Sportsbook/InternetBetTaker2024-10/ajax/InternetBetTaker.Sportsbook,InternetBetTaker.ashx?_method=GetUpcomingEvents&_session=REDACTED",
+    "status": 200,
+    "method": "POST",
+    "captured_at_utc": "2026-08-11T22:44:21.021862+00:00"
+  },
+  {
+    "url": "https://deportes.juancitosport.com.do/BOSSWagering/Sportsbook/InternetBetTaker2024-10/ajax/InternetBetTaker.Sportsbook,InternetBetTaker.ashx?_method=GetUpcomingEvents&_session=REDACTED",
+    "status": 200,
+    "method": "POST",
+    "captured_at_utc": "2026-08-11T22:44:21.065126+00:00"
+  },
+  {
+    "url": "https://deportes.juancitosport.com.do/BOSSWagering/Sportsbook/InternetBetTaker2024-10/ajax/InternetBetTaker.Sportsbook,InternetBetTaker.ashx?_method=GetUpcomingEvents&_session=REDACTED",
+    "status": 200,
+    "method": "POST",
+    "captured_at_utc": "2026-08-11T22:44:21.366419+00:00"
+  },
+  {
+    "url": "https://deportes.juancitosport.com.do/BOSSWagering/Sportsbook/InternetBetTaker2024-10/ajax/InternetBetTaker.Sportsbook,InternetBetTaker.ashx?_method=GetUpcomingEvents&_session=REDACTED",
+    "status": 200,
+    "method": "POST",
+    "captured_at_utc": "2026-08-11T22:44:21.471445+00:00"
+  },
+  {
+    "url": "https://deportes.juancitosport.com.do/BOSSWagering/Sportsbook/InternetBetTaker2024-10/ajax/InternetBetTaker.Sportsbook,InternetBetTaker.ashx?_method=ValidateSession&_session=REDACTED",
+    "status": 200,
+    "method": "POST",
+    "captured_at_utc": "2026-08-11T22:44:35.732935+00:00"
+  },
+  {
+    "url": "https://deportes.juancitosport.com.do/BOSSWagering/Sportsbook/InternetBetTaker2024-10/ajax/InternetBetTaker.Sportsbook,InternetBetTaker.ashx?_method=RefreshSelectedMainHeader&_session=REDACTED",
+    "status": 200,
+    "method": "POST",
+    "captured_at_utc": "2026-08-11T22:44:35.830383+00:00"
+  },
+  {
+    "url": "https://deportes.juancitosport.com.do/BOSSWagering/Sportsbook/InternetBetTaker2024-10/ajax/InternetBetTaker.Sportsbook,InternetBetTaker.ashx?_method=LoadLiveBettingIframe&_session=REDACTED",
+    "status": 200,
+    "method": "POST",
+    "captured_at_utc": "2026-08-11T22:44:35.895482+00:00"
+  },
+  {
+    "url": "https://deportes.juancitosport.com.do/BOSSWagering/Sportsbook/InternetBetTaker2024-10/ajax/InternetBetTaker.Sportsbook,InternetBetTaker.ashx?_method=GetUpcomingEvents&_session=REDACTED",
+    "status": 200,
+    "method": "POST",
+    "captured_at_utc": "2026-08-11T22:44:35.924843+00:00"
+  },
+  {
+    "url": "https://deportes.juancitosport.com.do/BOSSWagering/Sportsbook/InternetBetTaker2024-10/ajax/InternetBetTaker.Sportsbook,InternetBetTaker.ashx?_method=RefreshSelectedHeader&_session=REDACTED",
+    "status": 200,
+    "method": "POST",
+    "captured_at_utc": "2026-08-11T22:44:36.018934+00:00"
+  },
+  {
+    "url": "https://deportes.juancitosport.com.do/BOSSWagering/Sportsbook/InternetBetTaker2024-10/ajax/InternetBetTaker.Sportsbook,InternetBetTaker.ashx?_method=GetUpcomingEvents&_session=REDACTED",
+    "status": 200,
+    "method": "POST",
+    "captured_at_utc": "2026-08-11T22:44:36.041729+00:00"
+  },
+  {
+    "url": "https://livev2.juancitosport.com.do/live/translateWord?w=Add+selections+to+place+a+bet",
+    "status": 200,
+    "method": "GET",
+    "captured_at_utc": "2026-08-11T22:44:37.069348+00:00"
+  },
+  {
+    "url": "https://livev2.juancitosport.com.do/Live/loadUserData?token=REDACTED",
+    "status": 200,
+    "method": "GET",
+    "captured_at_utc": "2026-08-11T22:44:37.789412+00:00"
+  },
+  {
+    "url": "https://livev2.juancitosport.com.do/Game/getLeftMenu",
+    "status": 200,
+    "method": "POST",
+    "captured_at_utc": "2026-08-11T22:44:37.961956+00:00"
+  },
+  {
+    "url": "https://livev2.juancitosport.com.do/Game/getOverviewWidget",
+    "status": 200,
+    "method": "POST",
+    "captured_at_utc": "2026-08-11T22:44:37.971360+00:00"
+  },
+  {
+    "url": "https://livev2.juancitosport.com.do/Live/loadUserData?token=REDACTED",
+    "status": 200,
+    "method": "GET",
+    "captured_at_utc": "2026-08-11T22:44:38.575719+00:00"
+  },
+  {
+    "url": "https://livev2.juancitosport.com.do/Live/loadHaslivestream?token=REDACTED",
+    "status": 200,
+    "method": "GET",
+    "captured_at_utc": "2026-08-11T22:44:38.667444+00:00"
+  },
+  {
+    "url": "https://livev2.juancitosport.com.do/Live/getByPassDelay?CustomerID=A41_ANONYMOUS",
+    "status": 200,
+    "method": "GET",
+    "captured_at_utc": "2026-08-11T22:44:38.680488+00:00"
+  },
+  {
+    "url": "https://livev2.juancitosport.com.do/Live/GetAccountConfig?customerId=A41_ANONYMOUS&agentId=A41_HOUSE",
+    "status": 200,
+    "method": "GET",
+    "captured_at_utc": "2026-08-11T22:44:38.952530+00:00"
+  },
+  {
+    "url": "https://livev2.juancitosport.com.do/Live/loadHaslivestream?token=REDACTED",
+    "status": 200,
+    "method": "GET",
+    "captured_at_utc": "2026-08-11T22:44:39.506951+00:00"
+  },
+  {
+    "url": "https://livev2.juancitosport.com.do/Live/getByPassDelay?CustomerID=A41_ANONYMOUS",
+    "status": 200,
+    "method": "GET",
+    "captured_at_utc": "2026-08-11T22:44:39.520180+00:00"
+  }
+]

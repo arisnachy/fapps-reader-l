@@ -1,0 +1,13 @@
+{
+  "double_chance": [],
+  "draw_no_bet": [],
+  "team_total": [
+    {
+      "source": "network:0",
+      "snippet": "AddHeader(236,\\'Run Line Alternativo\\',196,\\'SP\\', 0, 1, -1);\\nnewHeader2.SubHeaders.AddHeader(237,\\'Super Run Line\\',196,\\'SP\\', 0, 1, -1);\\nnewHeader2.SubHeaders.AddHeader(225,\\'Total solo por equipo\\',196,\\'SP\\', 0, 1, -1);\\nnewHeader2.SubHeaders.AddHeader(198,\\'Equipo que anota de primero\\',196,\\'SP\\', 0, 1, -1);\\nnewHeader2.SubHeaders.AddHeader(197,\\'Anotar&#225; en primer inning si o no?\\',196,\\'SP\\', 0, 1, -1);\\nnewHeader2.SubHeaders.AddHeader(238,\\'"
+    }
+  ],
+  "winning_margin": [],
+  "handicap": [],
+  "moneyline": []
+}
