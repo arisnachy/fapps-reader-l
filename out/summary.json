@@ -1,0 +1,37 @@
+{
+  "hypothesis_id": "FOOTBALL_PLUS1_5_MARKET_DOMINANCE_V1",
+  "block": "2008-09 / 0809",
+  "contract": "selected HOME team +1.5",
+  "threshold_p_home_novig": 0.75,
+  "daily_selector": "one highest p_home_novig candidate per date",
+  "eligible_candidates": 126,
+  "selected": 67,
+  "settled": 67,
+  "survived": 67,
+  "failed": 0,
+  "rate": 1.0,
+  "wilson95_lower": 0.9457738606086981,
+  "wilson95_upper": 0.9999999999999998,
+  "min_n": 35,
+  "min_oos_wilson_lcb": 0.9,
+  "n_gate_pass": true,
+  "wilson_gate_pass": true,
+  "source_identity_pass": true,
+  "cross_source_duplicate_event_rows": 0,
+  "one_selection_per_date_pass": true,
+  "threshold_pass": true,
+  "selected_unique_event_pass": true,
+  "settlement_pass": true,
+  "result_leakage_pass": true,
+  "max_team_concentration": {
+    "team": "Man United",
+    "count": 8,
+    "fraction": 0.11940298507462686
+  },
+  "max_league_concentration": {
+    "league_code": "E0",
+    "count": 16,
+    "fraction": 0.23880597014925373
+  },
+  "production_gate": "PASS"
+}

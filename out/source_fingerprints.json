@@ -1,0 +1,74 @@
+{
+  "E0": {
+    "league": "England Premier League",
+    "url": "https://www.football-data.co.uk/mmz4281/0809/E0.csv",
+    "sha256": "b78dcd1c522feafb44bcce1c459eb09911618460787cfe9ab478b2957c7ae294",
+    "bytes": 106205,
+    "rows_raw": 380,
+    "rows_valid_event": 380
+  },
+  "SP1": {
+    "league": "Spain La Liga",
+    "url": "https://www.football-data.co.uk/mmz4281/0809/SP1.csv",
+    "sha256": "e463e61cc73a05cb129fe64de18bc5a2174c851d116615be08469bc111bc8c93",
+    "bytes": 103886,
+    "rows_raw": 380,
+    "rows_valid_event": 380
+  },
+  "D1": {
+    "league": "Germany Bundesliga",
+    "url": "https://www.football-data.co.uk/mmz4281/0809/D1.csv",
+    "sha256": "7480cb2117cf16142b07daa88a5592ef4c1da0c957114903226e1fed76d1f61b",
+    "bytes": 84127,
+    "rows_raw": 306,
+    "rows_valid_event": 306
+  },
+  "I1": {
+    "league": "Italy Serie A",
+    "url": "https://www.football-data.co.uk/mmz4281/0809/I1.csv",
+    "sha256": "008dc2a31931bcf9f8dc5215a4b5be1b7a26bedf5af5c2faeb180af0f03a5edf",
+    "bytes": 100586,
+    "rows_raw": 380,
+    "rows_valid_event": 380
+  },
+  "F1": {
+    "league": "France Ligue 1",
+    "url": "https://www.football-data.co.uk/mmz4281/0809/F1.csv",
+    "sha256": "29ae1dd85e689c007d9aecdd7649702ced921ac5db3c52eb455bde5cecb9f41f",
+    "bytes": 101205,
+    "rows_raw": 380,
+    "rows_valid_event": 380
+  },
+  "N1": {
+    "league": "Netherlands Eredivisie",
+    "url": "https://www.football-data.co.uk/mmz4281/0809/N1.csv",
+    "sha256": "3ef4f91133bc2db2d913a70a980e1c9d44fddf273d43b72510f0d82c36105be1",
+    "bytes": 75137,
+    "rows_raw": 306,
+    "rows_valid_event": 306
+  },
+  "P1": {
+    "league": "Portugal Primeira Liga",
+    "url": "https://www.football-data.co.uk/mmz4281/0809/P1.csv",
+    "sha256": "d315878aec0fa5e5072771d6ccd360576bd2989881acb1a5ab74871b21d508bb",
+    "bytes": 57727,
+    "rows_raw": 240,
+    "rows_valid_event": 240
+  },
+  "SC0": {
+    "league": "Scotland Premiership",
+    "url": "https://www.football-data.co.uk/mmz4281/0809/SC0.csv",
+    "sha256": "e958ce0bda83b30b599a23680c0631e18b6197c77f4ea885e6a5e3b20ddc9735",
+    "bytes": 64042,
+    "rows_raw": 228,
+    "rows_valid_event": 228
+  },
+  "B1": {
+    "league": "Belgium First Division A",
+    "url": "https://www.football-data.co.uk/mmz4281/0809/B1.csv",
+    "sha256": "5a54b814f29bc201b69b33c57812499b37cb21b8600809ec059b7d7776a8fbe4",
+    "bytes": 75010,
+    "rows_raw": 306,
+    "rows_valid_event": 306
+  }
+}
