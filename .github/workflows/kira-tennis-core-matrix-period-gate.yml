@@ -1,0 +1,38 @@
+name: KIRA Tennis CORE Matrix Period Gate
+
+on:
+  push:
+    paths:
+      - '.github/workflows/kira-tennis-core-matrix-period-gate.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify_period_gate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install test dependency
+        run: python -m pip install --disable-pip-version-check pytest
+      - name: Fetch exact TEAM-2 matrix and tests from PR59 branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p repo/kira_survival/labs/market_real_v1 repo/tests
+          curl -fsSL --retry 3 --connect-timeout 20 \
+            'https://raw.githubusercontent.com/arisnachy/pelota/kira-market-real-exec-v2/kira_survival/labs/market_real_v1/tennis_core_coverage_matrix.py' \
+            -o repo/kira_survival/labs/market_real_v1/tennis_core_coverage_matrix.py
+          curl -fsSL --retry 3 --connect-timeout 20 \
+            'https://raw.githubusercontent.com/arisnachy/pelota/kira-market-real-exec-v2/tests/test_tennis_core_coverage_matrix.py' \
+            -o repo/tests/test_tennis_core_coverage_matrix.py
+          sha256sum repo/kira_survival/labs/market_real_v1/tennis_core_coverage_matrix.py repo/tests/test_tennis_core_coverage_matrix.py
+      - name: Run isolated fail-closed regression suite
+        working-directory: repo
+        env:
+          PYTHONPATH: .
+        run: pytest -q tests/test_tennis_core_coverage_matrix.py
