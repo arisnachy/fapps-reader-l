@@ -1,0 +1,84 @@
+name: KIRA Juancito Wager Rules Contract Audit
+
+on:
+  push:
+    paths:
+      - '.github/workflows/kira-juancito-wager-rules-contract-audit.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  audit_public_rules_resources:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Fetch and inspect public Juancito sportsbook JS
+        shell: python
+        run: |
+          import hashlib, json, re, requests
+          from pathlib import Path
+
+          base = 'https://deportes.juancitosport.com.do/BOSSWagering/Sportsbook/InternetBetTaker2024-10/'
+          targets = {
+              'jCSBWagerRules.js': base + 'JavaScriptsWS/jCSBWagerRules.js',
+              'jCSBOddsAndPoints.js': base + 'JavaScriptsWS/jCSBOddsAndPoints.js',
+              'NewBetLib.js': base + 'JavaScriptsWS/NewBetLib.js',
+              'Cart1.js': base + 'JavaScriptsWS/Cart1.js',
+              'sportsbook_ajax.js': base + 'ajax/InternetBetTaker.Sportsbook,InternetBetTaker.ashx',
+              'common_ajax.js': base + 'ajax/common.ashx',
+          }
+          out = Path('artifacts/juancito_wager_rules_contract')
+          out.mkdir(parents=True, exist_ok=True)
+          session = requests.Session()
+          session.headers['User-Agent'] = 'Mozilla/5.0 KIRA-Juancito-Public-Contract-Audit/1.0 read-only'
+          terms = [
+              'tennis','wager','rule','rules','handicap','spread','total','game','line',
+              'tie','tiebreak','tie-break','retire','retirement','walkover','void','cancel',
+              'cancelled','canceled','push','period','set','match','selection','event','point',
+              'refund','stake','annul','postpon','disqual'
+          ]
+          summary = []
+          for name, url in targets.items():
+              rec = {'name':name,'url':url}
+              try:
+                  r = session.get(url, timeout=45, allow_redirects=True)
+                  rec.update({'http':r.status_code,'final_url':r.url,'content_type':r.headers.get('content-type',''),'bytes':len(r.content),'sha256':hashlib.sha256(r.content).hexdigest()})
+                  if r.status_code == 200:
+                      text = r.text
+                      (out/name).write_text(text, encoding='utf-8', errors='replace')
+                      low = text.casefold()
+                      rec['term_counts'] = {t:low.count(t) for t in terms if low.count(t)}
+                      snippets=[]
+                      for t in terms:
+                          for m in list(re.finditer(re.escape(t), low))[:4]:
+                              s=max(0,m.start()-180); e=min(len(text),m.end()+260)
+                              snippets.append({'term':t,'snippet':re.sub(r'\s+',' ',text[s:e])})
+                      rec['snippets']=snippets[:100]
+                      # extract likely function names and remote/ajax method tokens around 'Rule'
+                      funcs=sorted(set(re.findall(r'function\s+([A-Za-z_$][\w$]*)\s*\(', text)))
+                      rec['functions_matching_semantics']=[f for f in funcs if re.search(r'rule|wager|bet|odd|point|total|spread|handicap|cancel|void',f,re.I)]
+                      strings=sorted(set(re.findall(r'["\']([^"\']{2,120})["\']',text)))
+                      rec['strings_matching_semantics']=[s for s in strings if re.search(r'rule|wager|bet|odd|point|total|spread|handicap|cancel|void|tennis|period',s,re.I)][:200]
+                  else:
+                      rec['body_prefix']=r.text[:500]
+              except Exception as exc:
+                  rec['error']=f'{type(exc).__name__}: {exc}'
+              summary.append(rec)
+              print('RESOURCE', json.dumps({k:v for k,v in rec.items() if k not in {'snippets','strings_matching_semantics'}}, ensure_ascii=False, sort_keys=True))
+          (out/'summary.json').write_text(json.dumps(summary, indent=2, ensure_ascii=False)+'\n')
+
+          # Fail only if every target is unreachable; individual missing resources are evidence, not a reason to fabricate.
+          if not any(x.get('http') == 200 for x in summary):
+              raise SystemExit('ALL_PUBLIC_JUANCITO_RULE_RESOURCES_UNREACHABLE')
+      - name: Upload contract audit
+        uses: actions/upload-artifact@v4
+        with:
+          name: kira-juancito-wager-rules-contract-audit
+          path: artifacts/juancito_wager_rules_contract
+          if-no-files-found: error
+          retention-days: 30
