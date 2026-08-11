@@ -1,0 +1,295 @@
+date,match_active,home_candidate_count,home_selected_event,home_selected_entity,home_eligibility_state,away_candidate_count,away_selected_event,away_selected_entity,away_eligibility_state,coverage_category,union_covered,source_provenance
+2007-08-03,True,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2007-08-04,True,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2007-08-05,True,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2007-08-06,True,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2007-08-07,False,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2007-08-08,False,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2007-08-09,False,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2007-08-10,True,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2007-08-11,True,2,2007-08-11|D1|Bayern Munich|Hansa Rostock,Bayern Munich,ELIGIBLE,0,,,NO_ELIGIBLE_EVENT,HOME_ONLY,True,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2007-08-12,True,2,2007-08-12|E0|Chelsea|Birmingham,Chelsea,ELIGIBLE,0,,,NO_ELIGIBLE_EVENT,HOME_ONLY,True,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2007-08-13,True,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2007-08-14,True,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2007-08-15,True,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2007-08-16,True,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2007-08-17,True,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2007-08-18,True,1,2007-08-18|N1|AZ Alkmaar|VVV Venlo,AZ Alkmaar,ELIGIBLE,0,,,NO_ELIGIBLE_EVENT,HOME_ONLY,True,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2007-08-19,True,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2007-08-20,True,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2007-08-21,False,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2007-08-22,False,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2007-08-23,False,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2007-08-24,True,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2007-08-25,True,1,2007-08-25|D1|Bayern Munich|Hannover,Bayern Munich,ELIGIBLE,0,,,NO_ELIGIBLE_EVENT,HOME_ONLY,True,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2007-08-26,True,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2007-08-27,True,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2007-08-28,True,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2007-08-29,True,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2007-08-30,False,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2007-08-31,True,1,2007-08-31|N1|AZ Alkmaar|Excelsior,AZ Alkmaar,ELIGIBLE,0,,,NO_ELIGIBLE_EVENT,HOME_ONLY,True,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2007-09-01,True,4,2007-09-01|N1|Feyenoord|Willem II,Feyenoord,ELIGIBLE,0,,,NO_ELIGIBLE_EVENT,HOME_ONLY,True,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2007-09-02,True,2,2007-09-02|SP1|Barcelona|Ath Bilbao,Barcelona,ELIGIBLE,0,,,NO_ELIGIBLE_EVENT,HOME_ONLY,True,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2007-09-03,True,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2007-09-04,False,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2007-09-05,False,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2007-09-06,False,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2007-09-07,False,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2007-09-08,False,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2007-09-09,False,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2007-09-10,False,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2007-09-11,False,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2007-09-12,False,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2007-09-13,False,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2007-09-14,True,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2007-09-15,True,3,2007-09-15|SC0|Celtic|Inverness C,Celtic,ELIGIBLE,0,,,NO_ELIGIBLE_EVENT,HOME_ONLY,True,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2007-09-16,True,1,2007-09-16|I1|Inter|Catania,Inter,ELIGIBLE,0,,,NO_ELIGIBLE_EVENT,HOME_ONLY,True,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2007-09-17,True,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2007-09-18,False,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2007-09-19,False,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2007-09-20,False,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2007-09-21,True,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2007-09-22,True,3,2007-09-22|E0|Arsenal|Derby,Arsenal,ELIGIBLE,0,,,NO_ELIGIBLE_EVENT,HOME_ONLY,True,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2007-09-23,True,1,2007-09-23|P1|Sp Lisbon|Setubal,Sp Lisbon,ELIGIBLE,0,,,NO_ELIGIBLE_EVENT,HOME_ONLY,True,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2007-09-24,True,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2007-09-25,True,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2007-09-26,True,2,2007-09-26|D1|Bayern Munich|Cottbus,Bayern Munich,ELIGIBLE,0,,,NO_ELIGIBLE_EVENT,HOME_ONLY,True,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2007-09-27,True,1,2007-09-27|SP1|Real Madrid|Betis,Real Madrid,ELIGIBLE,0,,,NO_ELIGIBLE_EVENT,HOME_ONLY,True,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2007-09-28,True,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2007-09-29,True,1,2007-09-29|SC0|Celtic|Dundee United,Celtic,ELIGIBLE,0,,,NO_ELIGIBLE_EVENT,HOME_ONLY,True,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2007-09-30,True,2,2007-09-30|N1|Ajax|VVV Venlo,Ajax,ELIGIBLE,0,,,NO_ELIGIBLE_EVENT,HOME_ONLY,True,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2007-10-01,True,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2007-10-02,False,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2007-10-03,False,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2007-10-04,False,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2007-10-05,True,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2007-10-06,True,3,2007-10-06|E0|Man United|Wigan,Man United,ELIGIBLE,0,,,NO_ELIGIBLE_EVENT,HOME_ONLY,True,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2007-10-07,True,3,2007-10-07|E0|Arsenal|Sunderland,Arsenal,ELIGIBLE,0,,,NO_ELIGIBLE_EVENT,HOME_ONLY,True,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2007-10-08,True,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2007-10-09,False,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2007-10-10,False,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2007-10-11,False,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2007-10-12,False,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2007-10-13,False,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2007-10-14,False,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2007-10-15,False,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2007-10-16,False,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2007-10-17,False,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2007-10-18,False,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2007-10-19,True,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2007-10-20,True,5,2007-10-20|N1|PSV Eindhoven|VVV Venlo,PSV Eindhoven,ELIGIBLE,0,,,NO_ELIGIBLE_EVENT,HOME_ONLY,True,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2007-10-21,True,1,2007-10-21|I1|Milan|Empoli,Milan,ELIGIBLE,0,,,NO_ELIGIBLE_EVENT,HOME_ONLY,True,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2007-10-22,True,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2007-10-23,False,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2007-10-24,False,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2007-10-25,False,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2007-10-26,True,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2007-10-27,True,3,2007-10-27|E0|Man United|Middlesbrough,Man United,ELIGIBLE,0,,,NO_ELIGIBLE_EVENT,HOME_ONLY,True,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2007-10-28,True,1,2007-10-28|SP1|Barcelona|Almeria,Barcelona,ELIGIBLE,0,,,NO_ELIGIBLE_EVENT,HOME_ONLY,True,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2007-10-29,True,1,2007-10-29|P1|Porto|Leixoes,Porto,ELIGIBLE,0,,,NO_ELIGIBLE_EVENT,HOME_ONLY,True,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2007-10-30,False,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2007-10-31,True,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2007-11-01,True,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2007-11-02,True,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2007-11-03,True,2,2007-11-03|D1|Bayern Munich|Ein Frankfurt,Bayern Munich,ELIGIBLE,0,,,NO_ELIGIBLE_EVENT,HOME_ONLY,True,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2007-11-04,True,1,2007-11-04|SP1|Barcelona|Betis,Barcelona,ELIGIBLE,0,,,NO_ELIGIBLE_EVENT,HOME_ONLY,True,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2007-11-05,True,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2007-11-06,False,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2007-11-07,False,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2007-11-08,False,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2007-11-09,True,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2007-11-10,True,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2007-11-11,True,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2007-11-12,True,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2007-11-13,False,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2007-11-14,False,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2007-11-15,False,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2007-11-16,False,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2007-11-17,False,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2007-11-18,False,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2007-11-19,False,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2007-11-20,False,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2007-11-21,False,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2007-11-22,False,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2007-11-23,True,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2007-11-24,True,3,2007-11-24|E0|Arsenal|Wigan,Arsenal,ELIGIBLE,1,2007-11-24|E0|Derby|Chelsea,Chelsea,ELIGIBLE,BOTH,True,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2007-11-25,True,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2007-11-26,True,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2007-11-27,False,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2007-11-28,True,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2007-11-29,False,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2007-11-30,True,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2007-12-01,True,2,2007-12-01|SC0|Rangers|Kilmarnock,Rangers,ELIGIBLE,0,,,NO_ELIGIBLE_EVENT,HOME_ONLY,True,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2007-12-02,True,2,2007-12-02|N1|Feyenoord|Heracles,Feyenoord,ELIGIBLE,0,,,NO_ELIGIBLE_EVENT,HOME_ONLY,True,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2007-12-03,True,1,2007-12-03|E0|Man United|Fulham,Man United,ELIGIBLE,0,,,NO_ELIGIBLE_EVENT,HOME_ONLY,True,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2007-12-04,False,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2007-12-05,True,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2007-12-06,False,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2007-12-07,True,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2007-12-08,True,4,2007-12-08|E0|Man United|Derby,Man United,ELIGIBLE,0,,,NO_ELIGIBLE_EVENT,HOME_ONLY,True,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2007-12-09,True,1,2007-12-09|SP1|Barcelona|La Coruna,Barcelona,ELIGIBLE,0,,,NO_ELIGIBLE_EVENT,HOME_ONLY,True,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2007-12-10,False,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2007-12-11,True,1,2007-12-11|SC0|Celtic|Falkirk,Celtic,ELIGIBLE,0,,,NO_ELIGIBLE_EVENT,HOME_ONLY,True,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2007-12-12,False,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2007-12-13,False,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2007-12-14,True,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2007-12-15,True,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2007-12-16,True,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2007-12-17,False,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2007-12-18,True,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2007-12-19,False,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2007-12-20,False,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2007-12-21,True,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2007-12-22,True,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2007-12-23,True,0,,,NO_ELIGIBLE_EVENT,1,2007-12-23|N1|Excelsior|Ajax,Ajax,ELIGIBLE,AWAY_ONLY,True,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2007-12-24,False,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2007-12-25,False,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2007-12-26,True,1,2007-12-26|N1|Feyenoord|Sparta,Feyenoord,ELIGIBLE,0,,,NO_ELIGIBLE_EVENT,HOME_ONLY,True,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2007-12-27,True,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2007-12-28,False,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2007-12-29,True,1,2007-12-29|SC0|Celtic|Gretna,Celtic,ELIGIBLE,0,,,NO_ELIGIBLE_EVENT,HOME_ONLY,True,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2007-12-30,True,1,2007-12-30|N1|AZ Alkmaar|Heracles,AZ Alkmaar,ELIGIBLE,0,,,NO_ELIGIBLE_EVENT,HOME_ONLY,True,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2007-12-31,False,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2008-01-01,True,1,2008-01-01|E0|Man United|Birmingham,Man United,ELIGIBLE,0,,,NO_ELIGIBLE_EVENT,HOME_ONLY,True,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2008-01-02,True,1,2008-01-02|E0|Liverpool|Wigan,Liverpool,ELIGIBLE,0,,,NO_ELIGIBLE_EVENT,HOME_ONLY,True,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2008-01-03,False,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2008-01-04,True,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2008-01-05,True,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2008-01-06,True,1,2008-01-06|P1|Porto|Naval,Porto,ELIGIBLE,0,,,NO_ELIGIBLE_EVENT,HOME_ONLY,True,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2008-01-07,True,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2008-01-08,False,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2008-01-09,False,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2008-01-10,False,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2008-01-11,True,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2008-01-12,True,3,2008-01-12|SP1|Barcelona|Murcia,Barcelona,ELIGIBLE,0,,,NO_ELIGIBLE_EVENT,HOME_ONLY,True,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2008-01-13,True,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2008-01-14,True,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2008-01-15,False,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2008-01-16,True,0,,,NO_ELIGIBLE_EVENT,1,2008-01-16|SC0|Gretna|Rangers,Rangers,ELIGIBLE,AWAY_ONLY,True,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2008-01-17,False,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2008-01-18,True,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2008-01-19,True,1,2008-01-19|SC0|Celtic|Kilmarnock,Celtic,ELIGIBLE,0,,,NO_ELIGIBLE_EVENT,HOME_ONLY,True,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2008-01-20,True,1,2008-01-20|I1|Inter|Parma,Inter,ELIGIBLE,0,,,NO_ELIGIBLE_EVENT,HOME_ONLY,True,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2008-01-21,True,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2008-01-22,True,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2008-01-23,True,1,2008-01-23|N1|PSV Eindhoven|Sparta,PSV Eindhoven,ELIGIBLE,0,,,NO_ELIGIBLE_EVENT,HOME_ONLY,True,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2008-01-24,True,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2008-01-25,True,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2008-01-26,True,2,2008-01-26|N1|PSV Eindhoven|Excelsior,PSV Eindhoven,ELIGIBLE,0,,,NO_ELIGIBLE_EVENT,HOME_ONLY,True,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2008-01-27,True,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2008-01-28,True,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2008-01-29,True,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2008-01-30,True,2,2008-01-30|E0|Chelsea|Reading,Chelsea,ELIGIBLE,0,,,NO_ELIGIBLE_EVENT,HOME_ONLY,True,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2008-01-31,False,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2008-02-01,True,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2008-02-02,True,1,2008-02-02|P1|Porto|Leiria,Porto,ELIGIBLE,0,,,NO_ELIGIBLE_EVENT,HOME_ONLY,True,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2008-02-03,True,3,2008-02-03|I1|Inter|Empoli,Inter,ELIGIBLE,0,,,NO_ELIGIBLE_EVENT,HOME_ONLY,True,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2008-02-04,True,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2008-02-05,False,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2008-02-06,True,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2008-02-07,False,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2008-02-08,True,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2008-02-09,True,2,2008-02-09|SC0|Rangers|Falkirk,Rangers,ELIGIBLE,0,,,NO_ELIGIBLE_EVENT,HOME_ONLY,True,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2008-02-10,True,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2008-02-11,True,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2008-02-12,False,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2008-02-13,True,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2008-02-14,False,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2008-02-15,True,1,2008-02-15|N1|Ajax|Sparta,Ajax,ELIGIBLE,0,,,NO_ELIGIBLE_EVENT,HOME_ONLY,True,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2008-02-16,True,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2008-02-17,True,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2008-02-18,True,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2008-02-19,False,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2008-02-20,True,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2008-02-21,False,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2008-02-22,True,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2008-02-23,True,2,2008-02-23|P1|Porto|Pacos Ferreira,Porto,ELIGIBLE,0,,,NO_ELIGIBLE_EVENT,HOME_ONLY,True,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2008-02-24,True,3,2008-02-24|SP1|Barcelona|Levante,Barcelona,ELIGIBLE,0,,,NO_ELIGIBLE_EVENT,HOME_ONLY,True,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2008-02-25,True,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2008-02-26,True,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2008-02-27,True,1,2008-02-27|SC0|Celtic|Inverness C,Celtic,ELIGIBLE,0,,,NO_ELIGIBLE_EVENT,HOME_ONLY,True,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2008-02-28,False,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2008-02-29,True,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2008-03-01,True,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2008-03-02,True,1,2008-03-02|N1|Ajax|Excelsior,Ajax,ELIGIBLE,0,,,NO_ELIGIBLE_EVENT,HOME_ONLY,True,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2008-03-03,True,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2008-03-04,False,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2008-03-05,True,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2008-03-06,True,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2008-03-07,True,1,2008-03-07|B1|Standard|St Truiden,Standard,ELIGIBLE,0,,,NO_ELIGIBLE_EVENT,HOME_ONLY,True,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2008-03-08,True,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2008-03-09,True,3,2008-03-09|P1|Benfica|Leiria,Benfica,ELIGIBLE,0,,,NO_ELIGIBLE_EVENT,HOME_ONLY,True,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2008-03-10,True,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2008-03-11,True,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2008-03-12,True,1,2008-03-12|E0|Chelsea|Derby,Chelsea,ELIGIBLE,0,,,NO_ELIGIBLE_EVENT,HOME_ONLY,True,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2008-03-13,False,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2008-03-14,True,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2008-03-15,True,3,2008-03-15|B1|Club Brugge|FC Brussels,Club Brugge,ELIGIBLE,1,2008-03-15|E0|Derby|Man United,Man United,ELIGIBLE,BOTH,True,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2008-03-16,True,1,2008-03-16|N1|Ajax|Willem II,Ajax,ELIGIBLE,0,,,NO_ELIGIBLE_EVENT,HOME_ONLY,True,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2008-03-17,True,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2008-03-18,False,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2008-03-19,True,1,2008-03-19|E0|Man United|Bolton,Man United,ELIGIBLE,0,,,NO_ELIGIBLE_EVENT,HOME_ONLY,True,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2008-03-20,True,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2008-03-21,True,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2008-03-22,True,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2008-03-23,True,1,2008-03-23|SP1|Barcelona|Valladolid,Barcelona,ELIGIBLE,1,2008-03-23|SC0|Gretna|Celtic,Celtic,ELIGIBLE,BOTH,True,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2008-03-24,False,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2008-03-25,False,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2008-03-26,False,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2008-03-27,False,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2008-03-28,True,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2008-03-29,True,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2008-03-30,True,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2008-03-31,True,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2008-04-01,False,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2008-04-02,True,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2008-04-03,False,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2008-04-04,True,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2008-04-05,True,1,2008-04-05|P1|Porto|Est Amadora,Porto,ELIGIBLE,0,,,NO_ELIGIBLE_EVENT,HOME_ONLY,True,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2008-04-06,True,3,2008-04-06|N1|Ajax|Graafschap,Ajax,ELIGIBLE,0,,,NO_ELIGIBLE_EVENT,HOME_ONLY,True,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2008-04-07,True,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2008-04-08,True,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2008-04-09,True,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2008-04-10,False,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2008-04-11,True,1,2008-04-11|P1|Benfica|Academica,Benfica,ELIGIBLE,0,,,NO_ELIGIBLE_EVENT,HOME_ONLY,True,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2008-04-12,True,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2008-04-13,True,2,2008-04-13|SP1|Real Madrid|Murcia,Real Madrid,ELIGIBLE,0,,,NO_ELIGIBLE_EVENT,HOME_ONLY,True,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2008-04-14,True,1,2008-04-14|E0|Chelsea|Wigan,Chelsea,ELIGIBLE,0,,,NO_ELIGIBLE_EVENT,HOME_ONLY,True,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2008-04-15,True,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2008-04-16,True,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2008-04-17,True,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2008-04-18,True,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2008-04-19,True,1,2008-04-19|I1|Roma|Livorno,Roma,ELIGIBLE,0,,,NO_ELIGIBLE_EVENT,HOME_ONLY,True,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2008-04-20,True,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2008-04-21,True,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2008-04-22,False,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2008-04-23,False,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2008-04-24,False,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2008-04-25,True,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2008-04-26,True,1,2008-04-26|B1|Anderlecht|St Truiden,Anderlecht,ELIGIBLE,0,,,NO_ELIGIBLE_EVENT,HOME_ONLY,True,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2008-04-27,True,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2008-04-28,True,0,,,NO_ELIGIBLE_EVENT,1,2008-04-28|E0|Derby|Arsenal,Arsenal,ELIGIBLE,AWAY_ONLY,True,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2008-04-29,False,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2008-04-30,False,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2008-05-01,False,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2008-05-02,True,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2008-05-03,True,3,2008-05-03|E0|Man United|West Ham,Man United,ELIGIBLE,0,,,NO_ELIGIBLE_EVENT,HOME_ONLY,True,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2008-05-04,True,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2008-05-05,True,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2008-05-06,True,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2008-05-07,True,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2008-05-08,True,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2008-05-09,True,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2008-05-10,True,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2008-05-11,True,3,2008-05-11|E0|Chelsea|Bolton,Chelsea,ELIGIBLE,1,2008-05-11|E0|Wigan|Man United,Man United,ELIGIBLE,BOTH,True,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2008-05-12,False,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2008-05-13,True,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2008-05-14,False,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2008-05-15,False,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2008-05-16,False,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2008-05-17,True,1,2008-05-17|F1|Marseille|Strasbourg,Marseille,ELIGIBLE,0,,,NO_ELIGIBLE_EVENT,HOME_ONLY,True,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2008-05-18,True,2,2008-05-18|SP1|Real Madrid|Levante,Real Madrid,ELIGIBLE,0,,,NO_ELIGIBLE_EVENT,HOME_ONLY,True,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2008-05-19,True,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2008-05-20,False,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2008-05-21,False,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind
+2008-05-22,True,0,,,NO_ELIGIBLE_EVENT,0,,,NO_ELIGIBLE_EVENT,NEITHER,False,official Football-Data 0708 B365H/B365D/B365A; outcome-blind

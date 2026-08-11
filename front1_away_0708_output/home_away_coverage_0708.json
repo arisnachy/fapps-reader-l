@@ -1,0 +1,40 @@
+{
+  "active_date_categories": {
+    "AWAY_ONLY": 3,
+    "BOTH": 4,
+    "HOME_ONLY": 65,
+    "NEITHER": 122
+  },
+  "active_date_no_bet_rate": 0.6288659793814433,
+  "active_dates_no_bet": 122,
+  "away_candidate_dates": 7,
+  "block": "0708",
+  "calendar_day_categories": {
+    "AWAY_ONLY": 3,
+    "BOTH": 4,
+    "HOME_ONLY": 65,
+    "NEITHER": 222
+  },
+  "calendar_day_no_bet_rate": 0.7551020408163265,
+  "calendar_days_no_bet": 222,
+  "calendar_span": {
+    "days": 294,
+    "end": "2008-05-22",
+    "start": "2007-08-03"
+  },
+  "comparison_is_outcome_blind": true,
+  "guard": "Coverage uses prematch prices and dates only; no FTHG/FTAG settlement outcome enters HOME/AWAY eligibility or overlap diagnostics.",
+  "home_candidate_dates": 69,
+  "incremental_away_fill_dates": 3,
+  "incremental_away_fill_share_of_home_gaps": 0.024,
+  "longest_consecutive_calendar_days_without_candidate": 19,
+  "match_active_dates": 194,
+  "max_days_between_union_candidate_dates": 20,
+  "median_days_between_union_candidate_dates": 3,
+  "thresholds_unchanged": {
+    "AWAY": 0.75,
+    "HOME": 0.75
+  },
+  "union_active_date_coverage_rate": 0.3711340206185567,
+  "union_candidate_dates": 72
+}

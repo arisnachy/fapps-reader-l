@@ -1,0 +1,62 @@
+{
+  "anti_retune_guard": "Result is terminal for this preregistered 0708 block; no rule changes or reruns are permitted.",
+  "classification_if_pass": "CORRELATED_FOOTBALL_AVAILABILITY_REDUNDANCY_NOT_INDEPENDENT_CORE",
+  "execution_mode": "SINGLE_USE_FROZEN_OOS",
+  "failed": 0,
+  "final_result": "NO_PASS",
+  "github_run_id": "31535986247",
+  "hypothesis_id": "FOOTBALL_PLUS1_5_AWAY_MARKET_DOMINANCE_V1",
+  "integrity": {
+    "eligible_raw_events": 7,
+    "league_counts": {
+      "E0": 4,
+      "N1": 1,
+      "SC0": 2
+    },
+    "max_league": {
+      "count": 4,
+      "league": "E0",
+      "share": 0.5714285714285714
+    },
+    "max_team": {
+      "count": 2,
+      "share": 0.2857142857142857,
+      "team": "Man United"
+    },
+    "one_selection_per_date_pass": true,
+    "result_leakage_firewall_pass": true,
+    "selected_dates": 7,
+    "selected_event_uniqueness_pass": true,
+    "settlement_completeness_pass": true,
+    "settlement_rule_pass": true,
+    "source_identity_pass": true,
+    "team_counts": {
+      "Ajax": 1,
+      "Arsenal": 1,
+      "Celtic": 1,
+      "Chelsea": 1,
+      "Man United": 2,
+      "Rangers": 1
+    },
+    "threshold_pass": true
+  },
+  "lcb_gate": {
+    "observed": 0.6456695649333126,
+    "pass": false,
+    "required": 0.9
+  },
+  "n_gate": {
+    "observed": 7,
+    "pass": false,
+    "required": 35
+  },
+  "rate": 1.0,
+  "selected": 7,
+  "settled": 7,
+  "survived": 7,
+  "threshold": 0.75,
+  "validation_block": "0708",
+  "wilson95_lower": 0.6456695649333126,
+  "wilson95_upper": 1.0,
+  "wilson_z": 1.959963984540054
+}

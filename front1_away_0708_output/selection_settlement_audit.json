@@ -1,0 +1,34 @@
+{
+  "eligible_raw_events": 7,
+  "league_counts": {
+    "E0": 4,
+    "N1": 1,
+    "SC0": 2
+  },
+  "max_league": {
+    "count": 4,
+    "league": "E0",
+    "share": 0.5714285714285714
+  },
+  "max_team": {
+    "count": 2,
+    "share": 0.2857142857142857,
+    "team": "Man United"
+  },
+  "one_selection_per_date_pass": true,
+  "result_leakage_firewall_pass": true,
+  "selected_dates": 7,
+  "selected_event_uniqueness_pass": true,
+  "settlement_completeness_pass": true,
+  "settlement_rule_pass": true,
+  "source_identity_pass": true,
+  "team_counts": {
+    "Ajax": 1,
+    "Arsenal": 1,
+    "Celtic": 1,
+    "Chelsea": 1,
+    "Man United": 2,
+    "Rangers": 1
+  },
+  "threshold_pass": true
+}

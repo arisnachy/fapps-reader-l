@@ -1,0 +1,8 @@
+date,league_code,HomeTeam,AwayTeam,B365H,B365D,B365A,p_away_novig,FTHG,FTAG,selected_team,contract,settlement,loss_margin
+2007-11-24,E0,Derby,Chelsea,15.0,6.0,1.22,0.7784120394395433,0,2,Chelsea,AWAY +1.5,PASS,-2
+2007-12-23,N1,Excelsior,Ajax,10.0,6.0,1.25,0.75,2,1,Ajax,AWAY +1.5,PASS,1
+2008-01-16,SC0,Gretna,Rangers,12.0,5.5,1.25,0.7510668563300142,1,2,Rangers,AWAY +1.5,PASS,-1
+2008-03-15,E0,Derby,Man United,17.0,7.0,1.16,0.8104058839553255,0,1,Man United,AWAY +1.5,PASS,-1
+2008-03-23,SC0,Gretna,Celtic,23.0,9.0,1.1,0.8546655656482247,0,3,Celtic,AWAY +1.5,PASS,-3
+2008-04-28,E0,Derby,Arsenal,13.0,5.5,1.25,0.7556142668428005,2,6,Arsenal,AWAY +1.5,PASS,-4
+2008-05-11,E0,Wigan,Man United,12.0,6.5,1.22,0.7755791985681615,0,2,Man United,AWAY +1.5,PASS,-2
