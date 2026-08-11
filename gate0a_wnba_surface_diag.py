@@ -16,6 +16,41 @@ def clean(v: Any) -> str:
     return base.clean(v)
 
 
+def advanced_prop_nodes(page) -> list[dict[str, Any]]:
+    try:
+        rows = page.locator("#dvBetZone *").evaluate_all(
+            """
+            els => {
+              const clean = s => (s || '').replace(/\s+/g, ' ').trim();
+              return els.map((e, index) => ({
+                index,
+                tag_name: (e.tagName || '').toLowerCase(),
+                text: clean(e.innerText || e.textContent),
+                id: e.id || '',
+                class_name: typeof e.className === 'string' ? e.className : '',
+                href: e.getAttribute('href') || '',
+                onclick: e.getAttribute('onclick') || '',
+                title: e.getAttribute('title') || '',
+                role: e.getAttribute('role') || '',
+                data: Object.fromEntries(Array.from(e.attributes || [])
+                  .filter(a => a.name.startsWith('data-'))
+                  .map(a => [a.name, a.value])),
+              })).filter(x => /advanced player and game props/i.test(x.text));
+            }
+            """
+        )
+    except Exception:
+        return []
+    out: list[dict[str, Any]] = []
+    for row in rows[:200]:
+        row = dict(row)
+        row["href"] = base.redact_url(clean(row.get("href"))) if clean(row.get("href")) else ""
+        row["onclick"] = base.redact_text(clean(row.get("onclick")))
+        row["data"] = {str(k): base.redact_text(str(v)) for k, v in (row.get("data") or {}).items()}
+        out.append(row)
+    return out
+
+
 def main() -> int:
     OUT.mkdir(parents=True, exist_ok=True)
     network_events: dict[tuple[int, int], dict[str, Any]] = {}
@@ -26,6 +61,7 @@ def main() -> int:
         "guards": [
             "No credentials/account state.",
             "No bet-selection control clicks.",
+            "Advanced Player and Game Props entrypoints are inspected but not clicked in this pass.",
             "This diagnostic cannot emit C2 market absence or PASS.",
         ],
     }
@@ -73,6 +109,7 @@ def main() -> int:
             page.wait_for_timeout(1200)
             selects = base.contextual_selects(page)
             rows = base.market_rows(page)[:4000]
+            prop_nodes = advanced_prop_nodes(page)
             try:
                 zone_text = clean(page.locator("#dvBetZone").inner_text(timeout=5_000))[:40000]
             except Exception:
@@ -88,6 +125,7 @@ def main() -> int:
                 "all_selects": selects,
                 "market_rows": rows,
                 "headers": headers,
+                "advanced_prop_nodes": prop_nodes,
                 "dvBetZone_text": zone_text,
                 "team_total_candidate_count": sum(1 for s in selects if base.looks_team_total(s)),
             })
@@ -111,6 +149,7 @@ def main() -> int:
                 "select_count": len(e.get("all_selects") or []),
                 "team_total_candidate_count": e.get("team_total_candidate_count"),
                 "market_row_count": len(e.get("market_rows") or []),
+                "advanced_prop_nodes": e.get("advanced_prop_nodes"),
                 "headers": e.get("headers"),
                 "zone_text_preview": clean(e.get("dvBetZone_text"))[:2500],
             }
