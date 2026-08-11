@@ -1,0 +1,158 @@
+name: KIRA Tennis Exact-Date Calendar Audit V3
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/kira-tennis-calendar-audit-v3.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  exact_date_join:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install dependencies
+        run: python -m pip install --disable-pip-version-check requests beautifulsoup4
+      - name: Build exact-date calendar from frozen T3 identities
+        shell: python
+        run: |
+          import csv, hashlib, io, json, re, unicodedata
+          from datetime import datetime, timedelta
+          from pathlib import Path
+          import requests
+          from bs4 import BeautifulSoup
+
+          EXPECTED_SHA256='78c356ef9328b89ae58a17564d61c02cdad2a3a007f6b8af5cfc17992b11bb2d'
+          EXPECTED_GIT_OBJECT='b9c0d84ee91691cc10fbe1d56212c39760dddcdb'
+          FROZEN_URL='https://raw.githubusercontent.com/Kadantte/tennis_atp/master/atp_matches_2025.csv'
+          OUT=Path('artifacts/tennis_calendar_v3'); OUT.mkdir(parents=True,exist_ok=True)
+          S=requests.Session(); S.headers['User-Agent']='Mozilla/5.0 KIRA-Tennis-Calendar-Audit/3.0 read-only'
+
+          def norm(v):
+              s=unicodedata.normalize('NFKD',str(v or ''))
+              s=''.join(c for c in s if not unicodedata.combining(c)).casefold()
+              return re.sub(r'\s+',' ',re.sub(r'[^a-z0-9]+',' ',s).strip())
+          def rank(v):
+              try:
+                  x=int(float(v)); return x if x>0 else None
+              except Exception: return None
+          def git_object_sha(data):
+              return hashlib.sha1(b'blob '+str(len(data)).encode()+b'\0'+data).hexdigest()
+          def name_key(full):
+              toks=norm(full).split()
+              return (toks[-1], toks[0][0]) if toks else ('','')
+          def te_name_key(abbr):
+              toks=norm(abbr).split()
+              if len(toks)<2: return ('','')
+              return (toks[-2], toks[-1][0])
+          def pair_key(a,b,external=False):
+              f=te_name_key if external else name_key
+              return tuple(sorted([f(a),f(b)]))
+          def parse_anchor(s):
+              return datetime.strptime(s,'%Y%m%d').date()
+          def tourn_sim(a,b):
+              aa=set(norm(a).replace('masters','').replace('japan open','').split())
+              bb=set(norm(b).replace('masters','').replace('japan open','').split())
+              aliases={'canada':'toronto','queens':'queen','club':'','cincinnati':'cincinnati','shanghai':'shanghai'}
+              aa={aliases.get(x,x) for x in aa if aliases.get(x,x)}; bb={aliases.get(x,x) for x in bb if aliases.get(x,x)}
+              return len(aa & bb)
+
+          r=S.get(FROZEN_URL,timeout=60); r.raise_for_status(); raw=r.content
+          sha256=hashlib.sha256(raw).hexdigest(); obj=git_object_sha(raw)
+          if sha256!=EXPECTED_SHA256 or obj!=EXPECTED_GIT_OBJECT:
+              raise SystemExit(f'FROZEN_SOURCE_IDENTITY_FAIL {len(raw)} {sha256} {obj}')
+          print('SOURCE_FINGERPRINT_PASS',len(raw),sha256,obj)
+
+          candidates=[]
+          for row in csv.DictReader(io.StringIO(raw.decode('utf-8-sig'))):
+              if str(row.get('tourney_level','')).strip().upper()=='D': continue
+              try:
+                  if int(float(row.get('best_of') or 0))!=3: continue
+              except Exception: continue
+              wr,lr=rank(row.get('winner_rank')),rank(row.get('loser_rank'))
+              if wr is None or lr is None: continue
+              ws=wr<=3 and lr>=11; ls=lr<=3 and wr>=11
+              if ws==ls: continue
+              selected=row['winner_name'] if ws else row['loser_name']; opponent=row['loser_name'] if ws else row['winner_name']
+              candidates.append({'tourney_id':row.get('tourney_id',''),'tourney_name':row.get('tourney_name',''),'tourney_date_anchor':str(row.get('tourney_date','')),'round':row.get('round',''),'selected_player':selected,'selected_rank':wr if ws else lr,'opponent':opponent,'opponent_rank':lr if ws else wr,'pair_key':pair_key(selected,opponent)})
+          if len(candidates)!=115: raise SystemExit(f'T3_CANDIDATE_COUNT_FAIL:{len(candidates)}')
+          print('T3_PREGAME_CANDIDATES',len(candidates))
+
+          slugs={'Alexander Zverev':'zverev-6f768','Carlos Alcaraz':'alcaraz-5ab70','Jannik Sinner':'sinner-8b8e8'}
+          external=[]; diagnostics=[]
+          for player,slug in slugs.items():
+              for year in (2024,2025):
+                  url=f'https://www.tennisexplorer.com/player/{slug}/?annual={year}'
+                  rr=S.get(url,timeout=60); diagnostics.append({'player':player,'year':year,'url':url,'http':rr.status_code,'bytes':len(rr.content)})
+                  rr.raise_for_status(); soup=BeautifulSoup(rr.text,'html.parser')
+                  current_tournament=''
+                  parsed=0
+                  for tr in soup.find_all('tr'):
+                      cells=[' '.join(td.stripped_strings) for td in tr.find_all(['th','td'],recursive=False)]
+                      if not cells: continue
+                      first=cells[0].strip()
+                      date_match=re.fullmatch(r'(\d{1,2})\.(\d{1,2})\.',first)
+                      if not date_match:
+                          # Tournament header rows look like: <tournament> | Round | Result | H | A.
+                          low=' '.join(cells).casefold()
+                          if 'round' in low and cells[0].strip(): current_tournament=cells[0].strip()
+                          continue
+                      match_cell=next((c for c in cells if ' - ' in c), '')
+                      if not match_cell: continue
+                      left,right=match_cell.split(' - ',1)
+                      try: d=datetime(year,int(date_match.group(2)),int(date_match.group(1))).date()
+                      except ValueError: continue
+                      external.append({'date':d.isoformat(),'date_obj':d,'tournament':current_tournament,'player_page':player,'left':left.strip(),'right':right.strip(),'pair_key':pair_key(left,right,external=True),'source_url':url})
+                      parsed+=1
+                  diagnostics[-1]['parsed_date_rows']=parsed
+                  print('TENNISEXPLORER_PARSE',player,year,parsed,url)
+          (OUT/'calendar_source_diagnostics.json').write_text(json.dumps(diagnostics,indent=2,ensure_ascii=False)+'\n')
+          if not external: raise SystemExit('NO_EXTERNAL_DATE_ROWS')
+
+          ledger=[]
+          for c in candidates:
+              anchor=parse_anchor(c['tourney_date_anchor']); lo=anchor-timedelta(days=5); hi=anchor+timedelta(days=20)
+              hits=[x for x in external if x['pair_key']==c['pair_key'] and lo<=x['date_obj']<=hi]
+              # Same match appears on both selected-player pages when both are top-3; deduplicate by date/pair/tournament.
+              uniq={ (x['date'],x['pair_key'],norm(x['tournament'])):x for x in hits }
+              hits=list(uniq.values())
+              if len(hits)>1:
+                  best=max(tourn_sim(c['tourney_name'],x['tournament']) for x in hits)
+                  if best>0:
+                      narrowed=[x for x in hits if tourn_sim(c['tourney_name'],x['tournament'])==best]
+                      if len(narrowed)==1: hits=narrowed
+              if len(hits)==1:
+                  h=hits[0]; exact=h['date']; status='EXACT_DATE_JOINED_UNIQUE_IDENTITY_WINDOW'; source_t=h['tournament']; source_url=h['source_url']
+              else:
+                  exact=''; status='UNRESOLVED'; source_t=''; source_url=''
+              ledger.append({k:v for k,v in c.items() if k!='pair_key'} | {'exact_match_date':exact,'date_status':status,'date_source_tournament':source_t,'date_source_url':source_url,'join_hit_count':len(hits),'candidate_date_hits':[{'date':x['date'],'tournament':x['tournament']} for x in hits]})
+
+          resolved=[x for x in ledger if x['exact_match_date']]; unresolved=[x for x in ledger if not x['exact_match_date']]
+          by_date={}
+          for x in resolved: by_date[x['exact_match_date']]=by_date.get(x['exact_match_date'],0)+1
+          dates=sorted(by_date); gaps=[]
+          for a,b in zip(dates,dates[1:]):
+              da=datetime.fromisoformat(a).date(); db=datetime.fromisoformat(b).date(); delta=(db-da).days
+              gaps.append({'from':a,'to':b,'gap_days':delta,'intervening_no_candidate_calendar_days':max(0,delta-1)})
+          gaps.sort(key=lambda x:x['gap_days'],reverse=True)
+          summary={'audit':'T3_EXACT_MATCH_DATE_CALENDAR_V3','frozen_source_sha256':EXPECTED_SHA256,'frozen_source_git_object_sha1':EXPECTED_GIT_OBJECT,'pregame_candidates':115,'exact_dates_resolved':len(resolved),'unresolved':len(unresolved),'distinct_exact_candidate_dates':len(dates),'candidate_counts_by_exact_date':by_date,'largest_exact_candidate_date_gaps':gaps[:20],'external_date_source':'TennisExplorer annual player match histories','selection_outcomes_used_for_selector':False,'settlement_scored':False,'guard':'External match result orientation, score and odds are never used to create/remove/rank/retune T3. External rows are used only as unordered player identity + calendar date after the 115 frozen candidates already exist. Nonunique joins remain UNRESOLVED.'}
+          (OUT/'t3_exact_date_ledger.json').write_text(json.dumps(ledger,indent=2,ensure_ascii=False)+'\n')
+          (OUT/'t3_exact_date_summary.json').write_text(json.dumps(summary,indent=2,ensure_ascii=False)+'\n')
+          (OUT/'t3_unresolved.json').write_text(json.dumps(unresolved,indent=2,ensure_ascii=False)+'\n')
+          print('KIRA_CALENDAR_SUMMARY',json.dumps(summary,sort_keys=True))
+          if len(resolved)<100: raise SystemExit(f'CALENDAR_COVERAGE_TOO_LOW:{len(resolved)}/115')
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: kira-tennis-exact-date-calendar-v3
+          path: artifacts/tennis_calendar_v3
+          if-no-files-found: error
+          retention-days: 30
