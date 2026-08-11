@@ -1,0 +1,170 @@
+name: KIRA Tennis Exact-Date Calendar Audit V2
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/kira-tennis-calendar-audit-v2.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  exact_date_join:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install dependencies
+        run: python -m pip install --disable-pip-version-check pandas openpyxl requests beautifulsoup4 xlrd
+      - name: Exact-date outcome-blind join
+        shell: python
+        run: |
+          import csv, hashlib, io, json, re, unicodedata, zipfile
+          from pathlib import Path
+          from urllib.parse import urljoin
+          import pandas as pd
+          import requests
+          from bs4 import BeautifulSoup
+
+          EXPECTED_SHA256='78c356ef9328b89ae58a17564d61c02cdad2a3a007f6b8af5cfc17992b11bb2d'
+          EXPECTED_GIT_OBJECT='b9c0d84ee91691cc10fbe1d56212c39760dddcdb'
+          OUT=Path('artifacts/tennis_calendar'); OUT.mkdir(parents=True,exist_ok=True)
+          S=requests.Session(); S.headers['User-Agent']='KIRA-Tennis-Calendar-Audit/2.0 read-only'
+
+          def norm(v):
+              s=unicodedata.normalize('NFKD',str(v or ''))
+              s=''.join(c for c in s if not unicodedata.combining(c)).casefold()
+              return re.sub(r'\s+',' ',re.sub(r'[^a-z0-9]+',' ',s).strip())
+          def rank(v):
+              try:
+                  x=int(float(v)); return x if x>0 else None
+              except Exception: return None
+          def git_object_sha(data):
+              return hashlib.sha1(b'blob '+str(len(data)).encode()+b'\0'+data).hexdigest()
+
+          # Recover the frozen source only by exact cryptographic identity; never accept a changed upstream object.
+          source_candidates=[
+              'https://raw.githubusercontent.com/JeffSackmann/tennis_atp/master/atp_matches_2025.csv',
+              'https://raw.githubusercontent.com/Kadantte/tennis_atp/master/atp_matches_2025.csv',
+          ]
+          raw=None; source_url=None
+          diagnostics=[]
+          for u in source_candidates:
+              try:
+                  r=S.get(u,timeout=60); r.raise_for_status(); b=r.content
+                  rec={'url':u,'bytes':len(b),'sha256':hashlib.sha256(b).hexdigest(),'git_object_sha1':git_object_sha(b)}
+                  diagnostics.append(rec); print('FROZEN_SOURCE_CANDIDATE',json.dumps(rec))
+                  if rec['sha256']==EXPECTED_SHA256 and rec['git_object_sha1']==EXPECTED_GIT_OBJECT:
+                      raw=b; source_url=u; break
+              except Exception as e:
+                  diagnostics.append({'url':u,'error':f'{type(e).__name__}: {e}'})
+          (OUT/'source_diagnostics.json').write_text(json.dumps(diagnostics,indent=2)+'\n')
+          if raw is None: raise SystemExit('FROZEN_SOURCE_IDENTITY_NOT_RECOVERED')
+          print('SOURCE_FINGERPRINT_PASS',source_url,len(raw),EXPECTED_GIT_OBJECT,EXPECTED_SHA256)
+
+          reader=csv.DictReader(io.StringIO(raw.decode('utf-8-sig')))
+          candidates=[]
+          for row in reader:
+              if str(row.get('tourney_level','')).strip().upper()=='D': continue
+              try:
+                  if int(float(row.get('best_of') or 0))!=3: continue
+              except Exception: continue
+              wr,lr=rank(row.get('winner_rank')),rank(row.get('loser_rank'))
+              if wr is None or lr is None: continue
+              ws=wr<=3 and lr>=11; ls=lr<=3 and wr>=11
+              if ws==ls: continue
+              selected=row['winner_name'] if ws else row['loser_name']; opponent=row['loser_name'] if ws else row['winner_name']
+              candidates.append({'tourney_id':row.get('tourney_id',''),'tourney_name':row.get('tourney_name',''),'tourney_date_anchor':str(row.get('tourney_date','')),'round':row.get('round',''),'selected_player':selected,'selected_rank':wr if ws else lr,'opponent':opponent,'opponent_rank':lr if ws else wr,'pair_key':'||'.join(sorted([norm(selected),norm(opponent)]))})
+          if len(candidates)!=115: raise SystemExit(f'FROZEN_SELECTOR_COUNT_MISMATCH:{len(candidates)}')
+          print('T3_PREGAME_CANDIDATES',len(candidates))
+
+          index='https://www.tennis-data.co.uk/alldata.php'
+          ir=S.get(index,timeout=60); print('TENNIS_DATA_INDEX_HTTP',ir.status_code,len(ir.content)); ir.raise_for_status()
+          soup=BeautifulSoup(ir.text,'html.parser')
+          links=[]
+          for a in soup.find_all('a',href=True):
+              href=urljoin(index,a['href']); context=' '.join([a.get_text(' ',strip=True),a.get('title',''),a.get('href','')])
+              img=a.find('img')
+              if img: context+=' '+str(img.get('alt',''))+' '+str(img.get('src',''))+' '+str(img.get('title',''))
+              if '2025' in context: links.append(href)
+          links=list(dict.fromkeys(links))
+          guesses=['https://www.tennis-data.co.uk/2025/2025.zip','https://www.tennis-data.co.uk/2025/2025.xlsx','https://www.tennis-data.co.uk/2025/2025.xls','https://www.tennis-data.co.uk/2025/2025.csv']
+          urls=list(dict.fromkeys(links+guesses))
+          print('TENNIS_DATA_2025_URLS',json.dumps(urls[:40]))
+
+          frames=[]; accepted_urls=[]; data_diag=[]
+          for u in urls:
+              try:
+                  rr=S.get(u,timeout=90); data_diag.append({'url':u,'http':rr.status_code,'bytes':len(rr.content),'content_type':rr.headers.get('content-type','')})
+                  if rr.status_code!=200: continue
+                  content=rr.content; local=[]
+                  if zipfile.is_zipfile(io.BytesIO(content)):
+                      with zipfile.ZipFile(io.BytesIO(content)) as z:
+                          for name in z.namelist():
+                              try:
+                                  b=z.read(name); low=name.lower()
+                                  if low.endswith('.csv'): local.append(pd.read_csv(io.BytesIO(b)))
+                                  elif low.endswith(('.xls','.xlsx')): local.append(pd.read_excel(io.BytesIO(b)))
+                              except Exception: pass
+                  else:
+                      low=u.lower().split('?')[0]
+                      try:
+                          if low.endswith('.csv'): local=[pd.read_csv(io.BytesIO(content))]
+                          elif low.endswith(('.xls','.xlsx')): local=[pd.read_excel(io.BytesIO(content))]
+                      except Exception: local=[]
+                  good=[]
+                  for df in local:
+                      cols={str(c).strip().casefold():c for c in df.columns}
+                      if all(k in cols for k in ('date','winner','loser')): good.append(df)
+                  if good:
+                      frames.extend(good); accepted_urls.append(u)
+                      if sum(len(x) for x in frames)>1000: break
+              except Exception as e: data_diag.append({'url':u,'error':f'{type(e).__name__}: {e}'})
+          (OUT/'date_source_diagnostics.json').write_text(json.dumps(data_diag,indent=2)+'\n')
+          if not frames: raise SystemExit('NO_TENNIS_DATA_TABLE_WITH_DATE_WINNER_LOSER')
+
+          td=pd.concat(frames,ignore_index=True,sort=False); cols={str(c).strip().casefold():c for c in td.columns}
+          dcol,wcol,lcol=cols['date'],cols['winner'],cols['loser']; tcol=cols.get('tournament') or cols.get('tourney')
+          td['_date']=pd.to_datetime(td[dcol],errors='coerce',dayfirst=True)
+          td['_pair']=td.apply(lambda x:'||'.join(sorted([norm(x[wcol]),norm(x[lcol])])),axis=1)
+          td['_tournament_norm']=td[tcol].map(norm) if tcol is not None else ''
+          print('DATE_SOURCE_ROWS',len(td),'ACCEPTED',json.dumps(accepted_urls))
+
+          ledger=[]
+          for c in candidates:
+              anchor=pd.to_datetime(c['tourney_date_anchor'],format='%Y%m%d',errors='coerce'); hits=td[td['_pair']==c['pair_key']].copy()
+              if pd.notna(anchor): hits=hits[(hits['_date']>=anchor-pd.Timedelta(days=3))&(hits['_date']<=anchor+pd.Timedelta(days=18))]
+              if len(hits)>1 and tcol is not None:
+                  tn=norm(c['tourney_name']); exact=hits[hits['_tournament_norm']==tn]
+                  if len(exact)==1: hits=exact
+                  else:
+                      contain=hits[hits['_tournament_norm'].map(lambda x: bool(x and tn and (x in tn or tn in x)))]
+                      if len(contain)==1: hits=contain
+              if len(hits)==1 and pd.notna(hits.iloc[0]['_date']):
+                  date=hits.iloc[0]['_date'].date().isoformat(); status='EXACT_DATE_JOINED_UNIQUE_PAIR_WINDOW'; src_t=str(hits.iloc[0][tcol]) if tcol is not None else ''
+              else: date=''; status='UNRESOLVED'; src_t=''
+              base={k:v for k,v in c.items() if k!='pair_key'}; ledger.append({**base,'exact_match_date':date,'date_status':status,'date_source_tournament':src_t,'join_hit_count':int(len(hits))})
+          resolved=[x for x in ledger if x['exact_match_date']]; unresolved=[x for x in ledger if not x['exact_match_date']]
+          by_date={}
+          for x in resolved: by_date[x['exact_match_date']]=by_date.get(x['exact_match_date'],0)+1
+          dates=sorted(by_date); gaps=[]
+          for a,b in zip(dates,dates[1:]):
+              delta=(pd.Timestamp(b)-pd.Timestamp(a)).days; gaps.append({'from':a,'to':b,'gap_days':int(delta),'intervening_days':max(0,int(delta)-1)})
+          gaps.sort(key=lambda x:x['gap_days'],reverse=True)
+          summary={'audit':'T3_EXACT_MATCH_DATE_CALENDAR_JOIN','selection_outcomes_used_for_selector':False,'settlement_scored':False,'frozen_source_url':source_url,'frozen_source_git_object_sha1':EXPECTED_GIT_OBJECT,'frozen_source_sha256':EXPECTED_SHA256,'pregame_candidates':115,'exact_dates_resolved':len(resolved),'unresolved':len(unresolved),'distinct_exact_candidate_dates':len(dates),'candidate_counts_by_exact_date':by_date,'largest_exact_candidate_date_gaps':gaps[:20],'date_source_urls':accepted_urls,'guard':'External winner/loser columns are used only as an unordered identity pair to attach a calendar date to already-frozen candidates. Score, odds and winner orientation never create/remove/rank/retune T3; non-unique joins stay UNRESOLVED.'}
+          (OUT/'t3_exact_date_ledger.json').write_text(json.dumps(ledger,indent=2,ensure_ascii=False)+'\n')
+          (OUT/'t3_exact_date_summary.json').write_text(json.dumps(summary,indent=2,ensure_ascii=False)+'\n')
+          (OUT/'t3_unresolved.json').write_text(json.dumps(unresolved,indent=2,ensure_ascii=False)+'\n')
+          print('KIRA_CALENDAR_SUMMARY',json.dumps(summary,sort_keys=True))
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: kira-tennis-exact-date-calendar-v2
+          path: artifacts/tennis_calendar
+          if-no-files-found: warn
+          retention-days: 30
