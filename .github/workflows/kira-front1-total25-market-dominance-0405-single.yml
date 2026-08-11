@@ -1,0 +1,26 @@
+name: KIRA FRONT1 TOTAL25 MARKET DOMINANCE 0405 SINGLE
+on:
+  push:
+    paths:
+      - '.github/workflows/kira-front1-total25-market-dominance-0405-single.yml'
+permissions:
+  contents: write
+jobs:
+  frozen_oos:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Execute frozen Total 2.5 0405 once
+        run: python kira_front1_total25_market_dominance_0405_single.py | tee total25_0405_stdout.json
+      - name: Persist immutable evidence
+        run: |
+          git config user.name 'kira-science-bot'
+          git config user.email '127772990+arisnachy@users.noreply.github.com'
+          git add front1_total25_market_dominance_0405_output total25_0405_stdout.json
+          git commit -m "KIRA FRONT1 RESULT: frozen TOTAL25 0405 single execution $GITHUB_RUN_ID"
+          git pull --rebase origin main
+          git push
