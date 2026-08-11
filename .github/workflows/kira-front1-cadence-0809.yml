@@ -1,0 +1,24 @@
+name: KIRA FRONT1 CADENCE 0809 TEMP
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/kira-front1-cadence-0809.yml'
+permissions:
+  contents: write
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python kira_front1_cadence_0809.py
+      - run: |
+          git config user.name 'kira-science-bot'
+          git config user.email 'kira-science-bot@users.noreply.github.com'
+          git add cadence_0809.json
+          git commit -m 'KIRA TEMP: persist descriptive Football cadence audit'
+          git push
