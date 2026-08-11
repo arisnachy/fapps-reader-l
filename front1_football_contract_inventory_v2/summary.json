@@ -1,0 +1,190 @@
+{
+  "captured_at_utc": "2026-08-11T22:48:09.611794+00:00",
+  "execution": "anonymous_public_read_only",
+  "transport": "standalone mirror of PR65 public BOSS + DOM RelatedEvents mechanics",
+  "navigation": {
+    "captured_at_utc": "2026-08-11T22:47:12.047690+00:00",
+    "start_url": "https://deportes.juancitosport.com.do/BOSSWagering/Sportsbook/InternetBetTaker/?lng=es-ES&siteid=jssport",
+    "status": 200,
+    "final_url": "https://deportes.juancitosport.com.do/BOSSWagering/Sportsbook/InternetBetTaker2024-10/Sportsbook.aspx?SSC=3001&lng=es-ES"
+  },
+  "league_clicks": [
+    {
+      "label": "USA",
+      "clicked": true
+    },
+    {
+      "label": "SPAIN",
+      "clicked": false
+    },
+    {
+      "label": "AUSTRIA",
+      "clicked": false
+    },
+    {
+      "label": "GERMANY",
+      "clicked": false
+    },
+    {
+      "label": "ITALY",
+      "clicked": false
+    },
+    {
+      "label": "FRANCE",
+      "clicked": false
+    },
+    {
+      "label": "PORTUGAL",
+      "clicked": false
+    },
+    {
+      "label": "NETHERLANDS",
+      "clicked": false
+    },
+    {
+      "label": "SCOTLAND",
+      "clicked": false
+    },
+    {
+      "label": "BELGIUM",
+      "clicked": false
+    }
+  ],
+  "xhr_event_refs_seen": 34,
+  "dom_or_xhr_soccer_candidates": 12,
+  "soccer_events_examined": 12,
+  "details": [
+    {
+      "header_id": 1945,
+      "event_id": 1961119,
+      "title": "Draw",
+      "source": "dom_related",
+      "sport": "Soccer",
+      "source_league": "USA",
+      "related_called": true,
+      "error": null
+    },
+    {
+      "header_id": 1945,
+      "event_id": 1961135,
+      "title": "Draw",
+      "source": "dom_related",
+      "sport": "Soccer",
+      "source_league": "USA",
+      "related_called": true,
+      "error": null
+    },
+    {
+      "header_id": 1945,
+      "event_id": 1962479,
+      "title": "Draw",
+      "source": "dom_related",
+      "sport": "Soccer",
+      "source_league": "USA",
+      "related_called": true,
+      "error": null
+    },
+    {
+      "header_id": 1945,
+      "event_id": 1962462,
+      "title": "Draw",
+      "source": "dom_related",
+      "sport": "Soccer",
+      "source_league": "USA",
+      "related_called": true,
+      "error": null
+    },
+    {
+      "header_id": 1945,
+      "event_id": 1961390,
+      "title": "Draw",
+      "source": "dom_related",
+      "sport": "Soccer",
+      "source_league": "USA",
+      "related_called": true,
+      "error": null
+    },
+    {
+      "header_id": 1945,
+      "event_id": 1961152,
+      "title": "Draw",
+      "source": "dom_related",
+      "sport": "Soccer",
+      "source_league": "USA",
+      "related_called": true,
+      "error": null
+    },
+    {
+      "header_id": 1945,
+      "event_id": 1961387,
+      "title": "Draw",
+      "source": "dom_related",
+      "sport": "Soccer",
+      "source_league": "USA",
+      "related_called": true,
+      "error": null
+    },
+    {
+      "header_id": 1945,
+      "event_id": 1961386,
+      "title": "Draw",
+      "source": "dom_related",
+      "sport": "Soccer",
+      "source_league": "USA",
+      "related_called": true,
+      "error": null
+    },
+    {
+      "header_id": 1945,
+      "event_id": 1961388,
+      "title": "Draw",
+      "source": "dom_related",
+      "sport": "Soccer",
+      "source_league": "USA",
+      "related_called": true,
+      "error": null
+    },
+    {
+      "header_id": 1945,
+      "event_id": 1961389,
+      "title": "Draw",
+      "source": "dom_related",
+      "sport": "Soccer",
+      "source_league": "USA",
+      "related_called": true,
+      "error": null
+    },
+    {
+      "header_id": 1945,
+      "event_id": 1961447,
+      "title": "Draw",
+      "source": "dom_related",
+      "sport": "Soccer",
+      "source_league": "USA",
+      "related_called": true,
+      "error": null
+    },
+    {
+      "header_id": 1945,
+      "event_id": 1961463,
+      "title": "Draw",
+      "source": "dom_related",
+      "sport": "Soccer",
+      "source_league": "USA",
+      "related_called": true,
+      "error": null
+    }
+  ],
+  "market_action_rows": 3508,
+  "actionable_rows": 2344,
+  "double_chance_action_rows": 0,
+  "term_hit_counts": {
+    "double_chance": 0,
+    "draw_no_bet": 0,
+    "team_total": 0,
+    "winning_margin": 0,
+    "handicap": 0
+  },
+  "coverage_complete": false,
+  "guard": "Discovery only. Missing families cannot be declared unavailable because coverage_complete=false. No scoring or settlement inference."
+}
