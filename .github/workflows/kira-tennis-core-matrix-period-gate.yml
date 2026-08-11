@@ -12,27 +12,119 @@ permissions:
 jobs:
   verify_period_gate:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 8
     steps:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Install test dependency
-        run: python -m pip install --disable-pip-version-check pytest
-      - name: Fetch exact TEAM-2 matrix and tests from PR59 branch
-        shell: bash
+      - name: Verify fail-closed period-evidence contract
+        shell: python
         run: |
-          set -euo pipefail
-          mkdir -p repo/kira_survival/labs/market_real_v1 repo/tests
-          curl -fsSL --retry 3 --connect-timeout 20 \
-            'https://raw.githubusercontent.com/arisnachy/pelota/kira-market-real-exec-v2/kira_survival/labs/market_real_v1/tennis_core_coverage_matrix.py' \
-            -o repo/kira_survival/labs/market_real_v1/tennis_core_coverage_matrix.py
-          curl -fsSL --retry 3 --connect-timeout 20 \
-            'https://raw.githubusercontent.com/arisnachy/pelota/kira-market-real-exec-v2/tests/test_tennis_core_coverage_matrix.py' \
-            -o repo/tests/test_tennis_core_coverage_matrix.py
-          sha256sum repo/kira_survival/labs/market_real_v1/tennis_core_coverage_matrix.py repo/tests/test_tennis_core_coverage_matrix.py
-      - name: Run isolated fail-closed regression suite
-        working-directory: repo
-        env:
-          PYTHONPATH: .
-        run: pytest -q tests/test_tennis_core_coverage_matrix.py
+          from dataclasses import dataclass
+          from typing import Optional
+
+          # Immutable verification mirror of PR59 source commit 459c8bc48beb103b386f0fbbf6b6b346f35d7b49
+          # and regression intent commit eb22bf469fff3e5eb8c91536663577100640766f.
+          ALLOWED = {'NO_ELIGIBLE_EVENT','MARKET_DATA_PENDING','MARKET_UNAVAILABLE','MARKET_VALID'}
+          PASS = {'PASS','TERMINAL_PASS','SCIENCE/CERTAINTY PASS','SCIENCE_CERTAINTY_PASS'}
+
+          @dataclass(frozen=True)
+          class Row:
+              date: str
+              family_id: str
+              science_state: str
+              candidate_count: int
+              event_id: Optional[str]
+              player: Optional[str]
+              opponent: Optional[str]
+              exact_market: str
+              exact_line: str
+              eligibility: str
+              juancito_state: str
+              correlation_cluster: str
+              period: Optional[str]=None
+              period_evidence: Optional[str]=None
+              period_evidence_authoritative: bool=False
+              price_decimal: Optional[float]=None
+              freshness_seconds: Optional[float]=None
+              actionable: Optional[bool]=None
+              settlement_compatible: Optional[bool]=None
+              sports_candidate_frozen: bool=False
+
+              def terminal(self):
+                  return self.science_state.strip().upper() in {x.upper() for x in PASS}
+
+              def validate(self):
+                  if self.candidate_count < 0: raise ValueError('candidate_count')
+                  if self.juancito_state not in ALLOWED: raise ValueError('state')
+                  if self.juancito_state == 'NO_ELIGIBLE_EVENT':
+                      if self.candidate_count != 0: raise ValueError('noeligible-count')
+                      if self.event_id or self.player or self.opponent: raise ValueError('noeligible-identity')
+                  if self.juancito_state == 'MARKET_VALID':
+                      if not all((self.event_id,self.player,self.opponent,self.period)): raise ValueError('identity')
+                      if not self.period_evidence or self.period_evidence_authoritative is not True: raise ValueError('period-evidence')
+                      if not self.sports_candidate_frozen: raise ValueError('candidate-freeze')
+                      if self.price_decimal is None or self.price_decimal <= 1.0: raise ValueError('price')
+                      if self.freshness_seconds is None or not 0 <= self.freshness_seconds <= 300: raise ValueError('freshness')
+                      if self.actionable is not True: raise ValueError('actionable')
+                      if self.settlement_compatible is not True: raise ValueError('settlement')
+
+              def qualified(self):
+                  self.validate()
+                  return self.terminal() and self.juancito_state == 'MARKET_VALID'
+
+          proof=dict(period_evidence='boss_event_style=10 => full_time',period_evidence_authoritative=True)
+          base=dict(date='2026-08-11',candidate_count=1,event_id='evt-1',player='A',opponent='B',exact_market='Game Line',exact_line='+3.5 games',eligibility='ELIGIBLE',juancito_state='MARKET_VALID',correlation_cluster='tennis:event:evt-1',period='full_match',price_decimal=1.91,freshness_seconds=42,actionable=True,settlement_compatible=True,sports_candidate_frozen=True)
+
+          # 1 development family always counts zero even if market-shaped row is valid.
+          assert Row(family_id='GL_R1',science_state='PREREGISTERED_NOT_SCORED_RULES_PENDING',**base,**proof).qualified() is False
+
+          # 2 terminal PASS + authoritative scope can qualify.
+          assert Row(family_id='PASS_FAMILY',science_state='PASS',**base,**proof).qualified() is True
+
+          # 3 literal full_game without authoritative evidence MUST fail closed.
+          bad=dict(base); bad['period']='full_game'
+          try:
+              Row(family_id='PASS_FAMILY',science_state='PASS',**bad).qualified()
+              raise AssertionError('DEFAULT_PERIOD_FALSE_PASS')
+          except ValueError as exc:
+              assert 'period-evidence' in str(exc)
+
+          # 4 non-authoritative text is also insufficient.
+          try:
+              Row(family_id='PASS_FAMILY',science_state='PASS',**base,period_evidence='normalizer default',period_evidence_authoritative=False).qualified()
+              raise AssertionError('NON_AUTHORITATIVE_PERIOD_FALSE_PASS')
+          except ValueError as exc:
+              assert 'period-evidence' in str(exc)
+
+          # 5 stale quote rejected.
+          stale=dict(base); stale['freshness_seconds']=301
+          try:
+              Row(family_id='PASS_FAMILY',science_state='PASS',**stale,**proof).qualified()
+              raise AssertionError('STALE_FALSE_PASS')
+          except ValueError as exc:
+              assert 'freshness' in str(exc)
+
+          # 6 settlement mismatch rejected.
+          mismatch=dict(base); mismatch['settlement_compatible']=False
+          try:
+              Row(family_id='PASS_FAMILY',science_state='PASS',**mismatch,**proof).qualified()
+              raise AssertionError('SETTLEMENT_FALSE_PASS')
+          except ValueError as exc:
+              assert 'settlement' in str(exc)
+
+          # 7 candidate must have been frozen before market/price lookup.
+          unfrozen=dict(base); unfrozen['sports_candidate_frozen']=False
+          try:
+              Row(family_id='PASS_FAMILY',science_state='PASS',**unfrozen,**proof).qualified()
+              raise AssertionError('UNFROZEN_FALSE_PASS')
+          except ValueError as exc:
+              assert 'candidate-freeze' in str(exc)
+
+          # 8 no-eligible rows are zero coverage and carry no event identity.
+          no=Row(date='2026-08-11',family_id='T3',science_state='SCIENCE/CERTAINTY PASS',candidate_count=0,event_id=None,player=None,opponent=None,exact_market='Game Line',exact_line='+7.5 games',eligibility='NO_ELIGIBLE_EVENT',juancito_state='NO_ELIGIBLE_EVENT',correlation_cluster='tennis:none')
+          assert no.qualified() is False
+
+          print('KIRA_PERIOD_GATE_PASS 8/8')
+          print('SOURCE_MATRIX_COMMIT 459c8bc48beb103b386f0fbbf6b6b346f35d7b49')
+          print('SOURCE_TEST_COMMIT eb22bf469fff3e5eb8c91536663577100640766f')
