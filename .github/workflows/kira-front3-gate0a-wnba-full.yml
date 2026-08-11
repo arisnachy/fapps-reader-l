@@ -7,6 +7,7 @@ on:
     paths:
       - 'gate0a_wnba_full_probe.py'
       - 'gate0a_wnba_surface_diag.py'
+      - 'gate0a_wnba_advanced_props_probe.py'
       - '.github/workflows/kira-front3-gate0a-wnba-full.yml'
 
 permissions:
@@ -19,7 +20,7 @@ concurrency:
 jobs:
   capture:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 25
     steps:
       - uses: actions/checkout@v4
       - name: Install read-only browser runtime
@@ -27,11 +28,11 @@ jobs:
           python -m pip install --disable-pip-version-check playwright==1.55.0
           python -m playwright install --with-deps chromium
       - name: Capture full anonymous WNBA event surfaces
-        run: |
-          python gate0a_wnba_surface_diag.py
+        run: python gate0a_wnba_surface_diag.py
+      - name: Probe Advanced Player and Game Props read-only inventory
+        run: python gate0a_wnba_advanced_props_probe.py
       - name: Capture complete anonymous WNBA Team Total ladder
-        run: |
-          python gate0a_wnba_full_probe.py
+        run: python gate0a_wnba_full_probe.py
       - name: Reject accidental secret-like persistence
         if: always()
         shell: bash
