@@ -1,0 +1,59 @@
+name: KIRA FRONT3 GATE0A WNBA FULL
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'gate0a_wnba_full_probe.py'
+      - '.github/workflows/kira-front3-gate0a-wnba-full.yml'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: kira-front3-gate0a-wnba-full
+  cancel-in-progress: true
+
+jobs:
+  capture:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install read-only browser runtime
+        run: |
+          python -m pip install --disable-pip-version-check playwright==1.55.0
+          python -m playwright install --with-deps chromium
+      - name: Capture complete anonymous WNBA Team Total ladder
+        run: |
+          python gate0a_wnba_full_probe.py
+      - name: Reject accidental secret-like persistence
+        if: always()
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+          bad=[]
+          root=Path('gate0a_artifacts')
+          pats=[
+            re.compile(r'(?i)(password|customerpin)\s*[=:]\s*[^\s,}\]]+'),
+            re.compile(r'(?i)(stoken|sessionid|_session|auth(?:orization)?)\s*[=:]\s*(?!REDACTED)[A-Za-z0-9+/=_-]{12,}'),
+          ]
+          for p in root.glob('*.json'):
+            text=p.read_text(encoding='utf-8',errors='ignore')
+            for pat in pats:
+              if pat.search(text): bad.append((p.name,pat.pattern))
+          if bad:
+            print(bad); raise SystemExit('SECRET_LIKE_ARTIFACT_REJECTED')
+          print('SANITIZED_ARTIFACTS=PASS')
+          PY
+      - name: Upload sanitized Gate0A evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: kira-front3-gate0a-wnba-full
+          path: gate0a_artifacts/*.json
+          if-no-files-found: warn
+          retention-days: 3
