@@ -1,0 +1,25 @@
+name: KIRA FRONT1 AWAY 0708 SINGLE
+on:
+  push:
+    paths:
+      - '.github/workflows/kira-front1-away-0708-single.yml'
+permissions:
+  contents: write
+jobs:
+  frozen_oos:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Execute frozen AWAY 0708 once
+        run: python kira_front1_away_0708_single_run.py | tee away_0708_run_stdout.json
+      - name: Persist immutable run evidence
+        run: |
+          git config user.name 'kira-science-bot'
+          git config user.email '127772990+arisnachy@users.noreply.github.com'
+          git add front1_away_0708_output away_0708_run_stdout.json
+          git commit -m "KIRA FRONT1 RESULT: frozen AWAY 0708 single execution $GITHUB_RUN_ID"
+          git push
