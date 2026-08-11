@@ -1,0 +1,26 @@
+name: KIRA FRONT1 0405 Total Schema Probe
+on:
+  push:
+    paths:
+      - '.github/workflows/kira-front1-0405-total-schema-probe.yml'
+permissions:
+  contents: write
+jobs:
+  schema_only:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Inspect headers only
+        run: python kira_front1_0405_total_schema_probe.py | tee front1_0405_total_schema_stdout.json
+      - name: Persist schema-only evidence
+        run: |
+          git config user.name 'kira-coverage-bot'
+          git config user.email '127772990+arisnachy@users.noreply.github.com'
+          git add front1_0405_total_schema_probe front1_0405_total_schema_stdout.json
+          git commit -m "KIRA FRONT1: 0405 total schema only $GITHUB_RUN_ID"
+          git pull --rebase origin main
+          git push
