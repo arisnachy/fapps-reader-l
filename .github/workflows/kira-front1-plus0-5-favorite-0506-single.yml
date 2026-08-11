@@ -1,0 +1,26 @@
+name: KIRA FRONT1 PLUS0.5 FAVORITE 0506 SINGLE
+on:
+  push:
+    paths:
+      - '.github/workflows/kira-front1-plus0-5-favorite-0506-single.yml'
+permissions:
+  contents: write
+jobs:
+  frozen_oos:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Execute frozen plus0.5 favorite 0506 once
+        run: python kira_front1_plus0_5_favorite_0506_single.py | tee plus0_5_favorite_0506_stdout.json
+      - name: Persist immutable run evidence
+        run: |
+          git config user.name 'kira-science-bot'
+          git config user.email '127772990+arisnachy@users.noreply.github.com'
+          git add front1_plus0_5_favorite_0506_output plus0_5_favorite_0506_stdout.json
+          git commit -m "KIRA FRONT1 RESULT: frozen PLUS0.5 FAVORITE 0506 single execution $GITHUB_RUN_ID"
+          git pull --rebase origin main
+          git push
