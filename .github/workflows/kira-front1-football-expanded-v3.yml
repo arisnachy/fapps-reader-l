@@ -1,0 +1,29 @@
+name: KIRA FRONT1 Football Expanded V3
+on:
+  push:
+    paths:
+      - '.github/workflows/kira-front1-football-expanded-v3.yml'
+permissions:
+  contents: write
+jobs:
+  expanded_public_inventory:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install anonymous browser runtime
+        run: |
+          python -m pip install playwright
+          python -m playwright install --with-deps chromium
+      - name: Expand public More markets and inventory selects
+        run: python kira_front1_football_public_probe_v3_expanded.py | tee front1_football_v3_stdout.json
+      - name: Persist sanitized read-only evidence
+        run: |
+          git config user.name 'kira-coverage-bot'
+          git config user.email '127772990+arisnachy@users.noreply.github.com'
+          git add front1_football_contract_inventory_v3_expanded front1_football_v3_stdout.json
+          git commit -m "KIRA FRONT1: expanded Football market inventory v3 $GITHUB_RUN_ID"
+          git push
