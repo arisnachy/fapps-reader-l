@@ -1,0 +1,56 @@
+name: KIRA Juancito Pregame Rule Enum Audit
+
+on:
+  push:
+    paths:
+      - '.github/workflows/kira-juancito-pregame-rule-enums.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  decode_public_enums:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install dependency
+        run: python -m pip install --disable-pip-version-check requests
+      - name: Fetch jISBEnums and decode wired rules
+        shell: python
+        run: |
+          import hashlib, json, re, requests
+          from pathlib import Path
+          base='https://deportes.juancitosport.com.do/BOSSWagering/Sportsbook/InternetBetTaker2024-10/JavaScriptsWS/'
+          out=Path('artifacts/pregame_rule_enums'); out.mkdir(parents=True,exist_ok=True)
+          S=requests.Session(); S.headers['User-Agent']='Mozilla/5.0 KIRA-pregame-rule-enum-audit read-only'
+          report={}
+          for name in ['jISBEnums.js','InternalEnums.js']:
+              r=S.get(base+name,timeout=45); r.raise_for_status(); text=r.text
+              (out/name).write_text(text,encoding='utf-8')
+              defs=[]
+              for m in re.finditer(r'this\.([A-Za-z0-9_]*RULE[A-Za-z0-9_]*)\s*=\s*([^;]+);',text):
+                  defs.append({'name':m.group(1),'value':m.group(2).strip()})
+              report[name]={'bytes':len(r.content),'sha256':hashlib.sha256(r.content).hexdigest(),'rule_defs':defs}
+              print('RESOURCE',name,len(r.content),report[name]['sha256'])
+              for d in defs: print('RULE_DEF',json.dumps(d,sort_keys=True))
+          # Explicitly resolve the historical Tennis Upcoming league rule list `.23.`.
+          matches=[]
+          for name,data in report.items():
+              for d in data['rule_defs']:
+                  try:
+                      if int(re.sub(r'[^0-9-]','',d['value']))==23: matches.append({'file':name,**d})
+                  except Exception: pass
+          report['numeric_23_matches']=matches
+          print('NUMERIC_23',json.dumps(matches,sort_keys=True))
+          (out/'report.json').write_text(json.dumps(report,indent=2)+'\n')
+      - name: Upload evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: kira-juancito-pregame-rule-enums
+          path: artifacts/pregame_rule_enums
+          if-no-files-found: error
+          retention-days: 30
