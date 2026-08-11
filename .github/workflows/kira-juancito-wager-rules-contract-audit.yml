@@ -17,34 +17,41 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+      - name: Install dependency
+        run: python -m pip install --disable-pip-version-check requests
       - name: Fetch and inspect public Juancito sportsbook JS
         shell: python
         run: |
           import hashlib, json, re, requests
           from pathlib import Path
 
-          base = 'https://deportes.juancitosport.com.do/BOSSWagering/Sportsbook/InternetBetTaker2024-10/'
+          pregame = 'https://deportes.juancitosport.com.do/BOSSWagering/Sportsbook/InternetBetTaker2024-10/'
+          live = 'https://livev2.juancitosport.com.do/'
           targets = {
-              'jCSBWagerRules.js': base + 'JavaScriptsWS/jCSBWagerRules.js',
-              'jCSBOddsAndPoints.js': base + 'JavaScriptsWS/jCSBOddsAndPoints.js',
-              'NewBetLib.js': base + 'JavaScriptsWS/NewBetLib.js',
-              'Cart1.js': base + 'JavaScriptsWS/Cart1.js',
-              'sportsbook_ajax.js': base + 'ajax/InternetBetTaker.Sportsbook,InternetBetTaker.ashx',
-              'common_ajax.js': base + 'ajax/common.ashx',
+              'jCSBWagerRules.js': pregame + 'JavaScriptsWS/jCSBWagerRules.js',
+              'jCSBOddsAndPoints.js': pregame + 'JavaScriptsWS/jCSBOddsAndPoints.js',
+              'NewBetLib.js': pregame + 'JavaScriptsWS/NewBetLib.js',
+              'Cart1.js': pregame + 'JavaScriptsWS/Cart1.js',
+              'CWagerSession.js': pregame + 'JavaScriptsWS/CWagerSession.js',
+              'Betting.js': pregame + '_ScriptLibrary/Betting.js',
+              'ScheduleEntities.js': pregame + '_ScriptLibrary/ScheduleEntities.js',
+              'sportsbook_ajax.js': pregame + 'ajax/InternetBetTaker.Sportsbook,InternetBetTaker.ashx',
+              'common_ajax.js': pregame + 'ajax/common.ashx',
+              'live_ruleBook.js': live + 'js/live/misc/ruleBook.js?v=824',
           }
           out = Path('artifacts/juancito_wager_rules_contract')
           out.mkdir(parents=True, exist_ok=True)
           session = requests.Session()
-          session.headers['User-Agent'] = 'Mozilla/5.0 KIRA-Juancito-Public-Contract-Audit/1.0 read-only'
+          session.headers['User-Agent'] = 'Mozilla/5.0 KIRA-Juancito-Public-Contract-Audit/2.0 read-only'
           terms = [
               'tennis','wager','rule','rules','handicap','spread','total','game','line',
               'tie','tiebreak','tie-break','retire','retirement','walkover','void','cancel',
               'cancelled','canceled','push','period','set','match','selection','event','point',
-              'refund','stake','annul','postpon','disqual'
+              'refund','stake','annul','postpon','disqual','rulebook','rule book'
           ]
           summary = []
           for name, url in targets.items():
-              rec = {'name':name,'url':url}
+              rec = {'name':name,'url':url,'surface':'live' if name.startswith('live_') else 'pregame'}
               try:
                   r = session.get(url, timeout=45, allow_redirects=True)
                   rec.update({'http':r.status_code,'final_url':r.url,'content_type':r.headers.get('content-type',''),'bytes':len(r.content),'sha256':hashlib.sha256(r.content).hexdigest()})
@@ -55,15 +62,18 @@ jobs:
                       rec['term_counts'] = {t:low.count(t) for t in terms if low.count(t)}
                       snippets=[]
                       for t in terms:
-                          for m in list(re.finditer(re.escape(t), low))[:4]:
-                              s=max(0,m.start()-180); e=min(len(text),m.end()+260)
+                          for m in list(re.finditer(re.escape(t), low))[:6]:
+                              s=max(0,m.start()-220); e=min(len(text),m.end()+360)
                               snippets.append({'term':t,'snippet':re.sub(r'\s+',' ',text[s:e])})
-                      rec['snippets']=snippets[:100]
-                      # extract likely function names and remote/ajax method tokens around 'Rule'
+                      rec['snippets']=snippets[:160]
                       funcs=sorted(set(re.findall(r'function\s+([A-Za-z_$][\w$]*)\s*\(', text)))
                       rec['functions_matching_semantics']=[f for f in funcs if re.search(r'rule|wager|bet|odd|point|total|spread|handicap|cancel|void',f,re.I)]
-                      strings=sorted(set(re.findall(r'["\']([^"\']{2,120})["\']',text)))
-                      rec['strings_matching_semantics']=[s for s in strings if re.search(r'rule|wager|bet|odd|point|total|spread|handicap|cancel|void|tennis|period',s,re.I)][:200]
+                      strings=sorted(set(re.findall(r'["\']([^"\']{2,160})["\']',text)))
+                      rec['strings_matching_semantics']=[s for s in strings if re.search(r'rule|wager|bet|odd|point|total|spread|handicap|cancel|void|tennis|period|event|match|set',s,re.I)][:300]
+                      urls=sorted(set(re.findall(r'(?:https?:)?//[^"\'\s]+|/[A-Za-z0-9_./?,=&%-]{4,}', text)))
+                      rec['urls_matching_semantics']=[u for u in urls if re.search(r'rule|wager|bet|event|market|sport|line|odd',u,re.I)][:100]
+                      methods=sorted(set(re.findall(r'_method=([A-Za-z0-9_]+)', text)))
+                      rec['ajax_methods']=methods
                   else:
                       rec['body_prefix']=r.text[:500]
               except Exception as exc:
@@ -72,13 +82,13 @@ jobs:
               print('RESOURCE', json.dumps({k:v for k,v in rec.items() if k not in {'snippets','strings_matching_semantics'}}, ensure_ascii=False, sort_keys=True))
           (out/'summary.json').write_text(json.dumps(summary, indent=2, ensure_ascii=False)+'\n')
 
-          # Fail only if every target is unreachable; individual missing resources are evidence, not a reason to fabricate.
           if not any(x.get('http') == 200 for x in summary):
               raise SystemExit('ALL_PUBLIC_JUANCITO_RULE_RESOURCES_UNREACHABLE')
       - name: Upload contract audit
+        if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: kira-juancito-wager-rules-contract-audit
+          name: kira-juancito-wager-rules-contract-audit-v2
           path: artifacts/juancito_wager_rules_contract
-          if-no-files-found: error
+          if-no-files-found: warn
           retention-days: 30
