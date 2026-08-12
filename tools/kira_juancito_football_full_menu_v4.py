@@ -36,18 +36,30 @@ def dom_market(page,label):
  return out
 
 def main():
- OUT.mkdir(parents=True,exist_ok=True); now=datetime.now(TZ); current={'label':'initial'}; net=[]
+ OUT.mkdir(parents=True,exist_ok=True); now=datetime.now(TZ); current={'label':'initial'}; net=[]; nav_errors=[]; r=None
  with sync_playwright() as pw:
   b=pw.chromium.launch(headless=True); page=b.new_page(viewport={'width':1600,'height':1800},locale='es-DO',timezone_id='America/Santo_Domingo')
-  def resp(r):
-   if 'juancitosport.com.do' not in r.url or r.request.resource_type not in {'xhr','fetch'}: return
-   if '_method=RefreshSelectedHeader' not in r.url and '_method=GetUpcomingEvents' not in r.url:return
-   try: body=r.text()
+  def resp(rsp):
+   if 'juancitosport.com.do' not in rsp.url or rsp.request.resource_type not in {'xhr','fetch'}: return
+   if '_method=RefreshSelectedHeader' not in rsp.url and '_method=GetUpcomingEvents' not in rsp.url:return
+   try: body=rsp.text()
    except Exception:return
    evs=parse(body,current['label'])
    if evs: net.extend(evs)
-  page.on('response',resp); r=page.goto(START,wait_until='domcontentloaded',timeout=120000);page.wait_for_timeout(14000)
-  subs=page.locator('#tblSH_53 .colSubHeader').evaluate_all("els=>els.map(e=>({id:e.id||'',text:(e.innerText||e.textContent||'').replace(/\\s+/g,' ').trim(),visible:!!(e.offsetWidth||e.offsetHeight||e.getClientRects().length)}))") if page.locator('#tblSH_53').count() else []
+  page.on('response',resp)
+  for attempt in range(1,4):
+   try:
+    r=page.goto(START,wait_until='commit',timeout=45000)
+    page.wait_for_timeout(14000)
+    if page.locator('#tblSH_53').count(): break
+    nav_errors.append(f'attempt {attempt}: tblSH_53 missing after committed navigation; url={page.url}')
+   except Exception as e:
+    nav_errors.append(f'attempt {attempt}: {type(e).__name__}: {e}')
+   try: page.wait_for_timeout(3000)
+   except Exception: pass
+  if not page.locator('#tblSH_53').count():
+   b.close(); raise RuntimeError('BOSS soccer menu tblSH_53 not loaded: '+' | '.join(nav_errors))
+  subs=page.locator('#tblSH_53 .colSubHeader').evaluate_all("els=>els.map(e=>({id:e.id||'',text:(e.innerText||e.textContent||'').replace(/\\s+/g,' ').trim(),visible:!!(e.offsetWidth||e.offsetHeight||e.getClientRects().length)}))")
   attempts=[]; markets=[]
   for s in subs:
    if not re.match(r'^shdr\d+$',s['id']): continue
@@ -57,7 +69,6 @@ def main():
    except Exception as e:rec['error']=f'{type(e).__name__}:{e}'
    attempts.append(rec)
   b.close()
- # de-dupe network by event id, keeping latest occurrence and menu
  ev={}
  for x in net: ev[x['event_id']]=x
  events=list(ev.values()); ml_by={}
@@ -70,6 +81,6 @@ def main():
  priced=[x for x in actionable if 'p_home_novig' in x]
  cand=[x for x in priced if x['p_home_novig']>=.75]
  today=str(now.date()); today_e=[x for x in actionable if x['date']==today]; today_c=[x for x in cand if x['date']==today]
- res={'captured_at_local':now.isoformat(),'http':r.status if r else None,'football_menu_subheaders':subs,'menu_attempts':attempts,'all_clicked':bool(attempts) and all(x.get('clicked') for x in attempts),'soccer_events_seen_unique':len(events),'complete_actionable_1x2_events':len(actionable),'priced_actionable_events':len(priced),'home_p075_candidates_current_catalog':len(cand),'today_actionable_events':len(today_e),'today_home_p075_candidates':len(today_c),'events':events,'candidates':cand,'coverage_complete_public_menu':bool(attempts) and all(x.get('clicked') for x in attempts),'guard':'Read-only public football menu traversal. No bet cells clicked; market cells only read.'}
- (OUT/'result.json').write_text(json.dumps(res,ensure_ascii=False,indent=2),encoding='utf-8'); summary={k:res[k] for k in ['captured_at_local','football_menu_subheaders','menu_attempts','all_clicked','soccer_events_seen_unique','complete_actionable_1x2_events','priced_actionable_events','home_p075_candidates_current_catalog','today_actionable_events','today_home_p075_candidates','coverage_complete_public_menu']};(OUT/'summary.json').write_text(json.dumps(summary,ensure_ascii=False,indent=2),encoding='utf-8');print(json.dumps(summary,ensure_ascii=False,indent=2))
+ res={'captured_at_local':now.isoformat(),'http':r.status if r else None,'nav_errors':nav_errors,'football_menu_subheaders':subs,'menu_attempts':attempts,'all_clicked':bool(attempts) and all(x.get('clicked') for x in attempts),'soccer_events_seen_unique':len(events),'complete_actionable_1x2_events':len(actionable),'priced_actionable_events':len(priced),'home_p075_candidates_current_catalog':len(cand),'today_actionable_events':len(today_e),'today_home_p075_candidates':len(today_c),'events':events,'candidates':cand,'coverage_complete_public_menu':bool(attempts) and all(x.get('clicked') for x in attempts),'guard':'Read-only public football menu traversal. No bet cells clicked; market cells only read.'}
+ (OUT/'result.json').write_text(json.dumps(res,ensure_ascii=False,indent=2),encoding='utf-8'); summary={k:res[k] for k in ['captured_at_local','nav_errors','football_menu_subheaders','menu_attempts','all_clicked','soccer_events_seen_unique','complete_actionable_1x2_events','priced_actionable_events','home_p075_candidates_current_catalog','today_actionable_events','today_home_p075_candidates','coverage_complete_public_menu']};(OUT/'summary.json').write_text(json.dumps(summary,ensure_ascii=False,indent=2),encoding='utf-8');print(json.dumps(summary,ensure_ascii=False,indent=2))
 if __name__=='__main__':main()
