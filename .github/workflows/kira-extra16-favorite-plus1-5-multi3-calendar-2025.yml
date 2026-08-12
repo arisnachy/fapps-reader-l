@@ -1,0 +1,27 @@
+name: KIRA Extra16 Favorite +1.5 Calendar 2025
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'tools/kira_extra16_favorite_plus1_5_multi3_calendar_2025.py'
+      - '.github/workflows/kira-extra16-favorite-plus1-5-multi3-calendar-2025.yml'
+permissions:
+  contents: read
+jobs:
+  calendar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install --disable-pip-version-check requests
+      - run: python tools/kira_extra16_favorite_plus1_5_multi3_calendar_2025.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: kira-extra16-favorite-plus1-5-calendar-2025
+          path: artifacts/kira_extra16_favorite_plus1_5_multi3_calendar_2025
+          if-no-files-found: error
+          retention-days: 30
