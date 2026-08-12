@@ -1,0 +1,31 @@
+name: KIRA Juancito Football Nav Diag V3
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'tools/kira_juancito_football_nav_diag_v3.py'
+      - '.github/workflows/kira-juancito-football-nav-diag-v3.yml'
+permissions:
+  contents: read
+jobs:
+  nav_diag:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install Playwright
+        run: |
+          python -m pip install --disable-pip-version-check playwright
+          python -m playwright install --with-deps chromium
+      - name: Inspect current BOSS football navigation read-only
+        run: python tools/kira_juancito_football_nav_diag_v3.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: kira-juancito-football-nav-diag-v3
+          path: artifacts/kira_juancito_football_nav_diag_v3
+          if-no-files-found: error
+          retention-days: 7
