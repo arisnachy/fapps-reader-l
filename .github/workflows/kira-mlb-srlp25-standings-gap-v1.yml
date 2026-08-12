@@ -1,0 +1,36 @@
+name: KIRA MLB SRL +2.5 Standings Gap V1
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'tools/kira_mlb_srlp25_standings_gap_v1.py'
+      - '.github/workflows/kira-mlb-srlp25-standings-gap-v1.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  science:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install runtime
+        run: python -m pip install --disable-pip-version-check requests
+      - name: Compile frozen scorer
+        run: python -m py_compile tools/kira_mlb_srlp25_standings_gap_v1.py
+      - name: Execute DEV then sealed OOS only if DEV passes
+        run: python tools/kira_mlb_srlp25_standings_gap_v1.py
+      - name: Upload evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: kira-mlb-srlp25-standings-gap-v1
+          path: artifacts/kira_mlb_srlp25_standings_gap_v1
+          if-no-files-found: error
+          retention-days: 30
