@@ -18,7 +18,14 @@ def main():
  OUT.mkdir(parents=True,exist_ok=True)
  with sync_playwright() as pw:
   b=pw.chromium.launch(headless=True); p=b.new_page(locale='es-DO',timezone_id='America/Santo_Domingo')
-  p.goto(START,wait_until='commit',timeout=60000);p.wait_for_timeout(12000)
+  nav_errors=[]; loaded=False
+  for attempt in range(3):
+   try:
+    p.goto(START,wait_until='commit',timeout=45000); p.wait_for_timeout(10000)
+    if p.locator('#tblSH_53').count(): loaded=True; break
+   except Exception as ex: nav_errors.append(f'attempt {attempt+1}: {type(ex).__name__}: {ex}')
+  if not loaded:
+   b.close(); raise RuntimeError('BOSS football menu not loaded: '+' | '.join(nav_errors))
   # Constructor signature from static scripts.
   sigs=[]
   srcs=p.locator('script[src]').evaluate_all("els=>els.map(e=>e.src).filter(Boolean)")
@@ -49,12 +56,11 @@ def main():
      raw=m.group(1); args=split_args(raw)
      if any(str(e)==a.strip() for a in args[:6]): ct.append({'url':cap['url'],'raw':re.sub(r'\s+',' ',raw)[:12000],'args':args[:80]})
    recs.append({'event_id':e,'label':label,'captures':len(caps),'constructors':ct})
-  # Dump scalar fields of candidate global objects which reference each event id one or two levels deep.
   globals_map={}
   for _,e,_ in EVENTS:
    try:
     globals_map[str(e)]=p.evaluate("""(eid)=>{
-      const out=[]; const seen=new Set();
+      const out=[];
       function scal(o){let z={}; if(!o||typeof o!=='object')return z; for(const k of Object.keys(o).slice(0,120)){try{const v=o[k]; if(v===null||['string','number','boolean'].includes(typeof v))z[k]=v;}catch(e){}} return z;}
       for(const k of Object.keys(window)){
         let v; try{v=window[k]}catch(e){continue}; if(!v||typeof v!=='object')continue;
@@ -68,8 +74,8 @@ def main():
       return out;
     }""",e)
    except Exception as ex: globals_map[str(e)]={'error':str(ex)}
-  result={'captured_at_local':datetime.now(TZ).isoformat(),'constructor_signatures':sigs[:20],'events':recs,'globals':globals_map,'guard':'Read-only event/network/global inspection; no bet selection or coupon/account mutation.'}
+  result={'captured_at_local':datetime.now(TZ).isoformat(),'nav_errors':nav_errors,'constructor_signatures':sigs[:20],'events':recs,'globals':globals_map,'guard':'Read-only event/network/global inspection; no bet selection or coupon/account mutation.'}
   (OUT/'result.json').write_text(json.dumps(result,ensure_ascii=False,indent=2),encoding='utf-8')
-  summ={'captured_at_local':result['captured_at_local'],'signature_count':len(sigs),'events':[{'event_id':x['event_id'],'constructors':len(x['constructors']),'captures':x['captures']} for x in recs],'global_hits':{k:len(v) if isinstance(v,list) else 0 for k,v in globals_map.items()}}
+  summ={'captured_at_local':result['captured_at_local'],'nav_errors':nav_errors,'signature_count':len(sigs),'events':[{'event_id':x['event_id'],'constructors':len(x['constructors']),'captures':x['captures']} for x in recs],'global_hits':{k:len(v) if isinstance(v,list) else 0 for k,v in globals_map.items()}}
   (OUT/'summary.json').write_text(json.dumps(summ,ensure_ascii=False,indent=2),encoding='utf-8');print(json.dumps(summ,ensure_ascii=False,indent=2));b.close()
 if __name__=='__main__':main()
