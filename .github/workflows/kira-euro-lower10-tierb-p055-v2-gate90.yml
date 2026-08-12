@@ -1,0 +1,34 @@
+name: KIRA Euro Lower10 Tier-B P055 V2 Gate90
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'tools/kira_euro_lower10_tierb_p055_transport_v2_gate90.py'
+      - '.github/workflows/kira-euro-lower10-tierb-p055-v2-gate90.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  oos:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install --disable-pip-version-check requests
+      - run: python -m py_compile tools/kira_euro_lower10_tierb_p055_transport_v1.py tools/kira_euro_lower10_tierb_p055_transport_v2_gate90.py
+      - name: Open and score frozen OOS 2324 under User Gate90
+        working-directory: tools
+        run: python kira_euro_lower10_tierb_p055_transport_v2_gate90.py
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: kira-euro-lower10-tierb-p055-v2-gate90
+          path: tools/artifacts/kira_euro_lower10_tierb_p055_transport_v2_gate90
+          if-no-files-found: error
+          retention-days: 30
