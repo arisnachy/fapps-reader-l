@@ -1,0 +1,28 @@
+name: KIRA Summer Favorite +1.5 MULTI3 AvgC 2023
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'tools/kira_summer_favorite_plus1_5_multi3_avgc_2023.py'
+      - '.github/workflows/kira-summer-favorite-plus1-5-multi3-avgc-2023.yml'
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install --disable-pip-version-check requests
+      - name: Execute frozen one-shot 2023 scoring
+        run: python tools/kira_summer_favorite_plus1_5_multi3_avgc_2023.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: kira-summer-favorite-plus1-5-multi3-avgc-2023
+          path: artifacts/kira_summer_favorite_plus1_5_multi3_avgc_2023
+          if-no-files-found: error
+          retention-days: 30
