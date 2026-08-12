@@ -5,7 +5,7 @@ on:
   push:
     branches: [main]
     paths:
-      - 'tools/kira_football_multi3_0304.py'
+      - 'tools/kira_football_multi3_0304_required_columns.py'
       - '.github/workflows/kira-football-multi3-0304.yml'
 
 permissions:
@@ -21,9 +21,9 @@ jobs:
         with:
           python-version: '3.12'
       - name: Install runtime
-        run: python -m pip install --disable-pip-version-check pandas requests
-      - name: Execute frozen MULTI3 validation
-        run: python tools/kira_football_multi3_0304.py
+        run: python -m pip install --disable-pip-version-check requests
+      - name: Execute frozen MULTI3 validation with required-column legacy parser
+        run: python tools/kira_football_multi3_0304_required_columns.py
       - name: Upload complete evidence
         uses: actions/upload-artifact@v4
         with:
