@@ -1,0 +1,33 @@
+name: KIRA Tennis R4-10 +7.5 V1
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'tools/kira_tennis_r4_10_plus7_5_v1.py'
+      - '.github/workflows/kira-tennis-r4-10-plus7-5-v1.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  science:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install --disable-pip-version-check pandas openpyxl requests
+      - run: python -m py_compile tools/kira_tennis_r4_10_plus7_5_v1.py
+      - name: Execute exact-date DEV then sealed OOS only after DEV PASS
+        run: python tools/kira_tennis_r4_10_plus7_5_v1.py
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: kira-tennis-r4-10-plus7-5-v1
+          path: artifacts/kira_tennis_r4_10_plus7_5_v1
+          if-no-files-found: error
+          retention-days: 30
