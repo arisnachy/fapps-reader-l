@@ -1,0 +1,33 @@
+name: KIRA Juancito WNBA Related Raw
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'tools/kira_juancito_wnba_related_raw_probe.py'
+      - '.github/workflows/kira-juancito-wnba-related-raw.yml'
+permissions:
+  contents: read
+jobs:
+  wnba_related_raw:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install Playwright
+        run: |
+          python -m pip install --disable-pip-version-check playwright
+          python -m playwright install --with-deps chromium
+      - name: Capture WNBA RelatedEvents raw
+        run: python tools/kira_juancito_wnba_related_raw_probe.py
+      - name: Upload evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: kira-juancito-wnba-related-raw
+          path: artifacts/kira_juancito_wnba_related_raw
+          if-no-files-found: error
+          retention-days: 7
