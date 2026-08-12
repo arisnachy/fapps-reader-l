@@ -1,0 +1,32 @@
+name: KIRA Juancito Football TierB Advanced Direct V16
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'tools/kira_juancito_football_tierb_advanced_direct_v16.py'
+      - '.github/workflows/kira-juancito-football-tierb-advanced-direct-v16.yml'
+permissions:
+  contents: read
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install Playwright
+        run: |
+          python -m pip install --disable-pip-version-check playwright
+          python -m playwright install --with-deps chromium
+      - name: Direct-load transient Advanced Props read-only
+        run: python tools/kira_juancito_football_tierb_advanced_direct_v16.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: kira-juancito-football-tierb-advanced-direct-v16
+          path: artifacts/kira_juancito_football_tierb_advanced_direct_v16
+          if-no-files-found: warn
+          retention-days: 7
