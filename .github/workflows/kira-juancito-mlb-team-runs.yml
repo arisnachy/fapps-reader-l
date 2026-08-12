@@ -1,0 +1,35 @@
+name: KIRA Juancito MLB Team Runs
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'tools/kira_juancito_mlb_team_runs_probe.py'
+      - '.github/workflows/kira-juancito-mlb-team-runs.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  mlb_team_runs:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install Playwright
+        run: |
+          python -m pip install --disable-pip-version-check playwright
+          python -m playwright install --with-deps chromium
+      - name: Run focused anonymous MLB team-runs probe
+        run: python tools/kira_juancito_mlb_team_runs_probe.py
+      - name: Upload evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: kira-juancito-mlb-team-runs
+          path: artifacts/kira_juancito_mlb_team_runs
+          if-no-files-found: error
+          retention-days: 7
