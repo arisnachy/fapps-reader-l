@@ -20,7 +20,7 @@ def pdate(v):
 
 def decode(raw):
     for enc in ('utf-8-sig','latin-1'):
-        try:return enc,list(csv.reader(io.StringIO(raw.decode(enc),newline=''))
+        try:return enc,list(csv.reader(io.StringIO(raw.decode(enc)),newline=''))
         except:pass
     raise RuntimeError('CSV_DECODE_FAILED')
 
