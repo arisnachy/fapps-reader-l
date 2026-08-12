@@ -34,3 +34,5 @@ jobs:
           path: artifacts/kira_mlb_srlp25_standings_gap_v1
           if-no-files-found: error
           retention-days: 30
+
+# Trigger marker: preregistration already frozen at fea2107c6cb96c3882cd3689cfe9b7a7b585ba77.
