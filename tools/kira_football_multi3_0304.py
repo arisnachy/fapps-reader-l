@@ -52,12 +52,17 @@ def main():
             source.append({'league':lg,'url':url,'status':'SOURCE_UNUSABLE','reason':type(e).__name__});continue
         if r.status_code!=200:
             source.append({'league':lg,'url':url,'http':r.status_code,'status':'SOURCE_UNUSABLE','reason':'HTTP'});continue
-        raw=r.content; sha=hashlib.sha256(raw).hexdigest(); frame=None; enc=''
+        raw=r.content; sha=hashlib.sha256(raw).hexdigest(); frame=None; enc=''; parse_error=''
         for e in ('utf-8-sig','latin-1'):
-            try: frame=pd.read_csv(io.BytesIO(raw),encoding=e);enc=e;break
-            except UnicodeDecodeError:pass
+            try:
+                frame=pd.read_csv(io.BytesIO(raw),encoding=e);enc=e;break
+            except UnicodeDecodeError:
+                continue
+            except pd.errors.ParserError as exc:
+                parse_error=f'PARSER_ERROR:{exc}'
+                break
         if frame is None:
-            source.append({'league':lg,'url':url,'bytes':len(raw),'sha256':sha,'status':'SOURCE_UNUSABLE','reason':'DECODE'});continue
+            source.append({'league':lg,'url':url,'bytes':len(raw),'sha256':sha,'status':'SOURCE_UNUSABLE','reason':parse_error or 'DECODE'});continue
         miss=[c for c in REQ if c not in frame.columns]
         if miss:
             source.append({'league':lg,'url':url,'bytes':len(raw),'sha256':sha,'raw_rows':len(frame),'status':'SOURCE_UNUSABLE','reason':'MISSING_COLUMNS','missing':miss});continue
@@ -77,7 +82,7 @@ def main():
     usable=sum(x.get('status')=='PASS' for x in source)
     if usable<MIN_SOURCE_LEAGUES:
         summary={'decision':'SOURCE_GATE_FAIL','usable_leagues':usable,'required':MIN_SOURCE_LEAGUES,'source_audit':source}
-        (OUT/'summary.json').write_text(json.dumps(summary,indent=2),encoding='utf-8');print(json.dumps(summary,indent=2));return 0
+        (OUT/'summary.json').write_text(json.dumps(summary,indent=2),encoding='utf-8');(OUT/'source_audit.json').write_text(json.dumps(source,indent=2),encoding='utf-8');print(json.dumps(summary,indent=2));return 0
     if dup: raise SystemExit(f'CROSS_SOURCE_DUPLICATES={dup}')
 
     by_date={}
@@ -87,7 +92,6 @@ def main():
     for d,items in sorted(by_date.items()):
         items=sorted(items,key=lambda x:(-x['p_home_novig'],x['B365H'],x['league_code'],x['HomeTeam'],x['AwayTeam']))[:3]
         for rank,r in enumerate(items,1): selected.append({**r,'date_rank':rank})
-    # Persist exact pre-settlement keys BEFORE joining outcomes.
     write_csv(OUT/'selected_event_keys_pre_settlement.csv',selected)
 
     settled=[]
