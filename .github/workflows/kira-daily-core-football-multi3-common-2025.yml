@@ -1,0 +1,30 @@
+name: KIRA DAILY CORE Football MULTI3 Common 2025
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'tools/kira_daily_core_football_multi3_common_2025.py'
+      - '.github/workflows/kira-daily-core-football-multi3-common-2025.yml'
+permissions:
+  contents: read
+jobs:
+  multi3_common:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install runtime
+        run: python -m pip install --disable-pip-version-check pandas requests
+      - name: Reconstruct outcome-blind MULTI3 common window
+        run: python tools/kira_daily_core_football_multi3_common_2025.py
+      - name: Upload evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: kira-daily-core-football-multi3-common-2025
+          path: artifacts/kira_daily_core_football_multi3_common_2025
+          if-no-files-found: error
+          retention-days: 30
