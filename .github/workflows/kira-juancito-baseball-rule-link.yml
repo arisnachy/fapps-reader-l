@@ -1,0 +1,30 @@
+name: KIRA Juancito Baseball Rule Link
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'tools/kira_juancito_baseball_rule_link_probe.py'
+      - '.github/workflows/kira-juancito-baseball-rule-link.yml'
+permissions:
+  contents: read
+jobs:
+  rule_link:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: |
+          python -m pip install --disable-pip-version-check playwright
+          python -m playwright install --with-deps chromium
+      - run: python tools/kira_juancito_baseball_rule_link_probe.py
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: kira-juancito-baseball-rule-link
+          path: artifacts/kira_juancito_baseball_rule_link
+          if-no-files-found: error
+          retention-days: 7
