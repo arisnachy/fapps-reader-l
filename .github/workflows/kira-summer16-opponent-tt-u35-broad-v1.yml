@@ -31,3 +31,5 @@ jobs:
           path: artifacts/kira_summer16_opponent_tt_u35_broad_v1
           if-no-files-found: error
           retention-days: 30
+
+# Trigger marker: preregistration frozen before DEV/OOS scoring.
