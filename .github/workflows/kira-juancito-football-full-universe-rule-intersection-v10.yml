@@ -1,0 +1,32 @@
+name: KIRA Juancito Football Full Universe Rule Intersection V10
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'tools/kira_juancito_football_full_universe_rule_intersection_v10.py'
+      - '.github/workflows/kira-juancito-football-full-universe-rule-intersection-v10.yml'
+permissions:
+  contents: read
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install Playwright
+        run: |
+          python -m pip install --disable-pip-version-check playwright
+          python -m playwright install --with-deps chromium
+      - name: Scan full Football universe and PointsRule intersection read-only
+        run: python tools/kira_juancito_football_full_universe_rule_intersection_v10.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: kira-juancito-football-full-universe-rule-intersection-v10
+          path: artifacts/kira_juancito_football_full_universe_rule_intersection_v10
+          if-no-files-found: warn
+          retention-days: 7
