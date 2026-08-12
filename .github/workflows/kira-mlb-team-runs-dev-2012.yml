@@ -1,0 +1,33 @@
+name: KIRA MLB Team Runs DEV 2012
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'tools/kira_mlb_team_runs_dev_2012.py'
+      - '.github/workflows/kira-mlb-team-runs-dev-2012.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  dev_2012:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install requests
+        run: python -m pip install --disable-pip-version-check requests
+      - name: Execute frozen 72-config DEV only
+        run: python tools/kira_mlb_team_runs_dev_2012.py
+      - name: Upload complete DEV evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: kira-mlb-team-runs-dev-2012
+          path: artifacts/kira_mlb_team_runs_dev_2012
+          if-no-files-found: error
+          retention-days: 30
