@@ -1,0 +1,116 @@
+date,event_id,selected_entity,opponent,tourney_id,tourney_name,round,selected_rank,opponent_rank
+2024-12-30,T3HIST-d82828b31e4f5bc43d95,Alexander Zverev,Zhizhen Zhang,2025-9900,United Cup,RR,2,45
+2024-12-29,T3HIST-2749a332bbd0cf19a555,Alexander Zverev,Thiago Monteiro,2025-9900,United Cup,RR,2,109
+2025-02-08,T3HIST-c1a6d1cbfa8b51abd175,Carlos Alcaraz,Hubert Hurkacz,2025-0407,Rotterdam,SF,3,21
+2025-02-07,T3HIST-bb0723972f575ceb0eca,Carlos Alcaraz,Pedro Martinez,2025-0407,Rotterdam,QF,3,44
+2025-02-06,T3HIST-928d7de20a431f18acc1,Carlos Alcaraz,Andrea Vavassori,2025-0407,Rotterdam,R16,3,317
+2025-02-04,T3HIST-5e58aa4ea4270adbde2d,Carlos Alcaraz,Botic Van De Zandschulp,2025-0407,Rotterdam,R32,3,84
+2025-02-15,T3HIST-5e76fc4d49b5bef4bc18,Alexander Zverev,Francisco Cerundolo,2025-0506,Buenos Aires,QF,2,28
+2025-02-12,T3HIST-f179d59009ed37a425ac,Alexander Zverev,Dusan Lajovic,2025-0506,Buenos Aires,R16,2,81
+2025-02-20,T3HIST-08f4808e2d7691b503d9,Carlos Alcaraz,Jiri Lehecka,2025-0451,Doha,QF,3,25
+2025-02-19,T3HIST-9d2f82118c4dd4ddf086,Carlos Alcaraz,Luca Nardi,2025-0451,Doha,R16,3,85
+2025-02-17,T3HIST-1109fc7019d49d6a3be7,Carlos Alcaraz,Marin Cilic,2025-0451,Doha,R32,3,192
+2025-02-21,T3HIST-6be411fb1590eda59b68,Alexander Zverev,Francisco Comesana,2025-6932,Rio de Janeiro,QF,2,86
+2025-02-20,T3HIST-72c1b96655e2b3e618b2,Alexander Zverev,Alexander Shevchenko,2025-6932,Rio de Janeiro,R16,2,103
+2025-02-18,T3HIST-f69873845e83448bc131,Alexander Zverev,Bu Yunchaokete,2025-6932,Rio de Janeiro,R32,2,69
+2025-02-27,T3HIST-10774bef35c58bd6288e,Alexander Zverev,Learner Tien,2025-0807,Acapulco,R16,2,83
+2025-02-26,T3HIST-e94b3b2528970ffa3ca6,Alexander Zverev,Matteo Arnaldi,2025-0807,Acapulco,R32,2,33
+2025-03-15,T3HIST-481c61c40bb2ddcd986a,Carlos Alcaraz,Jack Draper,2025-0404,Indian Wells Masters,SF,3,14
+2025-03-14,T3HIST-0ff7ddd1a07aa8708cda,Carlos Alcaraz,Francisco Cerundolo,2025-0404,Indian Wells Masters,QF,3,26
+2025-03-13,T3HIST-4ea95c940d7fe8ea7abf,Carlos Alcaraz,Grigor Dimitrov,2025-0404,Indian Wells Masters,R16,3,15
+2025-03-11,T3HIST-7a67796826c00fecf8ec,Carlos Alcaraz,Denis Shapovalov,2025-0404,Indian Wells Masters,R32,3,28
+2025-03-07,T3HIST-af6dc36be021c4518f69,Alexander Zverev,Tallon Griekspoor,2025-0404,Indian Wells Masters,R64,2,43
+2025-03-08,T3HIST-420bd1b7d9d77e5fa93d,Carlos Alcaraz,Quentin Halys,2025-0404,Indian Wells Masters,R64,3,59
+2025-03-26,T3HIST-572b73b7e0f53e8b968a,Alexander Zverev,Arthur Fils,2025-0403,Miami Masters,R16,2,18
+2025-03-24,T3HIST-3612404a5524626817cf,Alexander Zverev,Jordan Thompson,2025-0403,Miami Masters,R32,2,37
+2025-03-22,T3HIST-43eed83a9f5b17fa4769,Alexander Zverev,Jacob Fearnley,2025-0403,Miami Masters,R64,2,83
+2025-03-22,T3HIST-d39788d02650a6a796d0,Carlos Alcaraz,David Goffin,2025-0403,Miami Masters,R64,3,55
+2025-04-13,T3HIST-3b4abef842a32e1ee9f3,Carlos Alcaraz,Lorenzo Musetti,2025-0410,Monte Carlo Masters,F,3,16
+2025-04-12,T3HIST-f0f13e100661c2486832,Carlos Alcaraz,Alejandro Davidovich Fokina,2025-0410,Monte Carlo Masters,SF,3,42
+2025-04-11,T3HIST-31faa4d54078062bbfa5,Carlos Alcaraz,Arthur Fils,2025-0410,Monte Carlo Masters,QF,3,15
+2025-04-10,T3HIST-1b5f9e3a3fca860304a4,Carlos Alcaraz,Daniel Altmaier,2025-0410,Monte Carlo Masters,R16,3,84
+2025-04-08,T3HIST-6bfdcf1613d65d2acf53,Alexander Zverev,Matteo Berrettini,2025-0410,Monte Carlo Masters,R32,2,34
+2025-04-09,T3HIST-3bd6b1fee0973dc2b830,Carlos Alcaraz,Francisco Cerundolo,2025-0410,Monte Carlo Masters,R32,3,22
+2025-04-20,T3HIST-b713562938656e2dc6d2,Carlos Alcaraz,Holger Rune,2025-0425,Barcelona,F,2,13
+2025-04-19,T3HIST-3455e85f9e8ff4f37016,Carlos Alcaraz,Arthur Fils,2025-0425,Barcelona,SF,2,14
+2025-04-17,T3HIST-07898d875a02b006b924,Carlos Alcaraz,Laslo Djere,2025-0425,Barcelona,R16,2,80
+2025-04-15,T3HIST-2f2e2aafbe1d8c797ba1,Carlos Alcaraz,Ethan Quinn,2025-0425,Barcelona,R32,2,126
+2025-04-20,T3HIST-9c0a2faf9d674b925931,Alexander Zverev,Ben Shelton,2025-0308,Munich,F,3,15
+2025-04-19,T3HIST-b9eb3e0046bde1f69676,Alexander Zverev,Fabian Marozsan,2025-0308,Munich,SF,3,77
+2025-04-18,T3HIST-d479221f0b2061600526,Alexander Zverev,Tallon Griekspoor,2025-0308,Munich,QF,3,37
+2025-04-16,T3HIST-861f2517655d78683a3e,Alexander Zverev,Daniel Altmaier,2025-0308,Munich,R16,3,68
+2025-04-14,T3HIST-b30cdb215cf8d8209835,Alexander Zverev,Alexandre Muller,2025-0308,Munich,R32,3,40
+2025-04-29,T3HIST-1f976901c619a003043f,Alexander Zverev,Francisco Cerundolo,2025-1536,Madrid Masters,R16,2,21
+2025-04-27,T3HIST-1ee388b5efd6144418b5,Alexander Zverev,Alejandro Davidovich Fokina,2025-1536,Madrid Masters,R32,2,29
+2025-04-25,T3HIST-6f074d79b652215a5813,Alexander Zverev,Roberto Bautista Agut,2025-1536,Madrid Masters,R64,2,55
+2025-05-16,T3HIST-555fd8fb837299454d1c,Jannik Sinner,Tommy Paul,2025-0416,Rome Masters,SF,1,12
+2025-05-13,T3HIST-c7eeb1bc2ac669c3a64c,Jannik Sinner,Francisco Cerundolo,2025-0416,Rome Masters,R16,1,18
+2025-05-13,T3HIST-6bda7620292872c9d006,Carlos Alcaraz,Karen Khachanov,2025-0416,Rome Masters,R16,3,24
+2025-05-13,T3HIST-50462c1dcf548638be3f,Alexander Zverev,Arthur Fils,2025-0416,Rome Masters,R16,2,14
+2025-05-12,T3HIST-2aff0797a75a13cb9bdb,Jannik Sinner,Jesper De Jong,2025-0416,Rome Masters,R32,1,93
+2025-05-11,T3HIST-89d5e4002d8ef495b07b,Carlos Alcaraz,Laslo Djere,2025-0416,Rome Masters,R32,3,64
+2025-05-11,T3HIST-794a43d41b63bb26f68e,Alexander Zverev,Vilius Gaubas,2025-0416,Rome Masters,R32,2,154
+2025-05-10,T3HIST-b98bb6ab0d8bb71dcc68,Jannik Sinner,Mariano Navone,2025-0416,Rome Masters,R64,1,99
+2025-05-09,T3HIST-aabd44399ad28fe550fa,Carlos Alcaraz,Dusan Lajovic,2025-0416,Rome Masters,R64,3,131
+2025-05-09,T3HIST-3e41a640e5655ba1840e,Alexander Zverev,Camilo Ugo Carabelli,2025-0416,Rome Masters,R64,2,60
+2025-05-21,T3HIST-60bf1d328861efc2302a,Alexander Zverev,Alexandre Muller,2025-0414,Hamburg,R16,3,40
+2025-05-19,T3HIST-0711bc5d73f12d2e2674,Alexander Zverev,Aleksandar Kovacevic,2025-0414,Hamburg,R32,3,80
+2025-06-14,T3HIST-5ebe9339b9bedebd2b69,Alexander Zverev,Ben Shelton,2025-0321,Stuttgart,SF,3,12
+2025-06-13,T3HIST-49177d26163bfb24cef4,Alexander Zverev,Brandon Nakashima,2025-0321,Stuttgart,QF,3,31
+2025-06-12,T3HIST-88a7f2d7ac318300a40d,Alexander Zverev,Corentin Moutet,2025-0321,Stuttgart,R16,3,91
+2025-06-21,T3HIST-335181c832a5e4664598,Alexander Zverev,Daniil Medvedev,2025-0500,Halle,SF,3,11
+2025-06-20,T3HIST-96b61443773143025e0f,Alexander Zverev,Flavio Cobolli,2025-0500,Halle,QF,3,24
+2025-06-19,T3HIST-1280189410479372953a,Jannik Sinner,Alexander Bublik,2025-0500,Halle,R16,1,45
+2025-06-19,T3HIST-efcba30c5226066dc3d3,Alexander Zverev,Lorenzo Sonego,2025-0500,Halle,R16,3,46
+2025-06-17,T3HIST-27c0e837123505f70402,Jannik Sinner,Yannick Hanfmann,2025-0500,Halle,R32,1,138
+2025-06-18,T3HIST-4e9337c848131faf3d02,Alexander Zverev,Marcos Giron,2025-0500,Halle,R32,3,43
+2025-06-22,T3HIST-38916e6e120c080dcb5,Carlos Alcaraz,Jiri Lehecka,2025-0311,Queen's Club,F,2,30
+2025-06-21,T3HIST-07c2420cff3f2f57a5a2,Carlos Alcaraz,Roberto Bautista Agut,2025-0311,Queen's Club,SF,2,51
+2025-06-20,T3HIST-7efff74d3f394730f723,Carlos Alcaraz,Arthur Rinderknech,2025-0311,Queen's Club,QF,2,80
+2025-06-19,T3HIST-1b21357cf51212f870c0,Carlos Alcaraz,Jaume Munar,2025-0311,Queen's Club,R16,2,59
+2025-06-17,T3HIST-ddfe253fe81d627eabf0,Carlos Alcaraz,Adam Walton,2025-0311,Queen's Club,R32,2,86
+2025-08-07,T3HIST-c69986823ea09bceec8b,Alexander Zverev,Karen Khachanov,2025-0421,Canada Masters,SF,3,16
+2025-08-05,T3HIST-993221e77ffe60b8feae,Alexander Zverev,Alexei Popyrin,2025-0421,Canada Masters,QF,3,26
+2025-08-03,T3HIST-ae03d16e727a44d48b1c,Alexander Zverev,Francisco Cerundolo,2025-0421,Canada Masters,R16,3,24
+2025-08-01,T3HIST-fcdcb9cf6a02aaddc8d1,Alexander Zverev,Matteo Arnaldi,2025-0421,Canada Masters,R32,3,41
+2025-07-30,T3HIST-c721831090cdfacbdfcf,Alexander Zverev,Adam Walton,2025-0421,Canada Masters,R64,3,88
+2025-08-16,T3HIST-afef92b26cc2fd0d44fe,Jannik Sinner,Terence Atmane,2025-0422,Cincinnati Masters,SF,1,136
+2025-08-14,T3HIST-102c34908e9d6b042af0,Jannik Sinner,Felix Auger Aliassime,2025-0422,Cincinnati Masters,QF,1,28
+2025-08-15,T3HIST-6fa74185fb67ed5ea4d4,Carlos Alcaraz,Andrey Rublev,2025-0422,Cincinnati Masters,QF,2,11
+2025-08-13,T3HIST-5f01c599a77dfa68977f,Jannik Sinner,Adrian Mannarino,2025-0422,Cincinnati Masters,R16,1,89
+2025-08-14,T3HIST-a402732b086fb532e4fe,Alexander Zverev,Karen Khachanov,2025-0422,Cincinnati Masters,R16,3,12
+2025-08-14,T3HIST-4a17ec581229093cb8cb,Carlos Alcaraz,Luca Nardi,2025-0422,Cincinnati Masters,R16,2,98
+2025-08-12,T3HIST-f8e7af34c1dd34616618,Jannik Sinner,Gabriel Diallo,2025-0422,Cincinnati Masters,R32,1,35
+2025-08-13,T3HIST-fc000cf4fed571ee80e0,Alexander Zverev,Brandon Nakashima,2025-0422,Cincinnati Masters,R32,3,31
+2025-08-12,T3HIST-8183ccb762a6d9723329,Carlos Alcaraz,Hamad Medjedovic,2025-0422,Cincinnati Masters,R32,2,72
+2025-08-09,T3HIST-f945e459349e778bf98f,Jannik Sinner,Daniel Elahi Galan,2025-0422,Cincinnati Masters,R64,1,144
+2025-08-11,T3HIST-ebe139ad362bae9e5e2a,Alexander Zverev,Nishesh Basavareddy,2025-0422,Cincinnati Masters,R64,3,109
+2025-08-10,T3HIST-d818441689f70ae2643f,Carlos Alcaraz,Damir Dzumhur,2025-0422,Cincinnati Masters,R64,2,56
+2025-09-22,T3HIST-0c9a0fdf695610b74068,Carlos Alcaraz,Francisco Cerundolo,2025-9210,Laver Cup,RR,1,21
+2025-09-29,T3HIST-81ab2820916d23060edb,Carlos Alcaraz,Casper Ruud,2025-0329,Tokyo,SF,1,12
+2025-09-28,T3HIST-d93d9be66eec54c58570,Carlos Alcaraz,Brandon Nakashima,2025-0329,Tokyo,QF,1,33
+2025-09-27,T3HIST-9b5480e92548773f3035,Carlos Alcaraz,Zizou Bergs,2025-0329,Tokyo,R16,1,45
+2025-09-25,T3HIST-5a7b09fbaeedc3717aec,Carlos Alcaraz,Sebastian Baez,2025-0329,Tokyo,R32,1,41
+2025-10-01,T3HIST-6fb23663dfa78131031d,Jannik Sinner,Learner Tien,2025-0747,Beijing,F,2,52
+2025-09-29,T3HIST-e8b7f1f240e52755b591,Jannik Sinner,Fabian Marozsan,2025-0747,Beijing,QF,2,57
+2025-09-29,T3HIST-2e071d9439c9511a0b40,Alexander Zverev,Daniil Medvedev,2025-0747,Beijing,QF,3,18
+2025-09-27,T3HIST-e03037e0c4b2843cbe08,Jannik Sinner,Terence Atmane,2025-0747,Beijing,R16,2,68
+2025-09-28,T3HIST-e5c5a374e6ec2c51b464,Alexander Zverev,Corentin Moutet,2025-0747,Beijing,R16,3,37
+2025-09-25,T3HIST-c8c3cfe2379a80c3fd71,Jannik Sinner,Marin Cilic,2025-0747,Beijing,R32,2,97
+2025-09-26,T3HIST-77a02e9f007ff7af6d7b,Alexander Zverev,Lorenzo Sonego,2025-0747,Beijing,R32,3,44
+2025-10-06,T3HIST-918a6c6037134330a4b8,Alexander Zverev,Arthur Rinderknech,2025-5014,Shanghai Masters,R32,3,54
+2025-10-05,T3HIST-fc9f951d3f723e078990,Jannik Sinner,Tallon Griekspoor,2025-5014,Shanghai Masters,R32,2,31
+2025-10-04,T3HIST-1b78b1be39b79cda7eb3,Alexander Zverev,Valentin Royer,2025-5014,Shanghai Masters,R64,3,76
+2025-10-04,T3HIST-9a20f9a305673422ddd3,Jannik Sinner,Daniel Altmaier,2025-5014,Shanghai Masters,R64,2,49
+2025-10-24,T3HIST-745c7a25b36e26ee9075,Jannik Sinner,Alexander Bublik,2025-0337,Vienna,QF,2,16
+2025-10-24,T3HIST-b9cc9ff3068d84663f11,Alexander Zverev,Tallon Griekspoor,2025-0337,Vienna,QF,3,28
+2025-10-23,T3HIST-6240bfa48bddb6793f5b,Jannik Sinner,Flavio Cobolli,2025-0337,Vienna,R16,2,22
+2025-10-23,T3HIST-51562dfe074e6f427ce1,Alexander Zverev,Matteo Arnaldi,2025-0337,Vienna,R16,3,72
+2025-10-22,T3HIST-a19c5365a99e8bc1a1fa,Jannik Sinner,Daniel Altmaier,2025-0337,Vienna,R32,2,51
+2025-10-21,T3HIST-b37c6ccc067c2443f140,Alexander Zverev,Jacob Fearnley,2025-0337,Vienna,R32,3,81
+2025-10-31,T3HIST-505891c68576b8b74c92,Alexander Zverev,Daniil Medvedev,2025-0352,Paris Masters,QF,3,13
+2025-10-30,T3HIST-de54df138e18ed095ff0,Alexander Zverev,Alejandro Davidovich Fokina,2025-0352,Paris Masters,R16,3,15
+2025-10-30,T3HIST-97576b01b200c521c46e,Jannik Sinner,Francisco Cerundolo,2025-0352,Paris Masters,R16,2,21
+2025-10-28,T3HIST-ba38466061103abd7e2f,Carlos Alcaraz,Cameron Norrie,2025-0352,Paris Masters,R32,1,31
+2025-10-29,T3HIST-87337273347d21d8fc38,Alexander Zverev,Camilo Ugo Carabelli,2025-0352,Paris Masters,R32,3,49
+2025-10-29,T3HIST-b7c6e4563fd9a844d358,Jannik Sinner,Zizou Bergs,2025-0352,Paris Masters,R32,2,41
