@@ -1,0 +1,35 @@
+name: KIRA Juancito Football Contract Census V6
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'tools/kira_juancito_football_contract_census_v6.py'
+      - '.github/workflows/kira-juancito-football-contract-census-v6.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  census:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install Playwright
+        run: |
+          python -m pip install --disable-pip-version-check playwright
+          python -m playwright install --with-deps chromium
+      - name: Read-only Football contract census
+        run: python tools/kira_juancito_football_contract_census_v6.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: kira-juancito-football-contract-census-v6
+          path: artifacts/kira_juancito_football_contract_census_v6
+          if-no-files-found: warn
+          retention-days: 7
