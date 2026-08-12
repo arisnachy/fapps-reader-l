@@ -1,0 +1,33 @@
+name: KIRA DAILY CORE Football Common Window 2025 V2
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/kira-daily-core-football-common-2025-v2.yml'
+      - 'tools/kira_daily_core_football_common_2025.py'
+
+permissions:
+  contents: read
+
+jobs:
+  football_common_window_v2:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install runtime
+        run: python -m pip install --disable-pip-version-check pandas requests
+      - name: Execute fixed outcome-blind common-window audit
+        run: python tools/kira_daily_core_football_common_2025.py
+      - name: Upload evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: kira-daily-core-football-common-2025-v2
+          path: artifacts/kira_daily_core_football_common_2025
+          if-no-files-found: error
+          retention-days: 30
