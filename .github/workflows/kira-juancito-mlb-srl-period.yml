@@ -1,0 +1,33 @@
+name: KIRA Juancito MLB SRL Period Binding
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'tools/kira_juancito_mlb_srl_period_probe.py'
+      - '.github/workflows/kira-juancito-mlb-srl-period.yml'
+permissions:
+  contents: read
+jobs:
+  period_probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install Playwright
+        run: |
+          python -m pip install --disable-pip-version-check playwright
+          python -m playwright install --with-deps chromium
+      - name: Capture SRL period binding evidence
+        run: python tools/kira_juancito_mlb_srl_period_probe.py
+      - name: Upload evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: kira-juancito-mlb-srl-period
+          path: artifacts/kira_juancito_mlb_srl_period
+          if-no-files-found: error
+          retention-days: 7
