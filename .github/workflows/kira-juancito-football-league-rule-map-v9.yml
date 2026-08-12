@@ -1,0 +1,32 @@
+name: KIRA Juancito Football League Rule Map V9
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'tools/kira_juancito_football_league_rule_map_v9.py'
+      - '.github/workflows/kira-juancito-football-league-rule-map-v9.yml'
+permissions:
+  contents: read
+jobs:
+  map:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install Playwright
+        run: |
+          python -m pip install --disable-pip-version-check playwright
+          python -m playwright install --with-deps chromium
+      - name: Map Soccer event league rule read-only
+        run: python tools/kira_juancito_football_league_rule_map_v9.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: kira-juancito-football-league-rule-map-v9
+          path: artifacts/kira_juancito_football_league_rule_map_v9
+          if-no-files-found: warn
+          retention-days: 7
