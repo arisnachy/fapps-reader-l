@@ -6,9 +6,9 @@ import io
 import json
 import math
 from collections import Counter
+from datetime import datetime
 from pathlib import Path
 
-import pandas as pd
 import requests
 
 OUT=Path('artifacts/kira_football_multi3_0304')
@@ -28,7 +28,7 @@ def wilson(w,n,z=1.959963984540054):
 def parse_date(x):
     s=str(x).strip()
     for f in ('%d/%m/%y','%d/%m/%Y'):
-        try:return pd.to_datetime(s,format=f).date().isoformat()
+        try:return datetime.strptime(s,f).date().isoformat()
         except Exception: pass
     return ''
 
@@ -41,6 +41,19 @@ def write_csv(path,rows):
     with path.open('w',newline='',encoding='utf-8') as fh:
         w=csv.DictWriter(fh,fieldnames=fields);w.writeheader();w.writerows(rows)
 
+def decode_rows(raw):
+    last=''
+    for enc in ('utf-8-sig','latin-1'):
+        try:
+            text=raw.decode(enc)
+            rows=list(csv.reader(io.StringIO(text,newline='')))
+            return enc,rows,''
+        except UnicodeDecodeError as exc:
+            last=f'DECODE:{exc}'
+        except csv.Error as exc:
+            last=f'CSV_ERROR:{exc}'
+    return '',[],last or 'DECODE'
+
 def main():
     OUT.mkdir(parents=True,exist_ok=True)
     s=requests.Session();s.headers['User-Agent']='KIRA-MULTI3-validation/1.0'
@@ -52,33 +65,36 @@ def main():
             source.append({'league':lg,'url':url,'status':'SOURCE_UNUSABLE','reason':type(e).__name__});continue
         if r.status_code!=200:
             source.append({'league':lg,'url':url,'http':r.status_code,'status':'SOURCE_UNUSABLE','reason':'HTTP'});continue
-        raw=r.content; sha=hashlib.sha256(raw).hexdigest(); frame=None; enc=''; parse_error=''
-        for e in ('utf-8-sig','latin-1'):
-            try:
-                frame=pd.read_csv(io.BytesIO(raw),encoding=e);enc=e;break
-            except UnicodeDecodeError:
-                continue
-            except pd.errors.ParserError as exc:
-                parse_error=f'PARSER_ERROR:{exc}'
-                break
-        if frame is None:
-            source.append({'league':lg,'url':url,'bytes':len(raw),'sha256':sha,'status':'SOURCE_UNUSABLE','reason':parse_error or 'DECODE'});continue
-        miss=[c for c in REQ if c not in frame.columns]
-        if miss:
-            source.append({'league':lg,'url':url,'bytes':len(raw),'sha256':sha,'raw_rows':len(frame),'status':'SOURCE_UNUSABLE','reason':'MISSING_COLUMNS','missing':miss});continue
-        accepted=0
-        for _,row in frame.iterrows():
-            d=parse_date(row['Date']); home=str(row['HomeTeam']).strip();away=str(row['AwayTeam']).strip()
-            try:h=float(row['B365H']);dr=float(row['B365D']);a=float(row['B365A']);hg=int(row['FTHG']);ag=int(row['FTAG'])
-            except Exception:continue
-            if not d or not home or not away or not all(math.isfinite(x) and x>1 for x in (h,dr,a)):continue
+        raw=r.content; sha=hashlib.sha256(raw).hexdigest(); enc,rows,err=decode_rows(raw)
+        if not rows:
+            source.append({'league':lg,'url':url,'bytes':len(raw),'sha256':sha,'status':'SOURCE_UNUSABLE','reason':err});continue
+        header=None; header_i=None
+        for i,row in enumerate(rows):
+            cleaned=[str(x).strip() for x in row]
+            if all(c in cleaned for c in REQ):
+                header=cleaned;header_i=i;break
+        if header is None:
+            source.append({'league':lg,'url':url,'bytes':len(raw),'sha256':sha,'raw_rows':max(0,len(rows)-1),'status':'SOURCE_UNUSABLE','reason':'MISSING_COLUMNS','missing':REQ});continue
+        idx={c:header.index(c) for c in REQ}; max_idx=max(idx.values()); accepted=0; malformed_short=0; invalid_required=0
+        data_rows=rows[header_i+1:]
+        for row in data_rows:
+            if not row or all(not str(x).strip() for x in row):continue
+            if len(row)<=max_idx:
+                malformed_short+=1;continue
+            vals={c:row[j] for c,j in idx.items()}
+            d=parse_date(vals['Date']); home=str(vals['HomeTeam']).strip(); away=str(vals['AwayTeam']).strip()
+            try:h=float(vals['B365H']);dr=float(vals['B365D']);a=float(vals['B365A']);hg=int(float(vals['FTHG']));ag=int(float(vals['FTAG']))
+            except Exception:
+                invalid_required+=1;continue
+            if not d or not home or not away or not all(math.isfinite(x) and x>1 for x in (h,dr,a)):
+                invalid_required+=1;continue
             key=(d,lg,home,away)
             if key in event_seen:dup+=1;continue
             event_seen.add(key); qh,qd,qa=1/h,1/dr,1/a;den=qh+qd+qa;ph=qh/den
             event_id='FHIST-'+hashlib.sha256('|'.join(key).encode()).hexdigest()[:20]
             pregames.append({'date':d,'league_code':lg,'HomeTeam':home,'AwayTeam':away,'B365H':h,'B365D':dr,'B365A':a,'p_home_novig':ph,'event_id':event_id})
             outcomes[event_id]={'FTHG':hg,'FTAG':ag};accepted+=1
-        source.append({'league':lg,'url':url,'http':r.status_code,'bytes':len(raw),'sha256':sha,'raw_rows':len(frame),'accepted_rows':accepted,'encoding':enc,'status':'PASS'})
+        source.append({'league':lg,'url':url,'http':r.status_code,'bytes':len(raw),'sha256':sha,'raw_rows':len(data_rows),'accepted_rows':accepted,'malformed_short_rows':malformed_short,'invalid_required_rows':invalid_required,'encoding':enc,'header_row_index':header_i,'status':'PASS'})
     usable=sum(x.get('status')=='PASS' for x in source)
     if usable<MIN_SOURCE_LEAGUES:
         summary={'decision':'SOURCE_GATE_FAIL','usable_leagues':usable,'required':MIN_SOURCE_LEAGUES,'source_audit':source}
