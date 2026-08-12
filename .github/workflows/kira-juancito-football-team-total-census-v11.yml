@@ -1,0 +1,32 @@
+name: KIRA Juancito Football Team Total Census V11
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'tools/kira_juancito_football_team_total_census_v11.py'
+      - '.github/workflows/kira-juancito-football-team-total-census-v11.yml'
+permissions:
+  contents: read
+jobs:
+  census:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install Playwright
+        run: |
+          python -m pip install --disable-pip-version-check playwright
+          python -m playwright install --with-deps chromium
+      - name: Census Soccer Team Totals read-only
+        run: python tools/kira_juancito_football_team_total_census_v11.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: kira-juancito-football-team-total-census-v11
+          path: artifacts/kira_juancito_football_team_total_census_v11
+          if-no-files-found: warn
+          retention-days: 7
