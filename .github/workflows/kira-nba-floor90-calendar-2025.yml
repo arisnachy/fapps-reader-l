@@ -1,0 +1,28 @@
+name: KIRA NBA Floor90 Calendar 2025
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'tools/kira_nba_floor90_calendar_2025.py'
+      - '.github/workflows/kira-nba-floor90-calendar-2025.yml'
+permissions:
+  contents: read
+jobs:
+  calendar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install --disable-pip-version-check numpy pandas pyarrow requests
+      - name: Reconstruct frozen NBA floor90 calendar without target outcomes
+        run: python tools/kira_nba_floor90_calendar_2025.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: kira-nba-floor90-calendar-2025
+          path: artifacts/kira_nba_floor90_calendar_2025
+          if-no-files-found: error
+          retention-days: 30
