@@ -1,0 +1,32 @@
+name: KIRA Juancito Tennis Pregame Rule Binding V28
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'tools/kira_juancito_tennis_pregame_rule_binding_v28.py'
+      - '.github/workflows/kira-juancito-tennis-pregame-rule-binding-v28.yml'
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install Playwright
+        run: |
+          python -m pip install --disable-pip-version-check playwright
+          python -m playwright install --with-deps chromium
+      - name: Compile
+        run: python -m py_compile tools/kira_juancito_tennis_pregame_rule_binding_v28.py
+      - name: Probe pregame governing rule binding read-only
+        run: python tools/kira_juancito_tennis_pregame_rule_binding_v28.py
+      - name: Upload sanitized evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: kira-juancito-tennis-pregame-rule-binding-v28
+          path: artifacts/kira_juancito_tennis_pregame_rule_binding_v28
+          if-no-files-found: warn
+          retention-days: 7
