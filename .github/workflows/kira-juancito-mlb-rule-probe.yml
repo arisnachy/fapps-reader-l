@@ -1,0 +1,35 @@
+name: KIRA Juancito MLB Rule Probe
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'tools/kira_juancito_mlb_rule_probe.py'
+      - '.github/workflows/kira-juancito-mlb-rule-probe.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  rule_probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install Playwright
+        run: |
+          python -m pip install --disable-pip-version-check playwright
+          python -m playwright install --with-deps chromium
+      - name: Inspect public rule bindings
+        run: python tools/kira_juancito_mlb_rule_probe.py
+      - name: Upload evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: kira-juancito-mlb-rule-probe
+          path: artifacts/kira_juancito_mlb_rule_probe
+          if-no-files-found: error
+          retention-days: 7
