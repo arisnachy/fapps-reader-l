@@ -6,12 +6,13 @@ import io
 import json
 import math
 from collections import Counter
-from datetime import datetime, date
+from datetime import datetime, date, timedelta
 from pathlib import Path
 
 import requests
 
 OUT=Path('artifacts/kira_football_multi3_common_2025')
+T3_LEDGER=Path('data/TENNIS_T3_COVERAGE_ROWS_2025.csv')
 LEAGUES=['E0','SP1','D1','I1','F1','N1','P1','SC0','B1']
 SEASONS=['2425','2526']
 REQ=['Date','HomeTeam','AwayTeam','B365H','B365D','B365A']
@@ -39,6 +40,15 @@ def decode_rows(raw):
         try:return enc,list(csv.reader(io.StringIO(raw.decode(enc),newline='')))
         except Exception:pass
     return '',[]
+
+def longest_red(rows):
+    best=[];cur=[]
+    for r in rows:
+        if r['total_candidate_legs']<3:
+            cur.append(r)
+            if len(cur)>len(best):best=list(cur)
+        else:cur=[]
+    return {'days':len(best),'start':best[0]['date'] if best else None,'end':best[-1]['date'] if best else None}
 
 def main():
     OUT.mkdir(parents=True,exist_ok=True)
@@ -77,17 +87,41 @@ def main():
             eid='FMOD-'+hashlib.sha256('|'.join(key).encode()).hexdigest()[:20]
             events.append({'date':d.isoformat(),'season':season,'league_code':lg,'HomeTeam':home,'AwayTeam':away,'B365H':h,'B365D':dr,'B365A':a,'p_home_novig':ph,'event_id':eid});accepted+=1
         audit.append({'season':season,'league':lg,'status':'PASS','sha256':sha,'bytes':len(raw),'encoding':enc,'eligible_in_window':accepted})
-    by={}
-    for r in events:by.setdefault(r['date'],[]).append(r)
+
+    football_by={}
+    for r in events:football_by.setdefault(r['date'],[]).append(r)
     selected=[]
-    for d,rows in sorted(by.items()):
+    for d,rows in sorted(football_by.items()):
         rows=sorted(rows,key=lambda x:(-x['p_home_novig'],x['B365H'],x['league_code'],x['HomeTeam'],x['AwayTeam']))[:3]
         for rank,r in enumerate(rows,1):selected.append({**r,'date_rank':rank})
-    dist=Counter()
-    for d in by:
-        dist[min(3,len(by[d]))]+=1
+    football_counts=Counter(r['date'] for r in selected)
+    football_dist=Counter(football_counts.values())
     write_csv(OUT/'football_multi3_rows.csv',selected)
-    summary={'window_start':START.isoformat(),'window_end':END.isoformat(),'calendar_days':(END-START).days+1,'eligible_events_pre_cap':len(events),'selected_legs':len(selected),'candidate_dates':len({r['date'] for r in selected}),'date_leg_count_distribution':dict(sorted(dist.items())),'max3_selector':True,'threshold':.75,'outcomes_loaded':False,'source_audit':audit}
+
+    t3_rows=[]
+    with T3_LEDGER.open(newline='',encoding='utf-8') as fh:
+        for r in csv.DictReader(fh):
+            d=r['date'].strip()
+            if START.isoformat()<=d<=END.isoformat():t3_rows.append(r)
+    t3_counts=Counter(r['date'] for r in t3_rows)
+
+    calendar=[]; hist=Counter(); d=START; missing_leg_days=0
+    while d<=END:
+        ds=d.isoformat(); f=int(football_counts.get(ds,0)); t=int(t3_counts.get(ds,0)); total=f+t
+        hist[total]+=1; missing_leg_days+=max(0,3-total)
+        calendar.append({'date':ds,'football_multi3_legs':f,'t3_distinct_event_legs':t,'total_candidate_legs':total,'core3_green':total>=3,'core4_green':total>=4,'core5_green':total>=5,'core6_green':total>=6})
+        d+=timedelta(days=1)
+    write_csv(OUT/'daily_multi3_plus_t3_matrix.csv',calendar)
+    red=[r['date'] for r in calendar if r['total_candidate_legs']<3]
+    summary={
+      'window_start':START.isoformat(),'window_end':END.isoformat(),'calendar_days':len(calendar),
+      'football_eligible_events_pre_cap':len(events),'football_selected_legs':len(selected),'football_candidate_dates':len(football_counts),'football_date_leg_count_distribution':dict(sorted(football_dist.items())),
+      't3_rows':len(t3_rows),'t3_candidate_dates':len(t3_counts),
+      'combined_histogram_0_to_6':{str(i):hist.get(i,0) for i in range(7)},
+      'core3_days':sum(r['core3_green'] for r in calendar),'core3_rate':sum(r['core3_green'] for r in calendar)/len(calendar),
+      'core4_days':sum(r['core4_green'] for r in calendar),'core5_days':sum(r['core5_green'] for r in calendar),'core6_days':sum(r['core6_green'] for r in calendar),
+      'red_days_under3':len(red),'missing_leg_days_to_core3':missing_leg_days,'longest_under3_streak':longest_red(calendar),'red_dates':red,
+      'outcomes_loaded_for_coverage':False,'source_audit':audit}
     (OUT/'summary.json').write_text(json.dumps(summary,indent=2),encoding='utf-8');print(json.dumps(summary,indent=2))
 
 if __name__=='__main__':main()
