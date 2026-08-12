@@ -1,0 +1,33 @@
+name: KIRA Euro19 Opponent TT U3.5 Common 2025
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'tools/kira_euro19_opponent_tt_u35_common_2025.py'
+      - '.github/workflows/kira-euro19-opponent-tt-u35-common-2025.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  calendar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install --disable-pip-version-check requests
+      - run: python -m py_compile tools/kira_euro19_opponent_tt_u35_common_2025.py
+      - name: Reconstruct broad U3.5 selector without outcomes
+        run: python tools/kira_euro19_opponent_tt_u35_common_2025.py
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: kira-euro19-opponent-tt-u35-common-2025
+          path: artifacts/kira_euro19_opponent_tt_u35_common_2025
+          if-no-files-found: error
+          retention-days: 30
