@@ -1,0 +1,27 @@
+name: KIRA Extra16 p055 Pinnacle Availability 2020
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'tools/kira_extra16_p055_pinnacle_availability_2020.py'
+      - '.github/workflows/kira-extra16-p055-pinnacle-availability-2020.yml'
+permissions:
+  contents: read
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install --disable-pip-version-check requests
+      - run: python tools/kira_extra16_p055_pinnacle_availability_2020.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: kira-extra16-p055-pinnacle-availability-2020
+          path: artifacts/kira_extra16_p055_pinnacle_availability_2020
+          if-no-files-found: error
+          retention-days: 30
