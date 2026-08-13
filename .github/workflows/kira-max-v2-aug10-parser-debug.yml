@@ -1,0 +1,23 @@
+name: KIRA MAX V2 Aug10 Parser Debug
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'tools/kira_max_v2_aug10_parser_debug.py'
+      - '.github/workflows/kira-max-v2-aug10-parser-debug.yml'
+permissions:
+  contents: read
+jobs:
+  debug:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install --disable-pip-version-check playwright
+      - run: python -m playwright install chromium
+      - working-directory: tools
+        run: python kira_max_v2_aug10_parser_debug.py
