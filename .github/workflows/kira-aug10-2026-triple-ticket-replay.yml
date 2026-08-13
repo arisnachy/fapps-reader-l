@@ -1,0 +1,28 @@
+name: KIRA Aug10 2026 Triple Ticket Replay
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'tools/kira_aug10_2026_triple_ticket_replay.py'
+      - '.github/workflows/kira-aug10-2026-triple-ticket-replay.yml'
+permissions:
+  contents: read
+jobs:
+  replay:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install --disable-pip-version-check requests
+      - name: Execute frozen Aug 10 replay
+        run: python tools/kira_aug10_2026_triple_ticket_replay.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: kira-aug10-2026-triple-ticket-replay
+          path: artifacts/kira_aug10_2026_triple_ticket_replay
+          if-no-files-found: error
+          retention-days: 30
