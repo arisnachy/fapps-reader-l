@@ -9,7 +9,7 @@ from playwright.async_api import async_playwright
 OUT=Path('artifacts/kira_max_2026_v2');OUT.mkdir(parents=True,exist_ok=True)
 START=date(2026,1,1);END=date(2026,8,12);TH=0.60
 NS=(3,4,5);MIN_DATES=35;OBS_FLOOR=0.90;WILSON_FLOOR=0.90
-CONCURRENCY=4
+CONCURRENCY=3
 DATE_RE=re.compile(r'^(\d{2} [A-Z][a-z]{2} 20\d{2})(?:\b|\s|\s-).*')
 ROW_RE=re.compile(r'^(Finished|After ET|After Pen\.)\s+(\d+)\s+(.+?)\s+-\s+(.+?)\s+(\d+)\s+([0-9]+(?:\.[0-9]+)?|-)\s+([0-9]+(?:\.[0-9]+)?|-)\s+([0-9]+(?:\.[0-9]+)?|-)$')
 
@@ -83,6 +83,12 @@ async def expand_show_more(page):
         except Exception:break
     return clicks
 
+async def wait_for_historical_rows(page):
+    await page.wait_for_function("""
+      () => Array.from(document.querySelectorAll('div.border-black-borders'))
+        .some(e => /^(Finished|After ET|After Pen\.)\s/.test((e.innerText || '').trim()))
+    """, timeout=12000)
+
 async def fetch_one(browser,target,sem):
     url=f'https://www.oddsportal.com/matches/football/{target.strftime("%Y%m%d")}/'
     async with sem:
@@ -91,7 +97,8 @@ async def fetch_one(browser,target,sem):
             page=await browser.new_page(viewport={'width':1600,'height':1200},locale='en-US',timezone_id='UTC')
             try:
                 await page.goto(url,wait_until='domcontentloaded',timeout=45000)
-                await page.wait_for_timeout(900)
+                await wait_for_historical_rows(page)
+                await page.wait_for_timeout(350)
                 clicks=await expand_show_more(page)
                 texts=await page.locator('div.border-black-borders').evaluate_all('(els)=>els.map(e=>e.innerText.trim()).filter(Boolean)')
                 body=await page.locator('body').inner_text(timeout=5000)
@@ -99,6 +106,8 @@ async def fetch_one(browser,target,sem):
                 if 'Next Football Matches' not in body or len(body)<200:
                     raise RuntimeError('DATE_PAGE_NOT_LOADED')
                 pre,outcomes,meta=parse_texts(target,texts)
+                if meta['parsed_result_rows']<=0:
+                    raise RuntimeError('NO_PARSED_RESULT_ROWS')
                 await page.close()
                 return {'date':target.isoformat(),'status':'PASS','requested_url':url,'resolved_url':resolved,'show_more_clicks':clicks,
                         'candidate_rows':pre,'outcomes':outcomes,**meta}
@@ -128,7 +137,6 @@ def score(results):
     for r in results:
         raw.extend(r['candidate_rows']);outcomes.update(r['outcomes'])
         page_audit.append({k:v for k,v in r.items() if k not in ('candidate_rows','outcomes')})
-    # deterministic exact-event dedup; conflicting duplicate prices are an integrity failure
     grouped=defaultdict(list)
     for x in raw:grouped[(x['date'],x['competition'],x['Home'],x['Away'])].append(x)
     pre=[];raw_dups=0;conflicts=[]
@@ -154,7 +162,6 @@ def score(results):
         if not o:
             row={**x,'source_status':None,'HG':None,'AG':None,'selected_goal_diff':None,'hit':None};unresolved.append(row)
         elif o['status'] in ('After ET','After Pen.'):
-            # Reaching ET/penalties proves regulation was tied, so selected +1.5 regulation survives.
             row={**x,'source_status':o['status'],'HG':o['HG'],'AG':o['AG'],'selected_goal_diff':'REG_TIED','hit':True}
         elif o['status']=='Finished':
             gd=(o['HG']-o['AG']) if x['selected_side']=='HOME' else (o['AG']-o['HG'])
