@@ -1,0 +1,83 @@
+name: KIRA MAX 2026 V2 Target-Date Chunked
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'tools/kira_max_2026_v2_targetdate_transport.py'
+      - 'tools/kira_max_2026_v2_aggregate_chunks.py'
+      - '.github/workflows/kira-max-2026-v2-targetdate-chunked.yml'
+permissions:
+  contents: read
+jobs:
+  chunk:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - id: jan
+            start: '2026-01-01'
+            end: '2026-01-31'
+          - id: feb
+            start: '2026-02-01'
+            end: '2026-02-28'
+          - id: mar
+            start: '2026-03-01'
+            end: '2026-03-31'
+          - id: apr
+            start: '2026-04-01'
+            end: '2026-04-30'
+          - id: may
+            start: '2026-05-01'
+            end: '2026-05-31'
+          - id: jun
+            start: '2026-06-01'
+            end: '2026-06-30'
+          - id: jul
+            start: '2026-07-01'
+            end: '2026-07-31'
+          - id: aug
+            start: '2026-08-01'
+            end: '2026-08-12'
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install --disable-pip-version-check playwright
+      - run: python -m playwright install chromium
+      - name: Execute frozen MAX V2 target-date month chunk
+        working-directory: tools
+        env:
+          MAX_START: ${{ matrix.start }}
+          MAX_END: ${{ matrix.end }}
+          MAX_OUT: artifacts/kira_max_2026_v2_${{ matrix.id }}
+          MAX_CONCURRENCY: '3'
+        run: python kira_max_2026_v2_targetdate_transport.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: maxv2-targetdate-${{ matrix.id }}
+          path: tools/artifacts/kira_max_2026_v2_${{ matrix.id }}
+          if-no-files-found: warn
+          retention-days: 30
+  aggregate:
+    needs: chunk
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: maxv2-targetdate-*
+          path: chunk_artifacts
+      - run: python tools/kira_max_2026_v2_aggregate_chunks.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: kira-max-2026-v2-targetdate-final
+          path: artifacts/kira_max_2026_v2_chunked
+          if-no-files-found: warn
+          retention-days: 30
