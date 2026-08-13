@@ -1,0 +1,31 @@
+name: KIRA MAX 2026 V2 Fast Transport
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'tools/kira_max_2026_v2_fast_transport.py'
+      - '.github/workflows/kira-max-2026-v2-fast-transport.yml'
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install --disable-pip-version-check playwright
+      - run: python -m playwright install chromium
+      - name: Execute frozen MAX V2 with bounded equivalent transport
+        working-directory: tools
+        run: python kira_max_2026_v2_fast_transport.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: kira-max-2026-v2-fast-transport
+          path: tools/artifacts/kira_max_2026_v2
+          if-no-files-found: warn
+          retention-days: 30
