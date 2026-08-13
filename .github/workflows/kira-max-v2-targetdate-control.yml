@@ -1,0 +1,29 @@
+name: KIRA MAX V2 Target-Date Control
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'tools/kira_max_2026_v2_targetdate_transport.py'
+      - '.github/workflows/kira-max-v2-targetdate-control.yml'
+permissions:
+  contents: read
+jobs:
+  control:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install --disable-pip-version-check playwright
+      - run: python -m playwright install chromium
+      - name: Score Aug10 target-date control
+        working-directory: tools
+        env:
+          MAX_START: '2026-08-10'
+          MAX_END: '2026-08-10'
+          MAX_OUT: artifacts/maxv2_targetdate_control
+          MAX_CONCURRENCY: '1'
+        run: python kira_max_2026_v2_targetdate_transport.py
